@@ -1,0 +1,10 @@
+
+#include "MARTINI3_1.X/martini3_W1.X.itp"
+#include "MARTINI3_1.X/martini_v3.0_ions.itp"
+#include "MARTINI3_1.X/Protein.itp"
+
+[ system ]
+Title of the system in water
+
+[ molecules ]
+molecule_0    40

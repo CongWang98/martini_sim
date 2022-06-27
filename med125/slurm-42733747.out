@@ -1,0 +1,410 @@
+                     :-) GROMACS - gmx trjconv, 2018.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar    Aldert van Buuren   Rudi van Drunen     Anton Feenstra  
+  Gerrit Groenhof    Aleksei Iupinov   Christoph Junghans   Anca Hamuraru   
+ Vincent Hindriksen Dimitrios Karkoulis    Peter Kasson        Jiri Kraus    
+  Carsten Kutzner      Per Larsson      Justin A. Lemkul    Viveca Lindahl  
+  Magnus Lundborg   Pieter Meulenhoff    Erik Marklund      Teemu Murtola   
+    Szilard Pall       Sander Pronk      Roland Schulz     Alexey Shvetsov  
+   Michael Shirts     Alfons Sijbers     Peter Tieleman    Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2017, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx trjconv, version 2018.4
+Executable:   /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi
+Data prefix:  /home/aplatham2/Programs/gromacs-2018.4
+Working dir:  /nfs/pool002/users/aplatham2/chromatin/drug_env/med1/med125
+Command line:
+  gmx_mpi trjconv -f eq.gro -s eq.tpr -pbc mol -ur compact -o eq2.gro
+
+Will write gro: Coordinate file in Gromos-87 format
+Reading file eq.tpr, VERSION 2018.4 (single precision)
+Reading file eq.tpr, VERSION 2018.4 (single precision)
+Group     0 (         System) has 19620 elements
+Group     1 (        Protein) has 19620 elements
+Group     2 (      Protein-H) has 19620 elements
+Group     3 (        C-alpha) has 19620 elements
+Group     4 (       Backbone) has 19620 elements
+Group     5 (      MainChain) has 19620 elements
+Group     6 (   MainChain+Cb) has 19620 elements
+Group     7 (    MainChain+H) has 19620 elements
+Group     8 (      SideChain) has     0 elements
+Group     9 (    SideChain-H) has     0 elements
+Select a group: Reading frames from gro file 'med1', 19620 atoms.
+Reading frame       0 time    0.000   
+Precision of eq.gro is 0.001 (nm)
+Using output precision of 0.001 (nm)
+ ->  frame      0 time    0.000      Last frame          0 time    0.000   
+
+
+GROMACS reminds you: "Put Me Inside SSC, Let's Test Superstring Theory, Oh Yoi Yoi Accelerate the Protons" (Gogol Bordello)
+
+Select group for output
+Selected 0: 'System'
+                     :-) GROMACS - gmx editconf, 2018.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar    Aldert van Buuren   Rudi van Drunen     Anton Feenstra  
+  Gerrit Groenhof    Aleksei Iupinov   Christoph Junghans   Anca Hamuraru   
+ Vincent Hindriksen Dimitrios Karkoulis    Peter Kasson        Jiri Kraus    
+  Carsten Kutzner      Per Larsson      Justin A. Lemkul    Viveca Lindahl  
+  Magnus Lundborg   Pieter Meulenhoff    Erik Marklund      Teemu Murtola   
+    Szilard Pall       Sander Pronk      Roland Schulz     Alexey Shvetsov  
+   Michael Shirts     Alfons Sijbers     Peter Tieleman    Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2017, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx editconf, version 2018.4
+Executable:   /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi
+Data prefix:  /home/aplatham2/Programs/gromacs-2018.4
+Working dir:  /nfs/pool002/users/aplatham2/chromatin/drug_env/med1/med125
+Command line:
+  gmx_mpi editconf -f eq2.gro -o eq2.gro -box 25.0 25.0 25.0
+
+
+Back Off! I just backed up eq2.gro to ./#eq2.gro.1#
+
+GROMACS reminds you: "The farther the experiment is from theory, the closer it is to the Nobel Prize." (Irene Joliot-Curie)
+
+Read 19620 atoms
+Volume: 7977.74 nm^3, corresponds to roughly 3589900 electrons
+Velocities found
+    system size : 28.144 29.640 28.153 (nm)
+    center      : 10.125 11.165 10.931 (nm)
+    box vectors : 19.981 19.981 19.981 (nm)
+    box angles  :  90.00  90.00  90.00 (degrees)
+    box volume  :7977.74               (nm^3)
+    shift       :  2.375  1.335  1.569 (nm)
+new center      : 12.500 12.500 12.500 (nm)
+new box vectors : 25.000 25.000 25.000 (nm)
+new box angles  :  90.00  90.00  90.00 (degrees)
+new box volume  :15625.00               (nm^3)
+                      :-) GROMACS - gmx grompp, 2018.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar    Aldert van Buuren   Rudi van Drunen     Anton Feenstra  
+  Gerrit Groenhof    Aleksei Iupinov   Christoph Junghans   Anca Hamuraru   
+ Vincent Hindriksen Dimitrios Karkoulis    Peter Kasson        Jiri Kraus    
+  Carsten Kutzner      Per Larsson      Justin A. Lemkul    Viveca Lindahl  
+  Magnus Lundborg   Pieter Meulenhoff    Erik Marklund      Teemu Murtola   
+    Szilard Pall       Sander Pronk      Roland Schulz     Alexey Shvetsov  
+   Michael Shirts     Alfons Sijbers     Peter Tieleman    Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2017, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, version 2018.4
+Executable:   /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi
+Data prefix:  /home/aplatham2/Programs/gromacs-2018.4
+Working dir:  /nfs/pool002/users/aplatham2/chromatin/drug_env/med1/med125
+Command line:
+  gmx_mpi grompp -f eq3.mdp -c eq2.gro -p chromatin_dna.top -o eq3.tpr -maxwarn 1
+
+Replacing old mdp entry 'nstxtcout' by 'nstxout-compressed'
+Replacing old mdp entry 'xtc_grps' by 'compressed-x-grps'
+
+NOTE 1 [file eq3.mdp]:
+  The group cutoff scheme is deprecated since GROMACS 5.0 and will be
+  removed in a future release when all interaction forms are supported for
+  the verlet scheme. The verlet scheme already scales better, and it is
+  compatible with GPUs and other accelerators.
+
+Generated 1 of the 253 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'med1'
+
+NOTE 2 [file chromatin_dna.top, line 6]:
+  System has non-zero total charge: 505.000000
+  Total charge should normally be an integer. See
+  http://www.gromacs.org/Documentation/Floating_Point_Arithmetic
+  for discussion on how close it should be to an integer.
+  
+
+
+Velocities were taken from a Maxwell distribution at 150 K
+Simulated annealing for group System: Single, 2 timepoints
+Time (ps)   Temperature (K)
+      0.0      150.0
+ 100000.0-     300.0
+Number of degrees of freedom in T-Coupling group System is 58857.00
+
+There were 2 notes
+
+GROMACS reminds you: "Here's the Way It Might End" (G. Michael)
+
+Analysing residue names:
+There are: 19620    Protein residues
+Analysing Protein...
+This run will generate roughly 11 Mb of data
+                      :-) GROMACS - gmx mdrun, 2018.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar    Aldert van Buuren   Rudi van Drunen     Anton Feenstra  
+  Gerrit Groenhof    Aleksei Iupinov   Christoph Junghans   Anca Hamuraru   
+ Vincent Hindriksen Dimitrios Karkoulis    Peter Kasson        Jiri Kraus    
+  Carsten Kutzner      Per Larsson      Justin A. Lemkul    Viveca Lindahl  
+  Magnus Lundborg   Pieter Meulenhoff    Erik Marklund      Teemu Murtola   
+    Szilard Pall       Sander Pronk      Roland Schulz     Alexey Shvetsov  
+   Michael Shirts     Alfons Sijbers     Peter Tieleman    Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2017, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, version 2018.4
+Executable:   /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi
+Data prefix:  /home/aplatham2/Programs/gromacs-2018.4
+Working dir:  /nfs/pool002/users/aplatham2/chromatin/drug_env/med1/med125
+Command line:
+  gmx_mpi mdrun -deffnm eq3 -dlb yes -table table_159.xvg -tablep table_smog159.xvg -maxh 47.9 -noddcheck -rdd 4
+
+Reading file eq3.tpr, VERSION 2018.4 (single precision)
+Using 16 MPI processes
+
+
+Non-default thread affinity set probably by the OpenMP library,
+disabling internal thread affinity
+
+NOTE: This file uses the deprecated 'group' cutoff_scheme. This will be
+removed in a future release when 'verlet' supports all interaction forms.
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+starting mdrun 'med1'
+10000000 steps, 100000.0 ps.
+[node450:65786] *** Process received signal ***
+[node450:65802] *** Process received signal ***
+[node450:65802] Signal: Segmentation fault (11)
+[node450:65802] Signal code: Address not mapped (1)
+[node450:65802] Failing at address: 0x2aaad2ad2fe0
+[node450:65786] Signal: Segmentation fault (11)
+[node450:65786] Signal code: Address not mapped (1)
+[node450:65786] Failing at address: 0x2aaad2acb600
+[node450:65802] [ 0] /lib64/libpthread.so.0(+0xf5f0)[0x2aaaac8b55f0]
+[node450:65802] [ 1] [node450:65789] *** Process received signal ***
+[node450:65789] Signal: Segmentation fault (11)
+[node450:65789] Signal code: Invalid permissions (2)
+[node450:65789] Failing at address: 0x2aaab4921520
+/home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(nb_kernel_ElecCSTab_VdwCSTab_GeomP1P1_F_avx_256_single+0x6af)[0xef5dff]
+[node450:65802] [node450:65789] [ 0] [node450:65786] [ 0] /lib64/libpthread.so.0(+0xf5f0)[0x2aaaac8b55f0]
+[node450:65786] [ 1] /lib64/libpthread.so.0(+0xf5f0)[0x2aaaac8b55f0]
+[node450:65789] [ 1] [ 2] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(nb_kernel_ElecCSTab_VdwCSTab_GeomP1P1_F_avx_256_single+0x697)[0xef5de7]
+/home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(nb_kernel_ElecNone_VdwCSTab_GeomP1P1_F_avx_256_single+0x5c2)[0x1036a72]
+[node450:65789] [ 2] [node450:65786] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z12do_nonbondedP10t_forcerecPA3_fS2_P9t_mdatomsP8t_blockaP17gmx_grppairener_tP6t_nrnbPfSB_iii+0x209)[0xd40059]
+[node450:65802] [ 3] [ 2] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z12do_nonbondedP10t_forcerecPA3_fS2_P9t_mdatomsP8t_blockaP17gmx_grppairener_tP6t_nrnbPfSB_iii+0x2f8)[0xd40148]
+[node450:65789] [ 3] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z17do_force_lowlevelP10t_forcerecP10t_inputrecP6t_idefP9t_commrecP6t_nrnbP13gmx_wallcycleP9t_mdatomsPA3_fP9history_tSE_PN3gmx15ForceWithVirialEP14gmx_enerdata_tP8t_fcdataP14gmx_localtop_tP13gmx_genborn_tiSE_P8t_lambdaPfP7t_graphP8t_blockaSE_iSU_+0xedc)[0xa5abec]
+[node450:65778] *** Process received signal ***
+[node450:65778] Signal: Segmentation fault (11)
+[node450:65778] Signal code: Invalid permissions (2)
+[node450:65778] Failing at address: 0x2aaab4923e00
+[node450:65780] *** Process received signal ***
+[node450:65780] Signal: Segmentation fault (11)
+[node450:65780] Signal code: Invalid permissions (2)
+[node450:65780] Failing at address: 0x2aaab49255e0
+/home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z17do_force_lowlevelP10t_forcerecP10t_inputrecP6t_idefP9t_commrecP6t_nrnbP13gmx_wallcycleP9t_mdatomsPA3_fP9history_tSE_PN3gmx15ForceWithVirialEP14gmx_enerdata_tP8t_fcdataP14gmx_localtop_tP13gmx_genborn_tiSE_P8t_lambdaPfP7t_graphP8t_blockaSE_iSU_+0xedc)[0xa5abec]
+[node450:65789] [ 4] [node450:65802] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z12do_nonbondedP10t_forcerecPA3_fS2_P9t_mdatomsP8t_blockaP17gmx_grppairener_tP6t_nrnbPfSB_iii+0x209)[0xd40059]
+[node450:65786] [ 3] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z8do_forceP8_IO_FILEP9t_commrecP10t_inputreclP6t_nrnbP13gmx_wallcycleP14gmx_localtop_tP12gmx_groups_tPA3_fN3gmx8ArrayRefINSF_11BasicVectorIfEEEEP9history_tSJ_SE_P9t_mdatomsP14gmx_enerdata_tP8t_fcdataNSG_IfEEP7t_graphP10t_forcerecP11gmx_vsite_tPfdP9gmx_edsamii41DdOpenBalanceRegionBeforeForceComputation41DdCloseBalanceRegionAfterForceComputation+0x88e)[0xaf761e]
+[node450:65789] [ 5] [node450:65778] [ 0] /lib64/libpthread.so.0(+0xf5f0)[0x2aaaac8b55f0]
+[node450:65778] [ 1] [node450:65780] [ 0] /lib64/libpthread.so.0(+0xf5f0)[0x2aaaac8b55f0]
+[node450:65780] [ 1] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx5do_mdEP8_IO_FILEP9t_commrecRKNS_8MDLoggerEiPK8t_filenmPK16gmx_output_env_tRK12MdrunOptionsP11gmx_vsite_tP10gmx_constrPNS_17IMDOutputProviderEP10t_inputrecP10gmx_mtop_tP8t_fcdataP7t_stateP18ObservablesHistoryPNS_7MDAtomsEP6t_nrnbP13gmx_wallcycleP10t_forcerecRK25ReplicaExchangeParametersP12gmx_membed_tP23gmx_walltime_accounting+0x5963)[0x599a03]
+[node450:65789] [ 6] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z17do_force_lowlevelP10t_forcerecP10t_inputrecP6t_idefP9t_commrecP6t_nrnbP13gmx_wallcycleP9t_mdatomsPA3_fP9history_tSE_PN3gmx15ForceWithVirialEP14gmx_enerdata_tP8t_fcdataP14gmx_localtop_tP13gmx_genborn_tiSE_P8t_lambdaPfP7t_graphP8t_blockaSE_iSU_+0xedc)[0xa5abec]
+[node450:65786] [ 4] [ 4] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx8Mdrunner8mdrunnerEv+0x3440)[0x5b6880]
+[node450:65789] [ 7] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z8do_forceP8_IO_FILEP9t_commrecP10t_inputreclP6t_nrnbP13gmx_wallcycleP14gmx_localtop_tP12gmx_groups_tPA3_fN3gmx8ArrayRefINSF_11BasicVectorIfEEEEP9history_tSJ_SE_P9t_mdatomsP14gmx_enerdata_tP8t_fcdataNSG_IfEEP7t_graphP10t_forcerecP11gmx_vsite_tPfdP9gmx_edsamii41DdOpenBalanceRegionBeforeForceComputation41DdCloseBalanceRegionAfterForceComputation+0x88e)[0xaf761e]
+/home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(nb_kernel_ElecNone_VdwCSTab_GeomP1P1_F_avx_256_single+0x57c)[0x1036a2c]
+[node450:65778] [ 2] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx8Mdrunner12mainFunctionEiPPc+0x1287)[0x5a0327]
+[node450:65789] [ 8] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(nb_kernel_ElecNone_VdwCSTab_GeomP1P1_F_avx_256_single+0x57c)[0x1036a2c]
+[node450:65780] [ 2] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z9gmx_mdruniPPc+0x83b)[0x5a0d2b]
+[node450:65789] [ 9] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z8do_forceP8_IO_FILEP9t_commrecP10t_inputreclP6t_nrnbP13gmx_wallcycleP14gmx_localtop_tP12gmx_groups_tPA3_fN3gmx8ArrayRefINSF_11BasicVectorIfEEEEP9history_tSJ_SE_P9t_mdatomsP14gmx_enerdata_tP8t_fcdataNSG_IfEEP7t_graphP10t_forcerecP11gmx_vsite_tPfdP9gmx_edsamii41DdOpenBalanceRegionBeforeForceComputation41DdCloseBalanceRegionAfterForceComputation+0x88e)[0xaf761e]
+[node450:65802] [ 5] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx24CommandLineModuleManager3runEiPPc+0x241)[0x5c2d31]
+[node450:65789] [10] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z12do_nonbondedP10t_forcerecPA3_fS2_P9t_mdatomsP8t_blockaP17gmx_grppairener_tP6t_nrnbPfSB_iii+0x2f8)[0xd40148]
+[node450:65778] [ 3] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx5do_mdEP8_IO_FILEP9t_commrecRKNS_8MDLoggerEiPK8t_filenmPK16gmx_output_env_tRK12MdrunOptionsP11gmx_vsite_tP10gmx_constrPNS_17IMDOutputProviderEP10t_inputrecP10gmx_mtop_tP8t_fcdataP7t_stateP18ObservablesHistoryPNS_7MDAtomsEP6t_nrnbP13gmx_wallcycleP10t_forcerecRK25ReplicaExchangeParametersP12gmx_membed_tP23gmx_walltime_accounting+0x5963)[0x599a03]
+[node450:65802] [ 6] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z12do_nonbondedP10t_forcerecPA3_fS2_P9t_mdatomsP8t_blockaP17gmx_grppairener_tP6t_nrnbPfSB_iii+0x2f8)[0xd40148]
+[node450:65780] [ 3] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(main+0x85)[0x567f15]
+[node450:65789] [11] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx8Mdrunner8mdrunnerEv+0x3440)[0x5b6880]
+[node450:65802] [ 7] /lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaaacae4505]
+[node450:65789] [12] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z17do_force_lowlevelP10t_forcerecP10t_inputrecP6t_idefP9t_commrecP6t_nrnbP13gmx_wallcycleP9t_mdatomsPA3_fP9history_tSE_PN3gmx15ForceWithVirialEP14gmx_enerdata_tP8t_fcdataP14gmx_localtop_tP13gmx_genborn_tiSE_P8t_lambdaPfP7t_graphP8t_blockaSE_iSU_+0xedc)[0xa5abec]
+[node450:65778] [ 4] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx8Mdrunner12mainFunctionEiPPc+0x1287)[0x5a0327]
+[node450:65802] [ 8] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z17do_force_lowlevelP10t_forcerecP10t_inputrecP6t_idefP9t_commrecP6t_nrnbP13gmx_wallcycleP9t_mdatomsPA3_fP9history_tSE_PN3gmx15ForceWithVirialEP14gmx_enerdata_tP8t_fcdataP14gmx_localtop_tP13gmx_genborn_tiSE_P8t_lambdaPfP7t_graphP8t_blockaSE_iSU_+0xedc)[0xa5abec]
+[node450:65780] [ 4] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi[0x592d9d]
+[node450:65789] *** End of error message ***
+/home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z8do_forceP8_IO_FILEP9t_commrecP10t_inputreclP6t_nrnbP13gmx_wallcycleP14gmx_localtop_tP12gmx_groups_tPA3_fN3gmx8ArrayRefINSF_11BasicVectorIfEEEEP9history_tSJ_SE_P9t_mdatomsP14gmx_enerdata_tP8t_fcdataNSG_IfEEP7t_graphP10t_forcerecP11gmx_vsite_tPfdP9gmx_edsamii41DdOpenBalanceRegionBeforeForceComputation41DdCloseBalanceRegionAfterForceComputation+0x88e)[0xaf761e]
+[node450:65778] [ 5] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z9gmx_mdruniPPc+0x83b)[0x5a0d2b]
+[node450:65786] [ 5] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z8do_forceP8_IO_FILEP9t_commrecP10t_inputreclP6t_nrnbP13gmx_wallcycleP14gmx_localtop_tP12gmx_groups_tPA3_fN3gmx8ArrayRefINSF_11BasicVectorIfEEEEP9history_tSJ_SE_P9t_mdatomsP14gmx_enerdata_tP8t_fcdataNSG_IfEEP7t_graphP10t_forcerecP11gmx_vsite_tPfdP9gmx_edsamii41DdOpenBalanceRegionBeforeForceComputation41DdCloseBalanceRegionAfterForceComputation+0x88e)[0xaf761e]
+[node450:65780] [ 5] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx5do_mdEP8_IO_FILEP9t_commrecRKNS_8MDLoggerEiPK8t_filenmPK16gmx_output_env_tRK12MdrunOptionsP11gmx_vsite_tP10gmx_constrPNS_17IMDOutputProviderEP10t_inputrecP10gmx_mtop_tP8t_fcdataP7t_stateP18ObservablesHistoryPNS_7MDAtomsEP6t_nrnbP13gmx_wallcycleP10t_forcerecRK25ReplicaExchangeParametersP12gmx_membed_tP23gmx_walltime_accounting+0x5963)[0x599a03]
+[node450:65778] [ 6] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx5do_mdEP8_IO_FILEP9t_commrecRKNS_8MDLoggerEiPK8t_filenmPK16gmx_output_env_tRK12MdrunOptionsP11gmx_vsite_tP10gmx_constrPNS_17IMDOutputProviderEP10t_inputrecP10gmx_mtop_tP8t_fcdataP7t_stateP18ObservablesHistoryPNS_7MDAtomsEP6t_nrnbP13gmx_wallcycleP10t_forcerecRK25ReplicaExchangeParametersP12gmx_membed_tP23gmx_walltime_accounting+0x5963)[0x599a03]
+[node450:65786] [ 6] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx5do_mdEP8_IO_FILEP9t_commrecRKNS_8MDLoggerEiPK8t_filenmPK16gmx_output_env_tRK12MdrunOptionsP11gmx_vsite_tP10gmx_constrPNS_17IMDOutputProviderEP10t_inputrecP10gmx_mtop_tP8t_fcdataP7t_stateP18ObservablesHistoryPNS_7MDAtomsEP6t_nrnbP13gmx_wallcycleP10t_forcerecRK25ReplicaExchangeParametersP12gmx_membed_tP23gmx_walltime_accounting+0x5963)[0x599a03]
+[node450:65780] [ 6] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx8Mdrunner8mdrunnerEv+0x3440)[0x5b6880]
+[node450:65786] [ 7] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx8Mdrunner8mdrunnerEv+0x3440)[0x5b6880]
+[node450:65778] [ 7] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx8Mdrunner8mdrunnerEv+0x3440)[0x5b6880]
+[node450:65780] [ 7] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx8Mdrunner12mainFunctionEiPPc+0x1287)[0x5a0327]
+[node450:65786] [ 8] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx8Mdrunner12mainFunctionEiPPc+0x1287)[0x5a0327]
+[node450:65778] [ 8] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx8Mdrunner12mainFunctionEiPPc+0x1287)[0x5a0327]
+[node450:65780] [ 8] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z9gmx_mdruniPPc+0x83b)[0x5a0d2b]
+[node450:65786] [ 9] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z9gmx_mdruniPPc+0x83b)[0x5a0d2b]
+[node450:65778] [ 9] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_Z9gmx_mdruniPPc+0x83b)[0x5a0d2b]
+[node450:65780] [ 9] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx24CommandLineModuleManager3runEiPPc+0x241)[0x5c2d31]
+[node450:65786] [10] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx24CommandLineModuleManager3runEiPPc+0x241)[0x5c2d31]
+[node450:65778] [10] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx24CommandLineModuleManager3runEiPPc+0x241)[0x5c2d31]
+[node450:65780] [10] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(main+0x85)[0x567f15]
+[node450:65786] [11] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(main+0x85)[0x567f15]
+[node450:65778] [11] /lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaaacae4505]
+[node450:65786] [12] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(main+0x85)[0x567f15]
+[node450:65780] [11] /lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaaacae4505]
+[node450:65778] [12] /lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaaacae4505]
+[node450:65780] [12] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi[0x592d9d]
+[node450:65786] *** End of error message ***
+/home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi[0x592d9d]
+[node450:65778] *** End of error message ***
+/home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi[0x592d9d]
+[node450:65780] *** End of error message ***
+[node450:65802] [ 9] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(_ZN3gmx24CommandLineModuleManager3runEiPPc+0x241)[0x5c2d31]
+[node450:65802] [10] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi(main+0x85)[0x567f15]
+[node450:65802] [11] /lib64/libc.so.6(__libc_start_main+0xf5)[0x2aaaacae4505]
+[node450:65802] [12] /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi[0x592d9d]
+[node450:65802] *** End of error message ***
+--------------------------------------------------------------------------
+mpirun noticed that process rank 9 with PID 65786 on node node450 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+Each HP1 dimer has 2 ordered regions. 1 (chromodomain) CD, and 1 (chromo-shadow domain) CSD. We want to include:
+1. Interactions within the same CD.
+2. Interactions within the same CSD.
+3. Interactions between the two CSDs.
+(Anything besides these 3 should be excluded)
+
+Residues (note 1-191 is the first monomer, 192-382 is the 2nd monomer):
+CD1: 17-72
+CSD1: 115-176
+
+CD2: 208-263
+CSD2: 306-367

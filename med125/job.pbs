@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#SBATCH --job-name=1med125
+#SBATCH -N 1
+#SBATCH -n 8
+#SBATCH --partition=sched_mit_binz
+#SBATCH --time=48:00:00
+#SBATCH --mem-per-cpu=4G
+#SBATCH --constraint=centos7
+
+module load engaging/openmpi/2.0.3
+
+
+export dir=/home/aplatham2/Programs/gromacs-2018.4/bin
+export tabledir=/pool001/aplatham2/chromatin/DNA_tables
+export salt=159
+
+$dir/gmx_mpi grompp -f min.mdp -c start.gro -p chromatin_dna.top -o min.tpr
+$dir/gmx_mpi mdrun -deffnm min -table table_$salt.xvg -tablep table_smog$salt.xvg
+
+
+$dir/gmx_mpi grompp -f eq.mdp -c min.gro -p chromatin_dna.top -o eq.tpr  -maxwarn 1
+mpirun -np 8 $dir/gmx_mpi mdrun -deffnm eq -dlb yes -table table_$salt.xvg -tablep table_smog$salt.xvg -maxh 47.9   -noddcheck -rdd 4

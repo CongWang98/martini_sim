@@ -1,0 +1,6 @@
+#include "prot_dna.itp"
+#include "med1.itp"
+
+ [ molecules ]
+; name            #molec
+  med1  20

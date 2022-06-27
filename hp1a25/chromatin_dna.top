@@ -1,0 +1,6 @@
+#include "prot_dna.itp"
+#include "hp1a.itp"
+
+ [ molecules ]
+; name            #molec
+  hp1a  47
