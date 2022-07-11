@@ -5,6 +5,7 @@
 *.edr
 *.out
 *.gro
+!**/water.gro
 *.tpr
 #*
 *#
