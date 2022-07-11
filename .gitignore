@@ -1,2 +1,12 @@
 *.xtc
 *.cpt
+*.trr
+*.xtc
+*.edr
+*.out
+*.gro
+*.tpr
+#*
+*#
+
+

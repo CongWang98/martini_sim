@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH --job-name=3XXX              # Job name
+#SBATCH --partition=normal
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=5
+#SBATCH --gres=gpu:volta:1
+#SBATCH --time=192:00:00
+
+module purge
+module load cuda/10.0 mpi/openmpi-4.0
+
+export GMXBIN=/home/gridsan/aplatham/Programs/gromacs-2021-gpu/bin
+export frontendGMXBIN=/home/gridsan/aplatham/Programs/gromacs-2021/bin
+
+mpirun -np 1 $GMXBIN/mdrun_mpi  -deffnm min -dlb yes -maxh 191.9 -ntomp 5 -pin on -nb gpu
