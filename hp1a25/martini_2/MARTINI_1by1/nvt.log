@@ -37,8 +37,8 @@ of the License, or (at your option) any later version.
 GROMACS:      gmx mdrun, version 2022.2
 Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
 Data prefix:  /home/gridsan/congwang/software/gromacs
-Working dir:  /home/gridsan/congwang/code/martini_sim/hp1a25/martini/MARTINI_1by1
-Process ID:   43049
+Working dir:  /home/gridsan/congwang/code/martini_sim/hp1a25/martini_2/MARTINI_1by1
+Process ID:   54646
 Command line:
   gmx_mpi mdrun -deffnm nvt -dlb yes -maxh 191.9 -ntomp 5 -pin on -v
 
@@ -66,7 +66,7 @@ CUDA runtime:       11.60
 
 
 Running on 1 node with total 40 cores, 80 processing units, 2 compatible GPUs
-Hardware detected on host d-14-5-2 (the node of MPI rank 0):
+Hardware detected on host d-13-15-1 (the node of MPI rank 0):
   CPU info:
     Vendor: Intel
     Brand:  Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz
@@ -157,7 +157,7 @@ Input Parameters:
    comm-mode                      = Linear
    nstcomm                        = 100
    bd-fric                        = 0
-   ld-seed                        = 1869043711
+   ld-seed                        = -345245441
    emtol                          = 10
    emstep                         = 0.01
    niter                          = 20
@@ -178,7 +178,7 @@ Input Parameters:
    pbc                            = xyz
    periodic-molecules             = false
    verlet-buffer-tolerance        = 0.005
-   rlist                          = 1.138
+   rlist                          = 1.137
    coulombtype                    = Reaction-Field
    coulomb-modifier               = Potential-shift
    rcoulomb-switch                = 0
@@ -313,7 +313,7 @@ qm-opts:
        qmcharge                   = 0
        qmmultiplicity             = 1
 grpopts:
-   nrdf:     92795.3      304849
+   nrdf:      114773      287176
    ref-t:      313.15      313.15
    tau-t:           1           1
 annealing:          No          No
@@ -322,7 +322,7 @@ annealing-npoints:           0           0
    nfreeze:           N           N           N
    energygrp-flags[  0]: 0
 
-Changing nstlist from 20 to 50, rlist from 1.138 to 1.273
+Changing nstlist from 20 to 50, rlist from 1.137 to 1.273
 
 
 When checking whether update groups are usable:
@@ -367,8 +367,8 @@ P-LINCS: A Parallel Linear Constraint Solver for molecular simulation
 J. Chem. Theory Comput. 4 (2008) pp. 116-122
 -------- -------- --- Thank You --- -------- --------
 
-The number of constraints is 10944
-5244 constraints are involved in constraint triangles,
+The number of constraints is 13536
+6486 constraints are involved in constraint triangles,
 will apply an additional matrix expansion of order 8 for couplings
 between constraints inside triangles
 
@@ -378,8 +378,8 @@ Canonical sampling through velocity rescaling
 J. Chem. Phys. 126 (2007) pp. 014101
 -------- -------- --- Thank You --- -------- --------
 
-There are: 136197 Atoms
-There are: 304 VSites
+There are: 138496 Atoms
+There are: 376 VSites
 
 Constraining the starting coordinates (step 0)
 
@@ -387,72 +387,11 @@ Constraining the coordinates at t0-dt (step 0)
 Center of mass motion removal mode is Linear
 We have the following groups for center of mass motion removal:
   0:  rest
-RMS relative constraint deviation after constraining: 2.21e-06
-Initial temperature: 313.061 K
+RMS relative constraint deviation after constraining: 3.75e-05
+Initial temperature: 313.208 K
 
-Started mdrun on rank 0 Mon Jul 11 16:45:43 2022
+Started mdrun on rank 0 Mon Jul 11 22:20:18 2022
 
            Step           Time
               0        0.00000
 
-Constraint error in algorithm Lincs at step 0
-Wrote pdb files with previous and current coordinates
-   Energies (kJ/mol)
-           Bond       G96AngleRestricted Angles    Proper Dih.  Improper Dih.
-    8.22382e+05    5.37793e+04    2.95131e+04    1.19815e+04    3.04280e+03
-        LJ (SR)   Coulomb (SR)      Potential    Kinetic En.   Total Energy
-   -3.05005e+06   -6.22145e+04   -2.19157e+06    5.62116e+05   -1.62945e+06
-  Conserved En.    Temperature Pressure (bar)   Constr. rmsd
-   -1.62945e+06    3.40038e+02   -2.06923e+03    9.03440e-03
-
-Constraint error in algorithm Lincs at step 1
-Wrote pdb files with previous and current coordinates
-Constraint error in algorithm Lincs at step 2
-Wrote pdb files with previous and current coordinates
-Constraint error in algorithm Lincs at step 3
-Wrote pdb files with previous and current coordinates
-Constraint error in algorithm Lincs at step 4
-Wrote pdb files with previous and current coordinates
-Constraint error in algorithm Lincs at step 5
-Wrote pdb files with previous and current coordinates
-Constraint error in algorithm Lincs at step 6
-Wrote pdb files with previous and current coordinates
-Constraint error in algorithm Lincs at step 7
-Wrote pdb files with previous and current coordinates
-Constraint error in algorithm Lincs at step 8
-Wrote pdb files with previous and current coordinates
-Constraint error in algorithm Lincs at step 9
-Wrote pdb files with previous and current coordinates
-Constraint error in algorithm Lincs at step 10
-Wrote pdb files with previous and current coordinates
-Constraint error in algorithm Lincs at step 11
-Wrote pdb files with previous and current coordinates
-Constraint error in algorithm Lincs at step 12
-Wrote pdb files with previous and current coordinates
-Constraint error in algorithm Lincs at step 13
-Wrote pdb files with previous and current coordinates
-Constraint error in algorithm Lincs at step 14
-Wrote pdb files with previous and current coordinates
-Constraint error in algorithm Lincs at step 15
-Wrote pdb files with previous and current coordinates
-Constraint error in algorithm Lincs at step 16
-Wrote pdb files with previous and current coordinates
-Constraint error in algorithm Lincs at step 17
-Wrote pdb files with previous and current coordinates
-Constraint error in algorithm Lincs at step 18
-Wrote pdb files with previous and current coordinates
-
--------------------------------------------------------
-Program:     gmx mdrun, version 2022.2
-Source file: src/gromacs/mdlib/constr.cpp (line 240)
-
-Fatal error:
-Too many LINCS warnings (1029)
-If you know what you are doing you can adjust the lincs warning threshold in
-your mdp file
-or set the environment variable GMX_MAXCONSTRWARN to -1,
-but normally it is better to fix the problem
-
-For more information and tips for troubleshooting, please check the GROMACS
-website at http://www.gromacs.org/Documentation/Errors
--------------------------------------------------------

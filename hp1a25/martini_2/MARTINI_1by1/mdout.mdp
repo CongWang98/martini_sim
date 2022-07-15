@@ -1,15 +1,15 @@
 ;
 ;	File 'mdout.mdp' was generated
 ;	By user: unknown (61609)
-;	On host: d-14-5-2
-;	At date: Mon Jul 11 16:45:30 2022
+;	On host: d-13-15-1
+;	At date: Mon Jul 11 22:20:15 2022
 ;
 ;	Created by:
 ;	                     :-) GROMACS - gmx grompp, 2022.2 (-:
 ;	
 ;	Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
 ;	Data prefix:  /home/gridsan/congwang/software/gromacs
-;	Working dir:  /home/gridsan/congwang/code/martini_sim/hp1a25/martini/MARTINI_1by1
+;	Working dir:  /home/gridsan/congwang/code/martini_sim/hp1a25/martini_2/MARTINI_1by1
 ;	Command line:
 ;	  gmx_mpi grompp -f step4.2_equilibration.mdp -c min.gro -p PROA.top -o nvt.tpr
 

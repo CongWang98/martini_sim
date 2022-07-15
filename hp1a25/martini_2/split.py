@@ -7,7 +7,7 @@ N = int(sys.argv[1])
 os.makedirs('molecules', exist_ok=True)
 
 mole_lis = []
-with open('XXX_AA1.pdb', 'r') as f:
+with open('XXX_AA1_new.pdb', 'r') as f:
     first_line = f.readline()
     mole_i = []
     line_i = f.readline()

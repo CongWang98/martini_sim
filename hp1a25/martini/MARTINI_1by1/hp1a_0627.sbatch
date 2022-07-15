@@ -1,15 +1,14 @@
-#!/bin/bash    
+#!/bin/bash
+    
 #SBATCH -N 1  
-##SBATCH -n 16
-
-#SBATCH -p sched_mit_binz_gpu
+#SBATCH --gres=gpu:volta:2
 #SBATCH --time=48:00:00  
 #SBATCH --exclusive
-#SBATCH --mail-type=BEGIN, END
-#SBATCH --mail-user=congwang@mit.edu
+##SBATCH --mail-type=END
+##SBATCH --mail-user=congwang@mit.edu
 
-module unload cuda
-module load gromacs/2018.4-gpu
+module load cuda/11.6
+module load mpi/openmpi-4.1.3
 
 gmx_mpi editconf -f mole_no_2_14_19_20_21_22_35_41_42.pdb -c -o XXX_MARTINI_input_no_2_14_19_20_21_22_35_41_42.pdb -box  25 25 25
 

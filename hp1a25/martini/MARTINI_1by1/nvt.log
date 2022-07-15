@@ -1,80 +1,89 @@
-Log file opened on Fri Jul  8 17:33:22 2022
-Host: node1195  pid: 346811  rank ID: 0  number of ranks:  1
-                      :-) GROMACS - gmx mdrun, 2018.4 (-:
+                      :-) GROMACS - gmx mdrun, 2022.2 (-:
 
-                            GROMACS is written by:
-     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
-    Par Bjelkmar    Aldert van Buuren   Rudi van Drunen     Anton Feenstra  
-  Gerrit Groenhof    Aleksei Iupinov   Christoph Junghans   Anca Hamuraru   
- Vincent Hindriksen Dimitrios Karkoulis    Peter Kasson        Jiri Kraus    
-  Carsten Kutzner      Per Larsson      Justin A. Lemkul    Viveca Lindahl  
-  Magnus Lundborg   Pieter Meulenhoff    Erik Marklund      Teemu Murtola   
-    Szilard Pall       Sander Pronk      Roland Schulz     Alexey Shvetsov  
-   Michael Shirts     Alfons Sijbers     Peter Tieleman    Teemu Virolainen 
- Christian Wennberg    Maarten Wolf   
-                           and the project leaders:
-        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
-
-Copyright (c) 1991-2000, University of Groningen, The Netherlands.
-Copyright (c) 2001-2017, The GROMACS development team at
-Uppsala University, Stockholm University and
-the Royal Institute of Technology, Sweden.
-check out http://www.gromacs.org for more information.
-
+Copyright 1991-2022 The GROMACS Authors.
 GROMACS is free software; you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License
 as published by the Free Software Foundation; either version 2.1
 of the License, or (at your option) any later version.
 
-GROMACS:      gmx mdrun, version 2018.4
-Executable:   /home/software/gromacs/2018.4/bin/gmx_mpi
-Data prefix:  /home/software/gromacs/2018.4
-Working dir:  /nfs/pool002/users/congwang/martini_sim/hp1a25/martini/MARTINI_1by1
+                         Current GROMACS contributors:
+       Mark Abraham           Andrey Alekseenko           Cathrine Bergh      
+      Christian Blau            Eliane Briand               Kevin Boyd        
+     Oliver Fleetwood         Stefan Fleischmann           Vytas Gapsys       
+       Gaurav Garg           Gilles Gouaillardet            Alan Gray         
+      Victor Holanda           M. Eric Irrgang              Joe Jordan        
+    Christoph Junghans        Prashanth Kanduri           Sebastian Kehl      
+     Sebastian Keller          Carsten Kutzner           Magnus Lundborg      
+       Pascal Merz              Dmitry Morozov             Szilard Pall       
+      Roland Schulz             Michael Shirts         David van der Spoel    
+     Alessandra Villa      Sebastian Wingbermuehle        Artem Zhmurov       
+
+                         Previous GROMACS contributors:
+        Emile Apol             Rossen Apostolov           James Barnett       
+  Herman J.C. Berendsen          Par Bjelkmar           Viacheslav Bolnykh    
+    Aldert van Buuren          Carlo Camilloni           Rudi van Drunen      
+      Anton Feenstra           Gerrit Groenhof            Bert de Groot       
+      Anca Hamuraru           Vincent Hindriksen         Aleksei Iupinov      
+   Dimitrios Karkoulis           Peter Kasson               Jiri Kraus        
+       Per Larsson             Justin A. Lemkul           Viveca Lindahl      
+      Erik Marklund           Pieter Meulenhoff           Vedran Miletic      
+      Teemu Murtola              Sander Pronk            Alexey Shvetsov      
+      Alfons Sijbers            Peter Tieleman             Jon Vincent        
+     Teemu Virolainen         Christian Wennberg           Maarten Wolf       
+
+                  Coordinated by the GROMACS project leaders:
+                    Paul Bauer, Berk Hess, and Erik Lindahl
+
+GROMACS:      gmx mdrun, version 2022.2
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/hp1a25/martini/MARTINI_1by1
+Process ID:   43049
 Command line:
   gmx_mpi mdrun -deffnm nvt -dlb yes -maxh 191.9 -ntomp 5 -pin on -v
 
-GROMACS version:    2018.4
-Precision:          single
+GROMACS version:    2022.2
+Precision:          mixed
 Memory model:       64 bit
-MPI library:        MPI
-OpenMP support:     enabled (GMX_OPENMP_MAX_THREADS = 64)
-GPU support:        disabled
-SIMD instructions:  AVX_256
-FFT library:        fftw-3.3.3-sse2
+MPI library:        MPI (CUDA-aware)
+OpenMP support:     enabled (GMX_OPENMP_MAX_THREADS = 128)
+GPU support:        CUDA
+SIMD instructions:  AVX_512
+CPU FFT library:    fftw-3.3.7-sse2-avx
+GPU FFT library:    cuFFT
 RDTSCP usage:       enabled
 TNG support:        enabled
 Hwloc support:      disabled
 Tracing support:    disabled
-Built on:           2018-12-14 15:25:09
-Built by:           lgardner462@node028.cm.cluster [CMAKE]
-Build OS/arch:      Linux 3.10.0-514.26.2.el7.x86_64 x86_64
-Build CPU vendor:   Intel
-Build CPU brand:    Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz
-Build CPU family:   6   Model: 45   Stepping: 7
-Build CPU features: aes apic avx clfsh cmov cx8 cx16 htt intel lahf mmx msr nonstop_tsc pcid pclmuldq pdcm pdpe1gb popcnt pse rdtscp sse2 sse3 sse4.1 sse4.2 ssse3 tdt x2apic
-C compiler:         /bin/cc GNU 4.8.5
-C compiler flags:    -mavx     -O3 -DNDEBUG -funroll-all-loops -fexcess-precision=fast  
-C++ compiler:       /bin/c++ GNU 4.8.5
-C++ compiler flags:  -mavx    -std=c++11   -O3 -DNDEBUG -funroll-all-loops -fexcess-precision=fast  
+C compiler:         /usr/bin/cc GNU 7.5.0
+C compiler flags:   -mavx512f -mfma -mavx512vl -mavx512dq -mavx512bw -Wno-missing-field-initializers -fexcess-precision=fast -funroll-all-loops -pthread -O3 -DNDEBUG
+C++ compiler:       /usr/bin/c++ GNU 7.5.0
+C++ compiler flags: -mavx512f -mfma -mavx512vl -mavx512dq -mavx512bw -pthread -Wno-missing-field-initializers -fexcess-precision=fast -funroll-all-loops -pthread -fopenmp -O3 -DNDEBUG
+CUDA compiler:      /usr/local/pkg/cuda/cuda-11.6/bin/nvcc nvcc: NVIDIA (R) Cuda compiler driver;Copyright (c) 2005-2021 NVIDIA Corporation;Built on Fri_Dec_17_18:16:03_PST_2021;Cuda compilation tools, release 11.6, V11.6.55;Build cuda_11.6.r11.6/compiler.30794723_0
+CUDA compiler flags:-std=c++14;-gencode;arch=compute_35,code=sm_35;-gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_52,code=sm_52;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86;-Wno-deprecated-gpu-targets;-gencode;arch=compute_53,code=sm_53;-gencode;arch=compute_80,code=sm_80;-use_fast_math;-D_FORCE_INLINES;-mavx512f -mfma -mavx512vl -mavx512dq -mavx512bw -pthread -Wno-missing-field-initializers -fexcess-precision=fast -funroll-all-loops -pthread -fopenmp -O3 -DNDEBUG
+CUDA driver:        11.60
+CUDA runtime:       11.60
 
 
-Running on 1 node with total 20 cores, 20 logical cores
-Hardware detected on host node1195 (the node of MPI rank 0):
+Running on 1 node with total 40 cores, 80 processing units, 2 compatible GPUs
+Hardware detected on host d-14-5-2 (the node of MPI rank 0):
   CPU info:
     Vendor: Intel
-    Brand:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+    Brand:  Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz
     Family: 6   Model: 85   Stepping: 7
-    Features: aes apic avx avx2 avx512f avx512cd avx512bw avx512vl clfsh cmov cx8 cx16 f16c fma hle htt intel lahf mmx msr nonstop_tsc pcid pclmuldq pdcm pdpe1gb popcnt pse rdrnd rdtscp rtm sse2 sse3 sse4.1 sse4.2 ssse3 tdt x2apic
-    Number of AVX-512 FMA units: Cannot run AVX-512 detection - assuming 2
+    Features: aes apic avx avx2 avx512f avx512cd avx512bw avx512vl avx512secondFMA clfsh cmov cx8 cx16 f16c fma hle htt intel lahf mmx msr nonstop_tsc pcid pclmuldq pdcm pdpe1gb popcnt pse rdrnd rdtscp rtm sse2 sse3 sse4.1 sse4.2 ssse3 tdt x2apic
+    Number of AVX-512 FMA units: 2
   Hardware topology: Basic
-    Sockets, cores, and logical processors:
-      Socket  0: [   0] [   1] [   2] [   3] [   4] [   5] [   6] [   7] [   8] [   9]
-      Socket  1: [  10] [  11] [  12] [  13] [  14] [  15] [  16] [  17] [  18] [  19]
+    Packages, cores, and logical processors:
+    [indices refer to OS logical processors]
+      Package  0: [   0  40] [   1  41] [   2  42] [   3  43] [   4  44] [   5  45] [   6  46] [   7  47] [   8  48] [   9  49] [  10  50] [  11  51] [  12  52] [  13  53] [  14  54] [  15  55] [  16  56] [  17  57] [  18  58] [  19  59]
+      Package  1: [  20  60] [  21  61] [  22  62] [  23  63] [  24  64] [  25  65] [  26  66] [  27  67] [  28  68] [  29  69] [  30  70] [  31  71] [  32  72] [  33  73] [  34  74] [  35  75] [  36  76] [  37  77] [  38  78] [  39  79]
+    CPU limit set by OS: -1   Recommended max number of threads: 80
+  GPU info:
+    Number of GPUs detected: 2
+    #0: NVIDIA Tesla V100-PCIE-32GB, compute cap.: 7.0, ECC:  no, stat: compatible
+    #1: NVIDIA Tesla V100-PCIE-32GB, compute cap.: 7.0, ECC:  no, stat: compatible
 
-Highest SIMD level requested by all nodes in run: AVX_512
-SIMD instructions selected at compile time:       AVX_256
-This program was compiled for different hardware than you are running on,
-which could influence performance.
 
 ++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
 M. J. Abraham, T. Murtola, R. Schulz, S. Páll, J. C. Smith, B. Hess, E.
@@ -131,6 +140,12 @@ GROMACS: A message-passing parallel molecular dynamics implementation
 Comp. Phys. Comm. 91 (1995) pp. 43-56
 -------- -------- --- Thank You --- -------- --------
 
+
+++++ PLEASE CITE THE DOI FOR THIS VERSION OF GROMACS ++++
+https://doi.org/10.5281/zenodo.6637571
+-------- -------- --- Thank You --- -------- --------
+
+GPU-aware MPI detected, but by default GROMACS will not make use the direct GPU communication capabilities of MPI. For improved performance try enabling the feature by setting the GMX_ENABLE_DIRECT_GPU_COMM environment variable.
 Input Parameters:
    integrator                     = md
    tinit                          = 0
@@ -138,10 +153,11 @@ Input Parameters:
    nsteps                         = 500000
    init-step                      = 0
    simulation-part                = 1
+   mts                            = false
    comm-mode                      = Linear
    nstcomm                        = 100
    bd-fric                        = 0
-   ld-seed                        = -607929179
+   ld-seed                        = 1869043711
    emtol                          = 10
    emstep                         = 0.01
    niter                          = 20
@@ -159,7 +175,6 @@ Input Parameters:
    compressed-x-precision         = 100
    cutoff-scheme                  = Verlet
    nstlist                        = 20
-   ns-type                        = Grid
    pbc                            = xyz
    periodic-molecules             = false
    verlet-buffer-tolerance        = 0.005
@@ -184,22 +199,10 @@ Input Parameters:
    ewald-rtol                     = 1e-05
    ewald-rtol-lj                  = 0.001
    lj-pme-comb-rule               = Geometric
-   ewald-geometry                 = 0
+   ewald-geometry                 = 3d
    epsilon-surface                = 0
-   implicit-solvent               = No
-   gb-algorithm                   = Still
-   nstgbradii                     = 1
-   rgbradii                       = 1
-   gb-epsilon-solvent             = 80
-   gb-saltconc                    = 0
-   gb-obc-alpha                   = 1
-   gb-obc-beta                    = 0.8
-   gb-obc-gamma                   = 4.85
-   gb-dielectric-offset           = 0.009
-   sa-algorithm                   = Ace-approximation
-   sa-surface-tension             = 2.05016
    tcoupl                         = V-rescale
-   nsttcouple                     = 20
+   nsttcouple                     = 10
    nh-chain-length                = 0
    print-nose-hoover-chain-variables = false
    pcoupl                         = No
@@ -224,9 +227,6 @@ Input Parameters:
       posres-comB[1]= 0.00000e+00
       posres-comB[2]= 0.00000e+00
    QMMM                           = false
-   QMconstraints                  = 0
-   QMMMscheme                     = 0
-   MMChargeScaleFactor            = 1
 qm-opts:
    ngQM                           = 0
    constraint-algorithm           = Lincs
@@ -290,6 +290,28 @@ qm-opts:
          omega                    = 0
          t0                       = 0
          sigma                    = 0
+     density-guided-simulation:
+       active                     = false
+       group                      = protein
+       similarity-measure         = inner-product
+       atom-spreading-weight      = unity
+       force-constant             = 1e+09
+       gaussian-transform-spreading-width = 0.2
+       gaussian-transform-spreading-range-in-multiples-of-width = 4
+       reference-density-filename = reference.mrc
+       nst                        = 1
+       normalize-densities        = true
+       adaptive-force-scaling     = false
+       adaptive-force-scaling-time-constant = 4
+       shift-vector               = 
+       transformation-matrix      = 
+     qmmm-cp2k:
+       active                     = false
+       qmgroup                    = System
+       qmmethod                   = PBE
+       qmfilenames                = 
+       qmcharge                   = 0
+       qmmultiplicity             = 1
 grpopts:
    nrdf:     92795.3      304849
    ref-t:      313.15      313.15
@@ -302,27 +324,39 @@ annealing-npoints:           0           0
 
 Changing nstlist from 20 to 50, rlist from 1.138 to 1.273
 
+
+When checking whether update groups are usable:
+  Domain decomposition is not active, so there is no need for update groups
+  At least one moleculetype does not conform to the requirements for using update groups
+1 GPU selected for this run.
+Mapping of GPU IDs to the 1 GPU task in the 1 rank on this node:
+  PP:0
+PP tasks will do (non-perturbed) short-ranged interactions on the GPU
+PP task will update and constrain coordinates on the CPU
 Using 1 MPI process
 Using 5 OpenMP threads 
 
-Pinning threads with an auto-selected logical core stride of 1
+
+Overriding thread affinity set outside gmx mdrun
+
+Pinning threads with an auto-selected logical cpu stride of 2
 System total charge: 0.000
 Reaction-Field:
 epsRF = 0, rc = 1.1, krf = 0.375657, crf = 1.36364, epsfac = 9.26236
 The electrostatics potential has its minimum at r = 1.1
 Potential shift: LJ r^-12: -3.186e-01 r^-6: -5.645e-01
 
-Using SIMD 4x8 nonbonded short-range kernels
 
-Using a dual 4x8 pair-list setup updated with dynamic pruning:
+Using GPU 8x8 nonbonded short-range kernels
+
+Using a dual 8x8 pair-list setup updated with dynamic, rolling pruning:
   outer list: updated every 50 steps, buffer 0.173 nm, rlist 1.273 nm
-  inner list: updated every  8 steps, buffer 0.002 nm, rlist 1.102 nm
+  inner list: updated every  6 steps, buffer 0.001 nm, rlist 1.101 nm
 At tolerance 0.005 kJ/mol/ps per atom, equivalent classical 1x1 list would be:
   outer list: updated every 50 steps, buffer 0.287 nm, rlist 1.387 nm
-  inner list: updated every  8 steps, buffer 0.022 nm, rlist 1.122 nm
+  inner list: updated every  6 steps, buffer 0.018 nm, rlist 1.118 nm
 
 Using full Lennard-Jones parameter combination matrix
-
 Removing pbc first time
 
 Initializing LINear Constraint Solver
@@ -338,11 +372,6 @@ The number of constraints is 10944
 will apply an additional matrix expansion of order 8 for couplings
 between constraints inside triangles
 
-Intra-simulation communication will occur every 10 steps.
-Center of mass motion removal mode is Linear
-We have the following groups for center of mass motion removal:
-  0:  rest
-
 ++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
 G. Bussi, D. Donadio and M. Parrinello
 Canonical sampling through velocity rescaling
@@ -355,18 +384,75 @@ There are: 304 VSites
 Constraining the starting coordinates (step 0)
 
 Constraining the coordinates at t0-dt (step 0)
-RMS relative constraint deviation after constraining: 2.18e-06
-Initial temperature: 313.05 K
+Center of mass motion removal mode is Linear
+We have the following groups for center of mass motion removal:
+  0:  rest
+RMS relative constraint deviation after constraining: 2.21e-06
+Initial temperature: 313.061 K
 
-Started mdrun on rank 0 Fri Jul  8 17:33:22 2022
+Started mdrun on rank 0 Mon Jul 11 16:45:43 2022
+
            Step           Time
               0        0.00000
 
+Constraint error in algorithm Lincs at step 0
+Wrote pdb files with previous and current coordinates
    Energies (kJ/mol)
            Bond       G96AngleRestricted Angles    Proper Dih.  Improper Dih.
-    4.32706e+06    6.41160e+04    3.64611e+04    1.80055e+04    3.41059e+03
+    8.22382e+05    5.37793e+04    2.95131e+04    1.19815e+04    3.04280e+03
         LJ (SR)   Coulomb (SR)      Potential    Kinetic En.   Total Energy
-   -2.91400e+06   -6.21492e+04    1.47290e+06    5.87275e+05    2.06017e+06
+   -3.05005e+06   -6.22145e+04   -2.19157e+06    5.62116e+05   -1.62945e+06
   Conserved En.    Temperature Pressure (bar)   Constr. rmsd
-    2.06017e+06    3.55258e+02   -4.77309e+03    1.99795e-02
+   -1.62945e+06    3.40038e+02   -2.06923e+03    9.03440e-03
 
+Constraint error in algorithm Lincs at step 1
+Wrote pdb files with previous and current coordinates
+Constraint error in algorithm Lincs at step 2
+Wrote pdb files with previous and current coordinates
+Constraint error in algorithm Lincs at step 3
+Wrote pdb files with previous and current coordinates
+Constraint error in algorithm Lincs at step 4
+Wrote pdb files with previous and current coordinates
+Constraint error in algorithm Lincs at step 5
+Wrote pdb files with previous and current coordinates
+Constraint error in algorithm Lincs at step 6
+Wrote pdb files with previous and current coordinates
+Constraint error in algorithm Lincs at step 7
+Wrote pdb files with previous and current coordinates
+Constraint error in algorithm Lincs at step 8
+Wrote pdb files with previous and current coordinates
+Constraint error in algorithm Lincs at step 9
+Wrote pdb files with previous and current coordinates
+Constraint error in algorithm Lincs at step 10
+Wrote pdb files with previous and current coordinates
+Constraint error in algorithm Lincs at step 11
+Wrote pdb files with previous and current coordinates
+Constraint error in algorithm Lincs at step 12
+Wrote pdb files with previous and current coordinates
+Constraint error in algorithm Lincs at step 13
+Wrote pdb files with previous and current coordinates
+Constraint error in algorithm Lincs at step 14
+Wrote pdb files with previous and current coordinates
+Constraint error in algorithm Lincs at step 15
+Wrote pdb files with previous and current coordinates
+Constraint error in algorithm Lincs at step 16
+Wrote pdb files with previous and current coordinates
+Constraint error in algorithm Lincs at step 17
+Wrote pdb files with previous and current coordinates
+Constraint error in algorithm Lincs at step 18
+Wrote pdb files with previous and current coordinates
+
+-------------------------------------------------------
+Program:     gmx mdrun, version 2022.2
+Source file: src/gromacs/mdlib/constr.cpp (line 240)
+
+Fatal error:
+Too many LINCS warnings (1029)
+If you know what you are doing you can adjust the lincs warning threshold in
+your mdp file
+or set the environment variable GMX_MAXCONSTRWARN to -1,
+but normally it is better to fix the problem
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
