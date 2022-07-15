@@ -1,0 +1,6 @@
+#include "prot_dna.itp"
+#include "NPM1.itp"
+
+ [ molecules ]
+; name            #molec
+  NPM1  64
