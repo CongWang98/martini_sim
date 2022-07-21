@@ -3,10 +3,12 @@ import os
 import sys 
 
 N = int(sys.argv[1])
+bad_lis = sys.argv[2]
+bad_lis = bad_lis.split('_')
 #output_file = sys.argv[2]
 #mole_file_lis = [f for f in os.listdir('./') if f.split('.')[-1] == 'pdb']
 
-bad_lis = ['0', '4', '6','9', '12', '18']
+#bad_lis = ['0', '4', '6','9', '12', '18']
 mole_file_lis = [f'mole_{i}.pdb' for i in range(N) if str(i) not in bad_lis]
 #mole_file_lis.sort()
 mole_lis = [md.load(f) for f in mole_file_lis]
