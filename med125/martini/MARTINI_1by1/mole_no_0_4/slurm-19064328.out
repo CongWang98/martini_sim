@@ -1,0 +1,3643 @@
+                     :-) GROMACS - gmx editconf, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1/mole_no_0_4
+Command line:
+  gmx_mpi editconf -f mole_no_0_4.pdb -c -o XXX_MARTINI_input_no_0_4.pdb -box 25 25 25
+
+
+GROMACS reminds you: "The three principal virtues of a programmer are Laziness, Impatience, and Hubris" (Larry Wall)
+
+Note that major changes are planned in future for editconf, to improve usability and utility.
+Read 38070 atoms
+No velocities found
+    system size : 56.518 45.792 55.609 (nm)
+    center      : 10.999 11.330 12.473 (nm)
+    box vectors :  0.000  0.000  0.000 (nm)
+    box angles  :   0.00   0.00   0.00 (degrees)
+    box volume  :   0.00               (nm^3)
+    shift       :  1.501  1.170  0.027 (nm)
+new center      : 12.500 12.500 12.500 (nm)
+new box vectors : 25.000 25.000 25.000 (nm)
+new box angles  :  90.00  90.00  90.00 (degrees)
+new box volume  :15625.00               (nm^3)
+                     :-) GROMACS - gmx solvate, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1/mole_no_0_4
+Command line:
+  gmx_mpi solvate -cp XXX_MARTINI_input_no_0_4.pdb -cs water.gro -o solvated.gro -p PROA.top -radius 0.21
+
+Reading solute configuration
+Reading solvent configuration
+
+Initialising inter-atomic distances...
+
+WARNING: Masses and atomic (Van der Waals) radii will be guessed
+         based on residue and atom names, since they could not be
+         definitively assigned from the information in your input
+         files. These guessed numbers might deviate from the mass
+         and radius of the atom type. Please check the output
+         files if necessary. Note, that this functionality may
+         be removed in a future GROMACS version. Please, consider
+         using another file format for your input.
+
+NOTE: From version 5.0 gmx solvate uses the Van der Waals radii
+from the source below. This means the results may be different
+compared to previous GROMACS versions.
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+A. Bondi
+van der Waals Volumes and Radii
+J. Phys. Chem. 68 (1964) pp. 441-451
+-------- -------- --- Thank You --- -------- --------
+
+Generating solvent configuration
+Will generate new solvent configuration of 7x7x7 boxes
+Solvent box contains 137200 atoms in 137200 residues
+Removed 10154 solvent atoms due to solvent-solvent overlap
+Removed 32099 solvent atoms due to solute-solvent overlap
+Sorting configuration
+Found 1 molecule type:
+      W (   1 atoms): 94947 residues
+Generated solvent containing 94947 atoms in 94947 residues
+Writing generated configuration to solvated.gro
+
+Back Off! I just backed up solvated.gro to ./#solvated.gro.1#
+
+Output configuration contains 133017 atoms in 112605 residues
+Volume                 :       15625 (nm^3)
+Density                :     1944.87 (g/l)
+Number of solvent molecules:  94947   
+
+Processing topology
+
+Back Off! I just backed up PROA.top to ./#PROA.top.1#
+
+GROMACS reminds you: "They don't have any beavers in India, so they have to simulate them" (The Tubes)
+
+Adding line for 94947 solvent molecules with resname (W) to topology file (PROA.top)
+                      :-) GROMACS - gmx grompp, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1/mole_no_0_4
+Command line:
+  gmx_mpi grompp -f ions.mdp -c solvated.gro -p PROA.top -o ions.tpr
+
+Ignoring obsolete mdp entry 'ns_type'
+
+NOTE 1 [file PROA.top, line 11]:
+  System has non-zero total charge: 324.000000
+  Total charge should normally be an integer. See
+  http://www.gromacs.org/Documentation/Floating_Point_Arithmetic
+  for discussion on how close it should be to an integer.
+  
+
+
+Number of degrees of freedom in T-Coupling group rest is 390678.00
+
+There was 1 note
+
+Back Off! I just backed up ions.tpr to ./#ions.tpr.1#
+
+GROMACS reminds you: "We All Get the Flu, We All Get Aids" (LIVE)
+
+Setting the LD random seed to -1417741393
+
+Generated 3369 of the 1420455 non-bonded parameter combinations
+
+Excluding 1 bonded neighbours molecule type 'molecule_0'
+
+Excluding 1 bonded neighbours molecule type 'W'
+
+Cleaning up constraints and constant bonded interactions with virtual sites
+Analysing residue names:
+There are: 17658    Protein residues
+There are: 94947      Other residues
+Analysing Protein...
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+
+This run will generate roughly 10 Mb of data
+                      :-) GROMACS - gmx genion, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1/mole_no_0_4
+Command line:
+  gmx_mpi genion -s ions.tpr -o start.gro -p PROA.top -pname NA -nname CL -conc 0.15 -neutral
+
+Reading file ions.tpr, VERSION 2022.2 (single precision)
+Reading file ions.tpr, VERSION 2022.2 (single precision)
+Group     0 (         System) has 133017 elements
+Group     1 (        Protein) has 38070 elements
+Group     2 (      Protein-H) has 38070 elements
+Group     3 (        C-alpha) has     0 elements
+Group     4 (       Backbone) has     0 elements
+Group     5 (      MainChain) has     0 elements
+Group     6 (   MainChain+Cb) has     0 elements
+Group     7 (    MainChain+H) has     0 elements
+Group     8 (      SideChain) has 38070 elements
+Group     9 (    SideChain-H) has 38070 elements
+Group    10 (    Prot-Masses) has 38070 elements
+Group    11 (    non-Protein) has 94947 elements
+Group    12 (          Other) has 94947 elements
+Group    13 (              W) has 94947 elements
+Select a group: Number of (1-atomic) solvent molecules: 94947
+
+Back Off! I just backed up PROA.top to ./#PROA.top.2#
+Using random seed -1159206146.
+Replacing solvent molecule 42171 (atom 80241) with NA
+Replacing solvent molecule 18265 (atom 56335) with NA
+Replacing solvent molecule 16794 (atom 54864) with NA
+Replacing solvent molecule 46068 (atom 84138) with NA
+Replacing solvent molecule 52755 (atom 90825) with NA
+Replacing solvent molecule 15228 (atom 53298) with NA
+Replacing solvent molecule 66456 (atom 104526) with NA
+Replacing solvent molecule 58067 (atom 96137) with NA
+Replacing solvent molecule 44941 (atom 83011) with NA
+Replacing solvent molecule 88819 (atom 126889) with NA
+Replacing solvent molecule 56841 (atom 94911) with NA
+Replacing solvent molecule 42321 (atom 80391) with NA
+Replacing solvent molecule 21281 (atom 59351) with NA
+Replacing solvent molecule 3040 (atom 41110) with NA
+Replacing solvent molecule 31864 (atom 69934) with NA
+Replacing solvent molecule 88140 (atom 126210) with NA
+Replacing solvent molecule 27347 (atom 65417) with NA
+Replacing solvent molecule 91565 (atom 129635) with NA
+Replacing solvent molecule 94243 (atom 132313) with NA
+Replacing solvent molecule 55622 (atom 93692) with NA
+Replacing solvent molecule 20750 (atom 58820) with NA
+Replacing solvent molecule 83815 (atom 121885) with NA
+Replacing solvent molecule 41820 (atom 79890) with NA
+Replacing solvent molecule 45094 (atom 83164) with NA
+Replacing solvent molecule 67320 (atom 105390) with NA
+Replacing solvent molecule 90665 (atom 128735) with NA
+Replacing solvent molecule 61866 (atom 99936) with NA
+Replacing solvent molecule 61248 (atom 99318) with NA
+Replacing solvent molecule 54818 (atom 92888) with NA
+Replacing solvent molecule 81189 (atom 119259) with NA
+Replacing solvent molecule 44234 (atom 82304) with NA
+Replacing solvent molecule 64039 (atom 102109) with NA
+Replacing solvent molecule 90636 (atom 128706) with NA
+Replacing solvent molecule 3594 (atom 41664) with NA
+Replacing solvent molecule 55201 (atom 93271) with NA
+Replacing solvent molecule 46869 (atom 84939) with NA
+Replacing solvent molecule 13545 (atom 51615) with NA
+Replacing solvent molecule 54257 (atom 92327) with NA
+Replacing solvent molecule 30455 (atom 68525) with NA
+Replacing solvent molecule 73914 (atom 111984) with NA
+Replacing solvent molecule 46208 (atom 84278) with NA
+Replacing solvent molecule 57267 (atom 95337) with NA
+Replacing solvent molecule 28205 (atom 66275) with NA
+Replacing solvent molecule 79380 (atom 117450) with NA
+Replacing solvent molecule 21692 (atom 59762) with NA
+Replacing solvent molecule 26968 (atom 65038) with NA
+Replacing solvent molecule 69706 (atom 107776) with NA
+Replacing solvent molecule 40126 (atom 78196) with NA
+Replacing solvent molecule 81353 (atom 119423) with NA
+Replacing solvent molecule 85298 (atom 123368) with NA
+Replacing solvent molecule 20196 (atom 58266) with NA
+Replacing solvent molecule 35714 (atom 73784) with NA
+Replacing solvent molecule 79770 (atom 117840) with NA
+Replacing solvent molecule 49018 (atom 87088) with NA
+Replacing solvent molecule 12165 (atom 50235) with NA
+Replacing solvent molecule 70873 (atom 108943) with NA
+Replacing solvent molecule 66367 (atom 104437) with NA
+Replacing solvent molecule 41627 (atom 79697) with NA
+Replacing solvent molecule 19780 (atom 57850) with NA
+Replacing solvent molecule 93756 (atom 131826) with NA
+Replacing solvent molecule 87376 (atom 125446) with NA
+Replacing solvent molecule 24702 (atom 62772) with NA
+Replacing solvent molecule 56924 (atom 94994) with NA
+Replacing solvent molecule 59087 (atom 97157) with NA
+Replacing solvent molecule 71105 (atom 109175) with NA
+Replacing solvent molecule 56370 (atom 94440) with NA
+Replacing solvent molecule 9402 (atom 47472) with NA
+Replacing solvent molecule 71588 (atom 109658) with NA
+Replacing solvent molecule 48389 (atom 86459) with NA
+Replacing solvent molecule 63002 (atom 101072) with NA
+Replacing solvent molecule 13348 (atom 51418) with NA
+Replacing solvent molecule 54006 (atom 92076) with NA
+Replacing solvent molecule 90748 (atom 128818) with NA
+Replacing solvent molecule 49048 (atom 87118) with NA
+Replacing solvent molecule 29329 (atom 67399) with NA
+Replacing solvent molecule 82601 (atom 120671) with NA
+Replacing solvent molecule 44652 (atom 82722) with NA
+Replacing solvent molecule 83461 (atom 121531) with NA
+Replacing solvent molecule 27752 (atom 65822) with NA
+Replacing solvent molecule 80410 (atom 118480) with NA
+Replacing solvent molecule 61043 (atom 99113) with NA
+Replacing solvent molecule 32990 (atom 71060) with NA
+Replacing solvent molecule 58503 (atom 96573) with NA
+Replacing solvent molecule 87834 (atom 125904) with NA
+Replacing solvent molecule 86608 (atom 124678) with NA
+Replacing solvent molecule 65997 (atom 104067) with NA
+Replacing solvent molecule 1490 (atom 39560) with NA
+Replacing solvent molecule 3990 (atom 42060) with NA
+Replacing solvent molecule 88889 (atom 126959) with NA
+Replacing solvent molecule 81485 (atom 119555) with NA
+Replacing solvent molecule 83059 (atom 121129) with NA
+Replacing solvent molecule 68420 (atom 106490) with NA
+Replacing solvent molecule 13681 (atom 51751) with NA
+Replacing solvent molecule 77374 (atom 115444) with NA
+Replacing solvent molecule 19499 (atom 57569) with NA
+Replacing solvent molecule 16552 (atom 54622) with NA
+Replacing solvent molecule 23247 (atom 61317) with NA
+Replacing solvent molecule 83918 (atom 121988) with NA
+Replacing solvent molecule 34864 (atom 72934) with NA
+Replacing solvent molecule 48999 (atom 87069) with NA
+Replacing solvent molecule 42575 (atom 80645) with NA
+Replacing solvent molecule 68041 (atom 106111) with NA
+Replacing solvent molecule 62567 (atom 100637) with NA
+Replacing solvent molecule 33523 (atom 71593) with NA
+Replacing solvent molecule 57840 (atom 95910) with NA
+Replacing solvent molecule 30771 (atom 68841) with NA
+Replacing solvent molecule 92328 (atom 130398) with NA
+Replacing solvent molecule 47033 (atom 85103) with NA
+Replacing solvent molecule 57871 (atom 95941) with NA
+Replacing solvent molecule 87551 (atom 125621) with NA
+Replacing solvent molecule 73680 (atom 111750) with NA
+Replacing solvent molecule 71452 (atom 109522) with NA
+Replacing solvent molecule 2988 (atom 41058) with NA
+Replacing solvent molecule 17485 (atom 55555) with NA
+Replacing solvent molecule 92360 (atom 130430) with NA
+Replacing solvent molecule 59519 (atom 97589) with NA
+Replacing solvent molecule 5937 (atom 44007) with NA
+Replacing solvent molecule 8543 (atom 46613) with NA
+Replacing solvent molecule 59987 (atom 98057) with NA
+Replacing solvent molecule 80672 (atom 118742) with NA
+Replacing solvent molecule 21808 (atom 59878) with NA
+Replacing solvent molecule 45056 (atom 83126) with NA
+Replacing solvent molecule 49136 (atom 87206) with NA
+Replacing solvent molecule 67321 (atom 105391) with NA
+Replacing solvent molecule 52706 (atom 90776) with NA
+Replacing solvent molecule 17100 (atom 55170) with NA
+Replacing solvent molecule 4975 (atom 43045) with NA
+Replacing solvent molecule 32102 (atom 70172) with NA
+Replacing solvent molecule 82278 (atom 120348) with NA
+Replacing solvent molecule 30858 (atom 68928) with NA
+Replacing solvent molecule 20468 (atom 58538) with NA
+Replacing solvent molecule 15636 (atom 53706) with NA
+Replacing solvent molecule 79998 (atom 118068) with NA
+Replacing solvent molecule 498 (atom 38568) with NA
+Replacing solvent molecule 24416 (atom 62486) with NA
+Replacing solvent molecule 78264 (atom 116334) with NA
+Replacing solvent molecule 85574 (atom 123644) with NA
+Replacing solvent molecule 42073 (atom 80143) with NA
+Replacing solvent molecule 76636 (atom 114706) with NA
+Replacing solvent molecule 56974 (atom 95044) with NA
+Replacing solvent molecule 90465 (atom 128535) with NA
+Replacing solvent molecule 49165 (atom 87235) with NA
+Replacing solvent molecule 3938 (atom 42008) with NA
+Replacing solvent molecule 80835 (atom 118905) with NA
+Replacing solvent molecule 90644 (atom 128714) with NA
+Replacing solvent molecule 10695 (atom 48765) with NA
+Replacing solvent molecule 55994 (atom 94064) with NA
+Replacing solvent molecule 51917 (atom 89987) with NA
+Replacing solvent molecule 23644 (atom 61714) with NA
+Replacing solvent molecule 73423 (atom 111493) with NA
+Replacing solvent molecule 13782 (atom 51852) with NA
+Replacing solvent molecule 44560 (atom 82630) with NA
+Replacing solvent molecule 35040 (atom 73110) with NA
+Replacing solvent molecule 14309 (atom 52379) with NA
+Replacing solvent molecule 21136 (atom 59206) with NA
+Replacing solvent molecule 89368 (atom 127438) with NA
+Replacing solvent molecule 19901 (atom 57971) with NA
+Replacing solvent molecule 78038 (atom 116108) with NA
+Replacing solvent molecule 91434 (atom 129504) with NA
+Replacing solvent molecule 58817 (atom 96887) with NA
+Replacing solvent molecule 80015 (atom 118085) with NA
+Replacing solvent molecule 44577 (atom 82647) with NA
+Replacing solvent molecule 9155 (atom 47225) with NA
+Replacing solvent molecule 31587 (atom 69657) with NA
+Replacing solvent molecule 66205 (atom 104275) with NA
+Replacing solvent molecule 33082 (atom 71152) with NA
+Replacing solvent molecule 3864 (atom 41934) with NA
+Replacing solvent molecule 86077 (atom 124147) with NA
+Replacing solvent molecule 41777 (atom 79847) with NA
+Replacing solvent molecule 42999 (atom 81069) with NA
+Replacing solvent molecule 35237 (atom 73307) with NA
+Replacing solvent molecule 35503 (atom 73573) with NA
+Replacing solvent molecule 22900 (atom 60970) with NA
+Replacing solvent molecule 2746 (atom 40816) with NA
+Replacing solvent molecule 83422 (atom 121492) with NA
+Replacing solvent molecule 14952 (atom 53022) with NA
+Replacing solvent molecule 29579 (atom 67649) with NA
+Replacing solvent molecule 64649 (atom 102719) with NA
+Replacing solvent molecule 31585 (atom 69655) with NA
+Replacing solvent molecule 26400 (atom 64470) with NA
+Replacing solvent molecule 31461 (atom 69531) with NA
+Replacing solvent molecule 87121 (atom 125191) with NA
+Replacing solvent molecule 9203 (atom 47273) with NA
+Replacing solvent molecule 36136 (atom 74206) with NA
+Replacing solvent molecule 7073 (atom 45143) with NA
+Replacing solvent molecule 6978 (atom 45048) with NA
+Replacing solvent molecule 29613 (atom 67683) with NA
+Replacing solvent molecule 52917 (atom 90987) with NA
+Replacing solvent molecule 60887 (atom 98957) with NA
+Replacing solvent molecule 41972 (atom 80042) with NA
+Replacing solvent molecule 13928 (atom 51998) with NA
+Replacing solvent molecule 59889 (atom 97959) with NA
+Replacing solvent molecule 21445 (atom 59515) with NA
+Replacing solvent molecule 61646 (atom 99716) with NA
+Replacing solvent molecule 1851 (atom 39921) with NA
+Replacing solvent molecule 46210 (atom 84280) with NA
+Replacing solvent molecule 26203 (atom 64273) with NA
+Replacing solvent molecule 84160 (atom 122230) with NA
+Replacing solvent molecule 59564 (atom 97634) with NA
+Replacing solvent molecule 16892 (atom 54962) with NA
+Replacing solvent molecule 20789 (atom 58859) with NA
+Replacing solvent molecule 37185 (atom 75255) with NA
+Replacing solvent molecule 74330 (atom 112400) with NA
+Replacing solvent molecule 29701 (atom 67771) with NA
+Replacing solvent molecule 56616 (atom 94686) with NA
+Replacing solvent molecule 67740 (atom 105810) with NA
+Replacing solvent molecule 19703 (atom 57773) with NA
+Replacing solvent molecule 93197 (atom 131267) with NA
+Replacing solvent molecule 92505 (atom 130575) with NA
+Replacing solvent molecule 13071 (atom 51141) with NA
+Replacing solvent molecule 75845 (atom 113915) with NA
+Replacing solvent molecule 49283 (atom 87353) with NA
+Replacing solvent molecule 51142 (atom 89212) with NA
+Replacing solvent molecule 33864 (atom 71934) with NA
+Replacing solvent molecule 46348 (atom 84418) with NA
+Replacing solvent molecule 61525 (atom 99595) with NA
+Replacing solvent molecule 38996 (atom 77066) with NA
+Replacing solvent molecule 5398 (atom 43468) with NA
+Replacing solvent molecule 92224 (atom 130294) with NA
+Replacing solvent molecule 83478 (atom 121548) with NA
+Replacing solvent molecule 22484 (atom 60554) with NA
+Replacing solvent molecule 51430 (atom 89500) with NA
+Replacing solvent molecule 6668 (atom 44738) with NA
+Replacing solvent molecule 43177 (atom 81247) with NA
+Replacing solvent molecule 26615 (atom 64685) with NA
+Replacing solvent molecule 43925 (atom 81995) with NA
+Replacing solvent molecule 78461 (atom 116531) with NA
+Replacing solvent molecule 31456 (atom 69526) with NA
+Replacing solvent molecule 93108 (atom 131178) with NA
+Replacing solvent molecule 82081 (atom 120151) with NA
+Replacing solvent molecule 65639 (atom 103709) with NA
+Replacing solvent molecule 14612 (atom 52682) with NA
+Replacing solvent molecule 85330 (atom 123400) with NA
+Replacing solvent molecule 56489 (atom 94559) with NA
+Replacing solvent molecule 64068 (atom 102138) with NA
+Replacing solvent molecule 60152 (atom 98222) with NA
+Replacing solvent molecule 47257 (atom 85327) with NA
+Replacing solvent molecule 39191 (atom 77261) with NA
+Replacing solvent molecule 61892 (atom 99962) with NA
+Replacing solvent molecule 74466 (atom 112536) with NA
+Replacing solvent molecule 61450 (atom 99520) with NA
+Replacing solvent molecule 9602 (atom 47672) with NA
+Replacing solvent molecule 77470 (atom 115540) with NA
+Replacing solvent molecule 10396 (atom 48466) with NA
+Replacing solvent molecule 27845 (atom 65915) with NA
+Replacing solvent molecule 25283 (atom 63353) with NA
+Replacing solvent molecule 32878 (atom 70948) with NA
+Replacing solvent molecule 45244 (atom 83314) with NA
+Replacing solvent molecule 3868 (atom 41938) with NA
+Replacing solvent molecule 70396 (atom 108466) with NA
+Replacing solvent molecule 91711 (atom 129781) with NA
+Replacing solvent molecule 39856 (atom 77926) with NA
+Replacing solvent molecule 5472 (atom 43542) with NA
+Replacing solvent molecule 13501 (atom 51571) with NA
+Replacing solvent molecule 61512 (atom 99582) with NA
+Replacing solvent molecule 73766 (atom 111836) with NA
+Replacing solvent molecule 48547 (atom 86617) with NA
+Replacing solvent molecule 76810 (atom 114880) with NA
+Replacing solvent molecule 17032 (atom 55102) with NA
+Replacing solvent molecule 63281 (atom 101351) with NA
+Replacing solvent molecule 62490 (atom 100560) with NA
+Replacing solvent molecule 15748 (atom 53818) with NA
+Replacing solvent molecule 11650 (atom 49720) with NA
+Replacing solvent molecule 93544 (atom 131614) with NA
+Replacing solvent molecule 30533 (atom 68603) with NA
+Replacing solvent molecule 30246 (atom 68316) with NA
+Replacing solvent molecule 56998 (atom 95068) with NA
+Replacing solvent molecule 58509 (atom 96579) with NA
+Replacing solvent molecule 49031 (atom 87101) with NA
+Replacing solvent molecule 64850 (atom 102920) with NA
+Replacing solvent molecule 91357 (atom 129427) with NA
+Replacing solvent molecule 42978 (atom 81048) with NA
+Replacing solvent molecule 37674 (atom 75744) with NA
+Replacing solvent molecule 83980 (atom 122050) with NA
+Replacing solvent molecule 64355 (atom 102425) with NA
+Replacing solvent molecule 42303 (atom 80373) with NA
+Replacing solvent molecule 63600 (atom 101670) with NA
+Replacing solvent molecule 67461 (atom 105531) with NA
+Replacing solvent molecule 82277 (atom 120347) with NA
+Replacing solvent molecule 40328 (atom 78398) with NA
+Replacing solvent molecule 74378 (atom 112448) with NA
+Replacing solvent molecule 46751 (atom 84821) with NA
+Replacing solvent molecule 65182 (atom 103252) with NA
+Replacing solvent molecule 41753 (atom 79823) with NA
+Replacing solvent molecule 92974 (atom 131044) with NA
+Replacing solvent molecule 38378 (atom 76448) with NA
+Replacing solvent molecule 31802 (atom 69872) with NA
+Replacing solvent molecule 92198 (atom 130268) with NA
+Replacing solvent molecule 54978 (atom 93048) with NA
+Replacing solvent molecule 12219 (atom 50289) with NA
+Replacing solvent molecule 31132 (atom 69202) with NA
+Replacing solvent molecule 73663 (atom 111733) with NA
+Replacing solvent molecule 69267 (atom 107337) with NA
+Replacing solvent molecule 94241 (atom 132311) with NA
+Replacing solvent molecule 63076 (atom 101146) with NA
+Replacing solvent molecule 88580 (atom 126650) with NA
+Replacing solvent molecule 80091 (atom 118161) with NA
+Replacing solvent molecule 82428 (atom 120498) with NA
+Replacing solvent molecule 30259 (atom 68329) with NA
+Replacing solvent molecule 61636 (atom 99706) with NA
+Replacing solvent molecule 13783 (atom 51853) with NA
+Replacing solvent molecule 40148 (atom 78218) with NA
+Replacing solvent molecule 33963 (atom 72033) with NA
+Replacing solvent molecule 33677 (atom 71747) with NA
+Replacing solvent molecule 15088 (atom 53158) with NA
+Replacing solvent molecule 2242 (atom 40312) with NA
+Replacing solvent molecule 37985 (atom 76055) with NA
+Replacing solvent molecule 86987 (atom 125057) with NA
+Replacing solvent molecule 24973 (atom 63043) with NA
+Replacing solvent molecule 5083 (atom 43153) with NA
+Replacing solvent molecule 82603 (atom 120673) with NA
+Replacing solvent molecule 5036 (atom 43106) with NA
+Replacing solvent molecule 59515 (atom 97585) with NA
+Replacing solvent molecule 53379 (atom 91449) with NA
+Replacing solvent molecule 84675 (atom 122745) with NA
+Replacing solvent molecule 4766 (atom 42836) with NA
+Replacing solvent molecule 46946 (atom 85016) with NA
+Replacing solvent molecule 11515 (atom 49585) with NA
+Replacing solvent molecule 90586 (atom 128656) with NA
+Replacing solvent molecule 35153 (atom 73223) with NA
+Replacing solvent molecule 64746 (atom 102816) with NA
+Replacing solvent molecule 85638 (atom 123708) with NA
+Replacing solvent molecule 301 (atom 38371) with NA
+Replacing solvent molecule 20218 (atom 58288) with NA
+Replacing solvent molecule 74135 (atom 112205) with NA
+Replacing solvent molecule 57371 (atom 95441) with NA
+Replacing solvent molecule 21632 (atom 59702) with NA
+Replacing solvent molecule 74999 (atom 113069) with NA
+Replacing solvent molecule 73099 (atom 111169) with NA
+Replacing solvent molecule 20239 (atom 58309) with NA
+Replacing solvent molecule 28868 (atom 66938) with NA
+Replacing solvent molecule 31428 (atom 69498) with NA
+Replacing solvent molecule 11282 (atom 49352) with NA
+Replacing solvent molecule 51230 (atom 89300) with NA
+Replacing solvent molecule 59052 (atom 97122) with NA
+Replacing solvent molecule 38156 (atom 76226) with NA
+Replacing solvent molecule 4070 (atom 42140) with NA
+Replacing solvent molecule 77126 (atom 115196) with NA
+Replacing solvent molecule 87985 (atom 126055) with NA
+Replacing solvent molecule 1710 (atom 39780) with NA
+Replacing solvent molecule 25079 (atom 63149) with NA
+Replacing solvent molecule 59896 (atom 97966) with NA
+Replacing solvent molecule 37091 (atom 75161) with NA
+Replacing solvent molecule 48509 (atom 86579) with NA
+Replacing solvent molecule 58719 (atom 96789) with NA
+Replacing solvent molecule 18285 (atom 56355) with NA
+Replacing solvent molecule 87530 (atom 125600) with NA
+Replacing solvent molecule 5597 (atom 43667) with NA
+Replacing solvent molecule 60001 (atom 98071) with NA
+Replacing solvent molecule 81046 (atom 119116) with NA
+Replacing solvent molecule 7635 (atom 45705) with NA
+Replacing solvent molecule 85591 (atom 123661) with NA
+Replacing solvent molecule 87685 (atom 125755) with NA
+Replacing solvent molecule 73881 (atom 111951) with NA
+Replacing solvent molecule 9142 (atom 47212) with NA
+Replacing solvent molecule 49915 (atom 87985) with NA
+Replacing solvent molecule 17957 (atom 56027) with NA
+Replacing solvent molecule 2220 (atom 40290) with NA
+Replacing solvent molecule 55406 (atom 93476) with NA
+Replacing solvent molecule 30812 (atom 68882) with NA
+Replacing solvent molecule 64112 (atom 102182) with NA
+Replacing solvent molecule 71589 (atom 109659) with NA
+Replacing solvent molecule 20480 (atom 58550) with NA
+Replacing solvent molecule 94517 (atom 132587) with NA
+Replacing solvent molecule 40753 (atom 78823) with NA
+Replacing solvent molecule 52552 (atom 90622) with NA
+Replacing solvent molecule 12862 (atom 50932) with NA
+Replacing solvent molecule 82503 (atom 120573) with NA
+Replacing solvent molecule 43616 (atom 81686) with NA
+Replacing solvent molecule 26627 (atom 64697) with NA
+Replacing solvent molecule 25031 (atom 63101) with NA
+Replacing solvent molecule 62968 (atom 101038) with NA
+Replacing solvent molecule 2462 (atom 40532) with NA
+Replacing solvent molecule 25439 (atom 63509) with NA
+Replacing solvent molecule 22597 (atom 60667) with NA
+Replacing solvent molecule 23287 (atom 61357) with NA
+Replacing solvent molecule 58591 (atom 96661) with NA
+Replacing solvent molecule 58770 (atom 96840) with NA
+Replacing solvent molecule 25018 (atom 63088) with NA
+Replacing solvent molecule 56422 (atom 94492) with NA
+Replacing solvent molecule 42594 (atom 80664) with NA
+Replacing solvent molecule 62997 (atom 101067) with NA
+Replacing solvent molecule 16399 (atom 54469) with NA
+Replacing solvent molecule 12415 (atom 50485) with NA
+Replacing solvent molecule 9738 (atom 47808) with NA
+Replacing solvent molecule 28193 (atom 66263) with NA
+Replacing solvent molecule 68868 (atom 106938) with NA
+Replacing solvent molecule 19472 (atom 57542) with NA
+Replacing solvent molecule 40305 (atom 78375) with NA
+Replacing solvent molecule 2317 (atom 40387) with NA
+Replacing solvent molecule 60708 (atom 98778) with NA
+Replacing solvent molecule 3887 (atom 41957) with NA
+Replacing solvent molecule 48253 (atom 86323) with NA
+Replacing solvent molecule 59106 (atom 97176) with NA
+Replacing solvent molecule 48914 (atom 86984) with NA
+Replacing solvent molecule 32272 (atom 70342) with NA
+Replacing solvent molecule 79444 (atom 117514) with NA
+Replacing solvent molecule 18848 (atom 56918) with NA
+Replacing solvent molecule 93670 (atom 131740) with NA
+Replacing solvent molecule 92466 (atom 130536) with NA
+Replacing solvent molecule 18788 (atom 56858) with NA
+Replacing solvent molecule 28656 (atom 66726) with NA
+Replacing solvent molecule 53171 (atom 91241) with NA
+Replacing solvent molecule 89332 (atom 127402) with NA
+Replacing solvent molecule 32100 (atom 70170) with NA
+Replacing solvent molecule 87619 (atom 125689) with NA
+Replacing solvent molecule 16849 (atom 54919) with NA
+Replacing solvent molecule 60834 (atom 98904) with NA
+Replacing solvent molecule 2770 (atom 40840) with NA
+Replacing solvent molecule 66488 (atom 104558) with NA
+Replacing solvent molecule 5160 (atom 43230) with NA
+Replacing solvent molecule 48869 (atom 86939) with NA
+Replacing solvent molecule 55296 (atom 93366) with NA
+Replacing solvent molecule 12614 (atom 50684) with NA
+Replacing solvent molecule 90922 (atom 128992) with NA
+Replacing solvent molecule 14324 (atom 52394) with NA
+Replacing solvent molecule 36245 (atom 74315) with NA
+Replacing solvent molecule 74279 (atom 112349) with NA
+Replacing solvent molecule 42480 (atom 80550) with NA
+Replacing solvent molecule 28793 (atom 66863) with NA
+Replacing solvent molecule 87961 (atom 126031) with NA
+Replacing solvent molecule 25382 (atom 63452) with NA
+Replacing solvent molecule 66739 (atom 104809) with NA
+Replacing solvent molecule 47023 (atom 85093) with NA
+Replacing solvent molecule 72717 (atom 110787) with NA
+Replacing solvent molecule 83202 (atom 121272) with NA
+Replacing solvent molecule 36559 (atom 74629) with NA
+Replacing solvent molecule 75905 (atom 113975) with NA
+Replacing solvent molecule 23976 (atom 62046) with NA
+Replacing solvent molecule 17584 (atom 55654) with NA
+Replacing solvent molecule 46705 (atom 84775) with NA
+Replacing solvent molecule 29461 (atom 67531) with NA
+Replacing solvent molecule 64057 (atom 102127) with NA
+Replacing solvent molecule 87304 (atom 125374) with NA
+Replacing solvent molecule 38735 (atom 76805) with NA
+Replacing solvent molecule 88022 (atom 126092) with NA
+Replacing solvent molecule 64569 (atom 102639) with NA
+Replacing solvent molecule 40267 (atom 78337) with NA
+Replacing solvent molecule 6263 (atom 44333) with NA
+Replacing solvent molecule 27083 (atom 65153) with NA
+Replacing solvent molecule 9530 (atom 47600) with NA
+Replacing solvent molecule 12168 (atom 50238) with NA
+Replacing solvent molecule 72906 (atom 110976) with NA
+Replacing solvent molecule 43838 (atom 81908) with NA
+Replacing solvent molecule 13711 (atom 51781) with NA
+Replacing solvent molecule 70977 (atom 109047) with NA
+Replacing solvent molecule 46414 (atom 84484) with NA
+Replacing solvent molecule 69154 (atom 107224) with NA
+Replacing solvent molecule 11411 (atom 49481) with NA
+Replacing solvent molecule 30634 (atom 68704) with NA
+Replacing solvent molecule 53096 (atom 91166) with NA
+Replacing solvent molecule 53670 (atom 91740) with NA
+Replacing solvent molecule 21066 (atom 59136) with NA
+Replacing solvent molecule 71066 (atom 109136) with NA
+Replacing solvent molecule 4204 (atom 42274) with NA
+Replacing solvent molecule 43787 (atom 81857) with NA
+Replacing solvent molecule 1441 (atom 39511) with NA
+Replacing solvent molecule 53289 (atom 91359) with NA
+Replacing solvent molecule 48104 (atom 86174) with NA
+Replacing solvent molecule 5304 (atom 43374) with NA
+Replacing solvent molecule 69567 (atom 107637) with NA
+Replacing solvent molecule 32745 (atom 70815) with NA
+Replacing solvent molecule 65878 (atom 103948) with NA
+Replacing solvent molecule 56135 (atom 94205) with NA
+Replacing solvent molecule 58 (atom 38128) with NA
+Replacing solvent molecule 1207 (atom 39277) with NA
+Replacing solvent molecule 71555 (atom 109625) with NA
+Replacing solvent molecule 80949 (atom 119019) with NA
+Replacing solvent molecule 44190 (atom 82260) with NA
+Replacing solvent molecule 38149 (atom 76219) with NA
+Replacing solvent molecule 24207 (atom 62277) with NA
+Replacing solvent molecule 13370 (atom 51440) with NA
+Replacing solvent molecule 17127 (atom 55197) with NA
+Replacing solvent molecule 4375 (atom 42445) with NA
+Replacing solvent molecule 60094 (atom 98164) with NA
+Replacing solvent molecule 87246 (atom 125316) with NA
+Replacing solvent molecule 31270 (atom 69340) with NA
+Replacing solvent molecule 31120 (atom 69190) with NA
+Replacing solvent molecule 77282 (atom 115352) with NA
+Replacing solvent molecule 18881 (atom 56951) with NA
+Replacing solvent molecule 38864 (atom 76934) with NA
+Replacing solvent molecule 45506 (atom 83576) with NA
+Replacing solvent molecule 20800 (atom 58870) with NA
+Replacing solvent molecule 45731 (atom 83801) with NA
+Replacing solvent molecule 42795 (atom 80865) with NA
+Replacing solvent molecule 32494 (atom 70564) with NA
+Replacing solvent molecule 30552 (atom 68622) with NA
+Replacing solvent molecule 62881 (atom 100951) with NA
+Replacing solvent molecule 82785 (atom 120855) with NA
+Replacing solvent molecule 7697 (atom 45767) with NA
+Replacing solvent molecule 79090 (atom 117160) with NA
+Replacing solvent molecule 82105 (atom 120175) with NA
+Replacing solvent molecule 16173 (atom 54243) with NA
+Replacing solvent molecule 15040 (atom 53110) with NA
+Replacing solvent molecule 79082 (atom 117152) with NA
+Replacing solvent molecule 66402 (atom 104472) with NA
+Replacing solvent molecule 25159 (atom 63229) with NA
+Replacing solvent molecule 63101 (atom 101171) with NA
+Replacing solvent molecule 89899 (atom 127969) with NA
+Replacing solvent molecule 73214 (atom 111284) with NA
+Replacing solvent molecule 54945 (atom 93015) with NA
+Replacing solvent molecule 61482 (atom 99552) with NA
+Replacing solvent molecule 47888 (atom 85958) with NA
+Replacing solvent molecule 17199 (atom 55269) with NA
+Replacing solvent molecule 55889 (atom 93959) with NA
+Replacing solvent molecule 55266 (atom 93336) with NA
+Replacing solvent molecule 84607 (atom 122677) with NA
+Replacing solvent molecule 29392 (atom 67462) with NA
+Replacing solvent molecule 62777 (atom 100847) with NA
+Replacing solvent molecule 38970 (atom 77040) with NA
+Replacing solvent molecule 46432 (atom 84502) with NA
+Replacing solvent molecule 7946 (atom 46016) with NA
+Replacing solvent molecule 79298 (atom 117368) with NA
+Replacing solvent molecule 3612 (atom 41682) with NA
+Replacing solvent molecule 21622 (atom 59692) with NA
+Replacing solvent molecule 48430 (atom 86500) with NA
+Replacing solvent molecule 88688 (atom 126758) with NA
+Replacing solvent molecule 15080 (atom 53150) with NA
+Replacing solvent molecule 7335 (atom 45405) with NA
+Replacing solvent molecule 33548 (atom 71618) with NA
+Replacing solvent molecule 26872 (atom 64942) with NA
+Replacing solvent molecule 29107 (atom 67177) with NA
+Replacing solvent molecule 17660 (atom 55730) with NA
+Replacing solvent molecule 87289 (atom 125359) with NA
+Replacing solvent molecule 61531 (atom 99601) with NA
+Replacing solvent molecule 83626 (atom 121696) with NA
+Replacing solvent molecule 77128 (atom 115198) with NA
+Replacing solvent molecule 53570 (atom 91640) with NA
+Replacing solvent molecule 77038 (atom 115108) with NA
+Replacing solvent molecule 87251 (atom 125321) with NA
+Replacing solvent molecule 13098 (atom 51168) with NA
+Replacing solvent molecule 25675 (atom 63745) with NA
+Replacing solvent molecule 61537 (atom 99607) with NA
+Replacing solvent molecule 65624 (atom 103694) with NA
+Replacing solvent molecule 35086 (atom 73156) with NA
+Replacing solvent molecule 68341 (atom 106411) with NA
+Replacing solvent molecule 52778 (atom 90848) with NA
+Replacing solvent molecule 30421 (atom 68491) with NA
+Replacing solvent molecule 2774 (atom 40844) with NA
+Replacing solvent molecule 88691 (atom 126761) with NA
+Replacing solvent molecule 22255 (atom 60325) with NA
+Replacing solvent molecule 46425 (atom 84495) with NA
+Replacing solvent molecule 85719 (atom 123789) with NA
+Replacing solvent molecule 67560 (atom 105630) with NA
+Replacing solvent molecule 34225 (atom 72295) with NA
+Replacing solvent molecule 1563 (atom 39633) with NA
+Replacing solvent molecule 1009 (atom 39079) with NA
+Replacing solvent molecule 9484 (atom 47554) with NA
+Replacing solvent molecule 50692 (atom 88762) with NA
+Replacing solvent molecule 57848 (atom 95918) with NA
+Replacing solvent molecule 17155 (atom 55225) with NA
+Replacing solvent molecule 19887 (atom 57957) with NA
+Replacing solvent molecule 58561 (atom 96631) with NA
+Replacing solvent molecule 12478 (atom 50548) with NA
+Replacing solvent molecule 24666 (atom 62736) with NA
+Replacing solvent molecule 29789 (atom 67859) with NA
+Replacing solvent molecule 63849 (atom 101919) with NA
+Replacing solvent molecule 47413 (atom 85483) with NA
+Replacing solvent molecule 71394 (atom 109464) with NA
+Replacing solvent molecule 76912 (atom 114982) with NA
+Replacing solvent molecule 51203 (atom 89273) with NA
+Replacing solvent molecule 50121 (atom 88191) with NA
+Replacing solvent molecule 78451 (atom 116521) with NA
+Replacing solvent molecule 61690 (atom 99760) with NA
+Replacing solvent molecule 29645 (atom 67715) with NA
+Replacing solvent molecule 38590 (atom 76660) with NA
+Replacing solvent molecule 21997 (atom 60067) with NA
+Replacing solvent molecule 67295 (atom 105365) with NA
+Replacing solvent molecule 56917 (atom 94987) with NA
+Replacing solvent molecule 84445 (atom 122515) with NA
+Replacing solvent molecule 45700 (atom 83770) with NA
+Replacing solvent molecule 86714 (atom 124784) with NA
+Replacing solvent molecule 67799 (atom 105869) with NA
+Replacing solvent molecule 88643 (atom 126713) with NA
+Replacing solvent molecule 6377 (atom 44447) with NA
+Replacing solvent molecule 62727 (atom 100797) with NA
+Replacing solvent molecule 39710 (atom 77780) with NA
+Replacing solvent molecule 79429 (atom 117499) with NA
+Replacing solvent molecule 68347 (atom 106417) with NA
+Replacing solvent molecule 71675 (atom 109745) with NA
+Replacing solvent molecule 85344 (atom 123414) with NA
+Replacing solvent molecule 91904 (atom 129974) with NA
+Replacing solvent molecule 53814 (atom 91884) with NA
+Replacing solvent molecule 85583 (atom 123653) with NA
+Replacing solvent molecule 51436 (atom 89506) with NA
+Replacing solvent molecule 48079 (atom 86149) with NA
+Replacing solvent molecule 88025 (atom 126095) with NA
+Replacing solvent molecule 23541 (atom 61611) with NA
+Replacing solvent molecule 14874 (atom 52944) with NA
+Replacing solvent molecule 10002 (atom 48072) with NA
+Replacing solvent molecule 91496 (atom 129566) with NA
+Replacing solvent molecule 89503 (atom 127573) with NA
+Replacing solvent molecule 26667 (atom 64737) with NA
+Replacing solvent molecule 42820 (atom 80890) with NA
+Replacing solvent molecule 53888 (atom 91958) with NA
+Replacing solvent molecule 23388 (atom 61458) with NA
+Replacing solvent molecule 22686 (atom 60756) with NA
+Replacing solvent molecule 35218 (atom 73288) with NA
+Replacing solvent molecule 50643 (atom 88713) with NA
+Replacing solvent molecule 8564 (atom 46634) with NA
+Replacing solvent molecule 55342 (atom 93412) with NA
+Replacing solvent molecule 64536 (atom 102606) with NA
+Replacing solvent molecule 73231 (atom 111301) with NA
+Replacing solvent molecule 1535 (atom 39605) with NA
+Replacing solvent molecule 42215 (atom 80285) with NA
+Replacing solvent molecule 24705 (atom 62775) with NA
+Replacing solvent molecule 20390 (atom 58460) with NA
+Replacing solvent molecule 79595 (atom 117665) with NA
+Replacing solvent molecule 86397 (atom 124467) with NA
+Replacing solvent molecule 50631 (atom 88701) with NA
+Replacing solvent molecule 42977 (atom 81047) with NA
+Replacing solvent molecule 65289 (atom 103359) with NA
+Replacing solvent molecule 24263 (atom 62333) with NA
+Replacing solvent molecule 13099 (atom 51169) with NA
+Replacing solvent molecule 64477 (atom 102547) with NA
+Replacing solvent molecule 39669 (atom 77739) with NA
+Replacing solvent molecule 81426 (atom 119496) with NA
+Replacing solvent molecule 53871 (atom 91941) with NA
+Replacing solvent molecule 73019 (atom 111089) with NA
+Replacing solvent molecule 55607 (atom 93677) with NA
+Replacing solvent molecule 82561 (atom 120631) with NA
+Replacing solvent molecule 57348 (atom 95418) with NA
+Replacing solvent molecule 55109 (atom 93179) with NA
+Replacing solvent molecule 94506 (atom 132576) with NA
+Replacing solvent molecule 31193 (atom 69263) with NA
+Replacing solvent molecule 83941 (atom 122011) with NA
+Replacing solvent molecule 51380 (atom 89450) with NA
+Replacing solvent molecule 8330 (atom 46400) with NA
+Replacing solvent molecule 30595 (atom 68665) with NA
+Replacing solvent molecule 19733 (atom 57803) with NA
+Replacing solvent molecule 94189 (atom 132259) with NA
+Replacing solvent molecule 93366 (atom 131436) with NA
+Replacing solvent molecule 1371 (atom 39441) with NA
+Replacing solvent molecule 58233 (atom 96303) with NA
+Replacing solvent molecule 64851 (atom 102921) with NA
+Replacing solvent molecule 25160 (atom 63230) with NA
+Replacing solvent molecule 6508 (atom 44578) with NA
+Replacing solvent molecule 61536 (atom 99606) with NA
+Replacing solvent molecule 31789 (atom 69859) with NA
+Replacing solvent molecule 79276 (atom 117346) with NA
+Replacing solvent molecule 29883 (atom 67953) with NA
+Replacing solvent molecule 30217 (atom 68287) with NA
+Replacing solvent molecule 81867 (atom 119937) with NA
+Replacing solvent molecule 90200 (atom 128270) with NA
+Replacing solvent molecule 25597 (atom 63667) with NA
+Replacing solvent molecule 54093 (atom 92163) with NA
+Replacing solvent molecule 1780 (atom 39850) with NA
+Replacing solvent molecule 42172 (atom 80242) with NA
+Replacing solvent molecule 87345 (atom 125415) with NA
+Replacing solvent molecule 12961 (atom 51031) with NA
+Replacing solvent molecule 72795 (atom 110865) with NA
+Replacing solvent molecule 29840 (atom 67910) with NA
+Replacing solvent molecule 68027 (atom 106097) with NA
+Replacing solvent molecule 25522 (atom 63592) with NA
+Replacing solvent molecule 58895 (atom 96965) with NA
+Replacing solvent molecule 40380 (atom 78450) with NA
+Replacing solvent molecule 84227 (atom 122297) with NA
+Replacing solvent molecule 33018 (atom 71088) with NA
+Replacing solvent molecule 55183 (atom 93253) with NA
+Replacing solvent molecule 57353 (atom 95423) with NA
+Replacing solvent molecule 6699 (atom 44769) with NA
+Replacing solvent molecule 55925 (atom 93995) with NA
+Replacing solvent molecule 12021 (atom 50091) with NA
+Replacing solvent molecule 37596 (atom 75666) with NA
+Replacing solvent molecule 14491 (atom 52561) with NA
+Replacing solvent molecule 41166 (atom 79236) with NA
+Replacing solvent molecule 1698 (atom 39768) with NA
+Replacing solvent molecule 54223 (atom 92293) with NA
+Replacing solvent molecule 81104 (atom 119174) with NA
+Replacing solvent molecule 86489 (atom 124559) with NA
+Replacing solvent molecule 84862 (atom 122932) with NA
+Replacing solvent molecule 14895 (atom 52965) with NA
+Replacing solvent molecule 76275 (atom 114345) with NA
+Replacing solvent molecule 86209 (atom 124279) with NA
+Replacing solvent molecule 63230 (atom 101300) with NA
+Replacing solvent molecule 52182 (atom 90252) with NA
+Replacing solvent molecule 69750 (atom 107820) with NA
+Replacing solvent molecule 27654 (atom 65724) with NA
+Replacing solvent molecule 59951 (atom 98021) with NA
+Replacing solvent molecule 43488 (atom 81558) with NA
+Replacing solvent molecule 86399 (atom 124469) with NA
+Replacing solvent molecule 73125 (atom 111195) with NA
+Replacing solvent molecule 36949 (atom 75019) with NA
+Replacing solvent molecule 41876 (atom 79946) with NA
+Replacing solvent molecule 29194 (atom 67264) with NA
+Replacing solvent molecule 22649 (atom 60719) with NA
+Replacing solvent molecule 71743 (atom 109813) with NA
+Replacing solvent molecule 23258 (atom 61328) with NA
+Replacing solvent molecule 26364 (atom 64434) with NA
+Replacing solvent molecule 60401 (atom 98471) with NA
+Replacing solvent molecule 43375 (atom 81445) with NA
+Replacing solvent molecule 78471 (atom 116541) with NA
+Replacing solvent molecule 94320 (atom 132390) with NA
+Replacing solvent molecule 31993 (atom 70063) with NA
+Replacing solvent molecule 4963 (atom 43033) with NA
+Replacing solvent molecule 30028 (atom 68098) with NA
+Replacing solvent molecule 58965 (atom 97035) with NA
+Replacing solvent molecule 91300 (atom 129370) with NA
+Replacing solvent molecule 86856 (atom 124926) with NA
+Replacing solvent molecule 41254 (atom 79324) with NA
+Replacing solvent molecule 72079 (atom 110149) with NA
+Replacing solvent molecule 12745 (atom 50815) with NA
+Replacing solvent molecule 50852 (atom 88922) with NA
+Replacing solvent molecule 27064 (atom 65134) with NA
+Replacing solvent molecule 87046 (atom 125116) with NA
+Replacing solvent molecule 53537 (atom 91607) with NA
+Replacing solvent molecule 60715 (atom 98785) with NA
+Replacing solvent molecule 37606 (atom 75676) with NA
+Replacing solvent molecule 75762 (atom 113832) with NA
+Replacing solvent molecule 33790 (atom 71860) with NA
+Replacing solvent molecule 5681 (atom 43751) with NA
+Replacing solvent molecule 18877 (atom 56947) with NA
+Replacing solvent molecule 16866 (atom 54936) with NA
+Replacing solvent molecule 77225 (atom 115295) with NA
+Replacing solvent molecule 24850 (atom 62920) with NA
+Replacing solvent molecule 92473 (atom 130543) with NA
+Replacing solvent molecule 27288 (atom 65358) with NA
+Replacing solvent molecule 62640 (atom 100710) with NA
+Replacing solvent molecule 37308 (atom 75378) with NA
+Replacing solvent molecule 17253 (atom 55323) with NA
+Replacing solvent molecule 71340 (atom 109410) with NA
+Replacing solvent molecule 8362 (atom 46432) with NA
+Replacing solvent molecule 995 (atom 39065) with NA
+Replacing solvent molecule 36733 (atom 74803) with NA
+Replacing solvent molecule 62667 (atom 100737) with NA
+Replacing solvent molecule 53218 (atom 91288) with NA
+Replacing solvent molecule 8406 (atom 46476) with NA
+Replacing solvent molecule 62244 (atom 100314) with NA
+Replacing solvent molecule 76709 (atom 114779) with NA
+Replacing solvent molecule 28809 (atom 66879) with NA
+Replacing solvent molecule 32826 (atom 70896) with NA
+Replacing solvent molecule 72074 (atom 110144) with NA
+Replacing solvent molecule 68524 (atom 106594) with NA
+Replacing solvent molecule 42099 (atom 80169) with NA
+Replacing solvent molecule 58119 (atom 96189) with NA
+Replacing solvent molecule 13390 (atom 51460) with NA
+Replacing solvent molecule 84037 (atom 122107) with NA
+Replacing solvent molecule 23647 (atom 61717) with NA
+Replacing solvent molecule 93381 (atom 131451) with NA
+Replacing solvent molecule 6962 (atom 45032) with NA
+Replacing solvent molecule 89427 (atom 127497) with NA
+Replacing solvent molecule 77856 (atom 115926) with NA
+Replacing solvent molecule 11968 (atom 50038) with NA
+Replacing solvent molecule 92564 (atom 130634) with NA
+Replacing solvent molecule 56727 (atom 94797) with NA
+Replacing solvent molecule 16209 (atom 54279) with NA
+Replacing solvent molecule 18459 (atom 56529) with NA
+Replacing solvent molecule 51899 (atom 89969) with NA
+Replacing solvent molecule 19988 (atom 58058) with NA
+Replacing solvent molecule 1557 (atom 39627) with NA
+Replacing solvent molecule 46439 (atom 84509) with NA
+Replacing solvent molecule 35041 (atom 73111) with NA
+Replacing solvent molecule 87502 (atom 125572) with NA
+Replacing solvent molecule 62445 (atom 100515) with NA
+Replacing solvent molecule 48453 (atom 86523) with NA
+Replacing solvent molecule 82439 (atom 120509) with NA
+Replacing solvent molecule 94707 (atom 132777) with NA
+Replacing solvent molecule 32855 (atom 70925) with NA
+Replacing solvent molecule 3556 (atom 41626) with NA
+Replacing solvent molecule 26233 (atom 64303) with NA
+Replacing solvent molecule 29433 (atom 67503) with NA
+Replacing solvent molecule 48669 (atom 86739) with NA
+Replacing solvent molecule 51535 (atom 89605) with NA
+Replacing solvent molecule 47825 (atom 85895) with NA
+Replacing solvent molecule 78244 (atom 116314) with NA
+Replacing solvent molecule 20552 (atom 58622) with NA
+Replacing solvent molecule 78516 (atom 116586) with NA
+Replacing solvent molecule 66053 (atom 104123) with NA
+Replacing solvent molecule 62312 (atom 100382) with NA
+Replacing solvent molecule 4720 (atom 42790) with NA
+Replacing solvent molecule 55757 (atom 93827) with NA
+Replacing solvent molecule 63799 (atom 101869) with NA
+Replacing solvent molecule 54260 (atom 92330) with NA
+Replacing solvent molecule 85647 (atom 123717) with NA
+Replacing solvent molecule 73333 (atom 111403) with NA
+Replacing solvent molecule 9516 (atom 47586) with NA
+Replacing solvent molecule 23217 (atom 61287) with NA
+Replacing solvent molecule 37367 (atom 75437) with NA
+Replacing solvent molecule 32402 (atom 70472) with NA
+Replacing solvent molecule 16945 (atom 55015) with NA
+Replacing solvent molecule 85851 (atom 123921) with NA
+Replacing solvent molecule 63970 (atom 102040) with NA
+Replacing solvent molecule 2807 (atom 40877) with NA
+Replacing solvent molecule 12755 (atom 50825) with NA
+Replacing solvent molecule 42789 (atom 80859) with NA
+Replacing solvent molecule 83056 (atom 121126) with NA
+Replacing solvent molecule 80767 (atom 118837) with NA
+Replacing solvent molecule 50151 (atom 88221) with NA
+Replacing solvent molecule 20562 (atom 58632) with NA
+Replacing solvent molecule 58104 (atom 96174) with NA
+Replacing solvent molecule 73824 (atom 111894) with NA
+Replacing solvent molecule 72206 (atom 110276) with NA
+Replacing solvent molecule 80423 (atom 118493) with NA
+Replacing solvent molecule 8548 (atom 46618) with NA
+Replacing solvent molecule 3402 (atom 41472) with NA
+Replacing solvent molecule 37132 (atom 75202) with NA
+Replacing solvent molecule 87275 (atom 125345) with NA
+Replacing solvent molecule 53376 (atom 91446) with NA
+Replacing solvent molecule 11831 (atom 49901) with NA
+Replacing solvent molecule 38167 (atom 76237) with NA
+Replacing solvent molecule 24150 (atom 62220) with NA
+Replacing solvent molecule 28154 (atom 66224) with NA
+Replacing solvent molecule 63812 (atom 101882) with NA
+Replacing solvent molecule 2664 (atom 40734) with NA
+Replacing solvent molecule 13332 (atom 51402) with NA
+Replacing solvent molecule 60348 (atom 98418) with NA
+Replacing solvent molecule 52373 (atom 90443) with NA
+Replacing solvent molecule 21187 (atom 59257) with NA
+Replacing solvent molecule 12652 (atom 50722) with NA
+Replacing solvent molecule 58057 (atom 96127) with NA
+Replacing solvent molecule 34914 (atom 72984) with NA
+Replacing solvent molecule 54471 (atom 92541) with NA
+Replacing solvent molecule 72889 (atom 110959) with NA
+Replacing solvent molecule 57853 (atom 95923) with NA
+Replacing solvent molecule 93512 (atom 131582) with NA
+Replacing solvent molecule 7571 (atom 45641) with NA
+Replacing solvent molecule 114 (atom 38184) with NA
+Replacing solvent molecule 87720 (atom 125790) with NA
+Replacing solvent molecule 40457 (atom 78527) with NA
+Replacing solvent molecule 66730 (atom 104800) with NA
+Replacing solvent molecule 14467 (atom 52537) with NA
+Replacing solvent molecule 63053 (atom 101123) with NA
+Replacing solvent molecule 75347 (atom 113417) with NA
+Replacing solvent molecule 9199 (atom 47269) with NA
+Replacing solvent molecule 38526 (atom 76596) with NA
+Replacing solvent molecule 28250 (atom 66320) with NA
+Replacing solvent molecule 37835 (atom 75905) with NA
+Replacing solvent molecule 26991 (atom 65061) with NA
+Replacing solvent molecule 80343 (atom 118413) with NA
+Replacing solvent molecule 25252 (atom 63322) with NA
+Replacing solvent molecule 70101 (atom 108171) with NA
+Replacing solvent molecule 64769 (atom 102839) with NA
+Replacing solvent molecule 6645 (atom 44715) with NA
+Replacing solvent molecule 77173 (atom 115243) with NA
+Replacing solvent molecule 62621 (atom 100691) with NA
+Replacing solvent molecule 80349 (atom 118419) with NA
+Replacing solvent molecule 21000 (atom 59070) with NA
+Replacing solvent molecule 52196 (atom 90266) with NA
+Replacing solvent molecule 26527 (atom 64597) with NA
+Replacing solvent molecule 49189 (atom 87259) with NA
+Replacing solvent molecule 89354 (atom 127424) with NA
+Replacing solvent molecule 68222 (atom 106292) with NA
+Replacing solvent molecule 28407 (atom 66477) with NA
+Replacing solvent molecule 30193 (atom 68263) with NA
+Replacing solvent molecule 59419 (atom 97489) with NA
+Replacing solvent molecule 22973 (atom 61043) with NA
+Replacing solvent molecule 60015 (atom 98085) with NA
+Replacing solvent molecule 94639 (atom 132709) with NA
+Replacing solvent molecule 28500 (atom 66570) with NA
+Replacing solvent molecule 46976 (atom 85046) with NA
+Replacing solvent molecule 69134 (atom 107204) with NA
+Replacing solvent molecule 39845 (atom 77915) with NA
+Replacing solvent molecule 79054 (atom 117124) with NA
+Replacing solvent molecule 71012 (atom 109082) with NA
+Replacing solvent molecule 35155 (atom 73225) with NA
+Replacing solvent molecule 93256 (atom 131326) with NA
+Replacing solvent molecule 64556 (atom 102626) with NA
+Replacing solvent molecule 25837 (atom 63907) with NA
+Replacing solvent molecule 39798 (atom 77868) with NA
+Replacing solvent molecule 12269 (atom 50339) with NA
+Replacing solvent molecule 28199 (atom 66269) with NA
+Replacing solvent molecule 61756 (atom 99826) with NA
+Replacing solvent molecule 39941 (atom 78011) with NA
+Replacing solvent molecule 20491 (atom 58561) with NA
+Replacing solvent molecule 22674 (atom 60744) with NA
+Replacing solvent molecule 37298 (atom 75368) with NA
+Replacing solvent molecule 7788 (atom 45858) with NA
+Replacing solvent molecule 3726 (atom 41796) with NA
+Replacing solvent molecule 48830 (atom 86900) with NA
+Replacing solvent molecule 34499 (atom 72569) with NA
+Replacing solvent molecule 43906 (atom 81976) with NA
+Replacing solvent molecule 30847 (atom 68917) with NA
+Replacing solvent molecule 74913 (atom 112983) with NA
+Replacing solvent molecule 87051 (atom 125121) with NA
+Replacing solvent molecule 22323 (atom 60393) with NA
+Replacing solvent molecule 33688 (atom 71758) with NA
+Replacing solvent molecule 2828 (atom 40898) with NA
+Replacing solvent molecule 68542 (atom 106612) with NA
+Replacing solvent molecule 66330 (atom 104400) with NA
+Replacing solvent molecule 41059 (atom 79129) with NA
+Replacing solvent molecule 72864 (atom 110934) with NA
+Replacing solvent molecule 69022 (atom 107092) with NA
+Replacing solvent molecule 39326 (atom 77396) with NA
+Replacing solvent molecule 33202 (atom 71272) with NA
+Replacing solvent molecule 72233 (atom 110303) with NA
+Replacing solvent molecule 77069 (atom 115139) with NA
+Replacing solvent molecule 362 (atom 38432) with NA
+Replacing solvent molecule 27997 (atom 66067) with NA
+Replacing solvent molecule 76363 (atom 114433) with NA
+Replacing solvent molecule 3698 (atom 41768) with NA
+Replacing solvent molecule 82341 (atom 120411) with NA
+Replacing solvent molecule 59554 (atom 97624) with NA
+Replacing solvent molecule 25535 (atom 63605) with NA
+Replacing solvent molecule 27683 (atom 65753) with NA
+Replacing solvent molecule 51053 (atom 89123) with NA
+Replacing solvent molecule 73403 (atom 111473) with NA
+Replacing solvent molecule 42126 (atom 80196) with NA
+Replacing solvent molecule 50123 (atom 88193) with NA
+Replacing solvent molecule 82619 (atom 120689) with NA
+Replacing solvent molecule 2659 (atom 40729) with NA
+Replacing solvent molecule 87181 (atom 125251) with NA
+Replacing solvent molecule 29703 (atom 67773) with NA
+Replacing solvent molecule 50574 (atom 88644) with NA
+Replacing solvent molecule 80013 (atom 118083) with NA
+Replacing solvent molecule 82547 (atom 120617) with NA
+Replacing solvent molecule 84975 (atom 123045) with NA
+Replacing solvent molecule 64131 (atom 102201) with NA
+Replacing solvent molecule 16482 (atom 54552) with NA
+Replacing solvent molecule 32191 (atom 70261) with NA
+Replacing solvent molecule 62869 (atom 100939) with NA
+Replacing solvent molecule 42132 (atom 80202) with NA
+Replacing solvent molecule 7975 (atom 46045) with NA
+Replacing solvent molecule 78024 (atom 116094) with NA
+Replacing solvent molecule 11009 (atom 49079) with NA
+Replacing solvent molecule 5325 (atom 43395) with NA
+Replacing solvent molecule 27228 (atom 65298) with NA
+Replacing solvent molecule 81537 (atom 119607) with NA
+Replacing solvent molecule 18254 (atom 56324) with NA
+Replacing solvent molecule 2758 (atom 40828) with NA
+Replacing solvent molecule 11202 (atom 49272) with NA
+Replacing solvent molecule 25349 (atom 63419) with NA
+Replacing solvent molecule 78525 (atom 116595) with NA
+Replacing solvent molecule 54459 (atom 92529) with NA
+Replacing solvent molecule 28490 (atom 66560) with NA
+Replacing solvent molecule 9493 (atom 47563) with NA
+Replacing solvent molecule 62071 (atom 100141) with NA
+Replacing solvent molecule 79543 (atom 117613) with NA
+Replacing solvent molecule 91365 (atom 129435) with NA
+Replacing solvent molecule 71598 (atom 109668) with NA
+Replacing solvent molecule 7075 (atom 45145) with NA
+Replacing solvent molecule 40329 (atom 78399) with NA
+Replacing solvent molecule 6674 (atom 44744) with NA
+Replacing solvent molecule 85300 (atom 123370) with NA
+Replacing solvent molecule 3172 (atom 41242) with NA
+Replacing solvent molecule 13620 (atom 51690) with NA
+Replacing solvent molecule 47473 (atom 85543) with NA
+Replacing solvent molecule 69309 (atom 107379) with NA
+Replacing solvent molecule 14546 (atom 52616) with NA
+Replacing solvent molecule 24189 (atom 62259) with NA
+Replacing solvent molecule 79014 (atom 117084) with NA
+Replacing solvent molecule 5746 (atom 43816) with NA
+Replacing solvent molecule 11454 (atom 49524) with NA
+Replacing solvent molecule 43618 (atom 81688) with NA
+Replacing solvent molecule 6870 (atom 44940) with NA
+Replacing solvent molecule 16835 (atom 54905) with NA
+Replacing solvent molecule 71927 (atom 109997) with NA
+Replacing solvent molecule 88666 (atom 126736) with NA
+Replacing solvent molecule 83516 (atom 121586) with NA
+Replacing solvent molecule 72289 (atom 110359) with NA
+Replacing solvent molecule 51372 (atom 89442) with NA
+Replacing solvent molecule 32459 (atom 70529) with NA
+Replacing solvent molecule 83928 (atom 121998) with NA
+Replacing solvent molecule 86014 (atom 124084) with NA
+Replacing solvent molecule 25909 (atom 63979) with NA
+Replacing solvent molecule 92997 (atom 131067) with NA
+Replacing solvent molecule 85872 (atom 123942) with NA
+Replacing solvent molecule 48217 (atom 86287) with NA
+Replacing solvent molecule 47717 (atom 85787) with NA
+Replacing solvent molecule 36173 (atom 74243) with NA
+Replacing solvent molecule 44672 (atom 82742) with NA
+Replacing solvent molecule 78141 (atom 116211) with NA
+Replacing solvent molecule 69482 (atom 107552) with NA
+Replacing solvent molecule 11581 (atom 49651) with NA
+Replacing solvent molecule 61220 (atom 99290) with NA
+Replacing solvent molecule 35830 (atom 73900) with NA
+Replacing solvent molecule 49727 (atom 87797) with NA
+Replacing solvent molecule 69202 (atom 107272) with NA
+Replacing solvent molecule 10441 (atom 48511) with NA
+Replacing solvent molecule 21006 (atom 59076) with NA
+Replacing solvent molecule 36616 (atom 74686) with NA
+Replacing solvent molecule 24903 (atom 62973) with NA
+Replacing solvent molecule 64141 (atom 102211) with NA
+Replacing solvent molecule 35497 (atom 73567) with NA
+Replacing solvent molecule 70281 (atom 108351) with NA
+Replacing solvent molecule 24617 (atom 62687) with NA
+Replacing solvent molecule 34875 (atom 72945) with NA
+Replacing solvent molecule 26501 (atom 64571) with NA
+Replacing solvent molecule 23550 (atom 61620) with NA
+Replacing solvent molecule 94084 (atom 132154) with NA
+Replacing solvent molecule 38476 (atom 76546) with NA
+Replacing solvent molecule 43708 (atom 81778) with NA
+Replacing solvent molecule 37912 (atom 75982) with NA
+Replacing solvent molecule 59749 (atom 97819) with NA
+Replacing solvent molecule 30273 (atom 68343) with NA
+Replacing solvent molecule 7360 (atom 45430) with NA
+Replacing solvent molecule 80998 (atom 119068) with NA
+Replacing solvent molecule 5138 (atom 43208) with NA
+Replacing solvent molecule 34033 (atom 72103) with NA
+Replacing solvent molecule 67590 (atom 105660) with NA
+Replacing solvent molecule 24437 (atom 62507) with NA
+Replacing solvent molecule 70041 (atom 108111) with NA
+Replacing solvent molecule 93180 (atom 131250) with NA
+Replacing solvent molecule 66103 (atom 104173) with NA
+Replacing solvent molecule 20438 (atom 58508) with NA
+Replacing solvent molecule 57139 (atom 95209) with NA
+Replacing solvent molecule 93822 (atom 131892) with NA
+Replacing solvent molecule 8895 (atom 46965) with NA
+Replacing solvent molecule 61927 (atom 99997) with NA
+Replacing solvent molecule 77900 (atom 115970) with NA
+Replacing solvent molecule 2065 (atom 40135) with NA
+Replacing solvent molecule 2726 (atom 40796) with NA
+Replacing solvent molecule 56094 (atom 94164) with NA
+Replacing solvent molecule 54368 (atom 92438) with NA
+Replacing solvent molecule 5163 (atom 43233) with NA
+Replacing solvent molecule 92705 (atom 130775) with NA
+Replacing solvent molecule 39435 (atom 77505) with NA
+Replacing solvent molecule 1984 (atom 40054) with NA
+Replacing solvent molecule 14930 (atom 53000) with NA
+Replacing solvent molecule 68784 (atom 106854) with NA
+Replacing solvent molecule 22602 (atom 60672) with NA
+Replacing solvent molecule 23708 (atom 61778) with NA
+Replacing solvent molecule 84412 (atom 122482) with NA
+Replacing solvent molecule 43234 (atom 81304) with NA
+Replacing solvent molecule 13462 (atom 51532) with NA
+Replacing solvent molecule 77616 (atom 115686) with NA
+Replacing solvent molecule 24760 (atom 62830) with NA
+Replacing solvent molecule 17418 (atom 55488) with NA
+Replacing solvent molecule 6130 (atom 44200) with NA
+Replacing solvent molecule 26305 (atom 64375) with NA
+Replacing solvent molecule 68848 (atom 106918) with NA
+Replacing solvent molecule 68621 (atom 106691) with NA
+Replacing solvent molecule 78785 (atom 116855) with NA
+Replacing solvent molecule 21698 (atom 59768) with NA
+Replacing solvent molecule 31063 (atom 69133) with NA
+Replacing solvent molecule 68438 (atom 106508) with NA
+Replacing solvent molecule 48076 (atom 86146) with NA
+Replacing solvent molecule 4019 (atom 42089) with NA
+Replacing solvent molecule 16471 (atom 54541) with NA
+Replacing solvent molecule 40519 (atom 78589) with NA
+Replacing solvent molecule 33764 (atom 71834) with NA
+Replacing solvent molecule 46604 (atom 84674) with NA
+Replacing solvent molecule 35927 (atom 73997) with NA
+Replacing solvent molecule 14538 (atom 52608) with NA
+Replacing solvent molecule 39988 (atom 78058) with NA
+Replacing solvent molecule 1605 (atom 39675) with NA
+Replacing solvent molecule 8994 (atom 47064) with NA
+Replacing solvent molecule 79577 (atom 117647) with NA
+Replacing solvent molecule 18016 (atom 56086) with NA
+Replacing solvent molecule 84522 (atom 122592) with NA
+Replacing solvent molecule 18414 (atom 56484) with NA
+Replacing solvent molecule 80970 (atom 119040) with NA
+Replacing solvent molecule 24932 (atom 63002) with NA
+Replacing solvent molecule 89039 (atom 127109) with NA
+Replacing solvent molecule 60698 (atom 98768) with NA
+Replacing solvent molecule 65810 (atom 103880) with NA
+Replacing solvent molecule 48612 (atom 86682) with NA
+Replacing solvent molecule 8301 (atom 46371) with NA
+Replacing solvent molecule 61932 (atom 100002) with NA
+Replacing solvent molecule 12573 (atom 50643) with NA
+Replacing solvent molecule 45082 (atom 83152) with NA
+Replacing solvent molecule 75929 (atom 113999) with NA
+Replacing solvent molecule 62632 (atom 100702) with NA
+Replacing solvent molecule 35837 (atom 73907) with NA
+Replacing solvent molecule 64269 (atom 102339) with NA
+Replacing solvent molecule 27328 (atom 65398) with NA
+Replacing solvent molecule 54651 (atom 92721) with NA
+Replacing solvent molecule 16996 (atom 55066) with NA
+Replacing solvent molecule 81820 (atom 119890) with NA
+Replacing solvent molecule 87892 (atom 125962) with NA
+Replacing solvent molecule 21711 (atom 59781) with NA
+Replacing solvent molecule 44461 (atom 82531) with NA
+Replacing solvent molecule 78470 (atom 116540) with NA
+Replacing solvent molecule 32632 (atom 70702) with NA
+Replacing solvent molecule 43471 (atom 81541) with NA
+Replacing solvent molecule 71785 (atom 109855) with NA
+Replacing solvent molecule 80128 (atom 118198) with NA
+Replacing solvent molecule 45691 (atom 83761) with NA
+Replacing solvent molecule 38940 (atom 77010) with NA
+Replacing solvent molecule 88142 (atom 126212) with NA
+Replacing solvent molecule 43095 (atom 81165) with NA
+Replacing solvent molecule 39552 (atom 77622) with NA
+Replacing solvent molecule 80885 (atom 118955) with NA
+Replacing solvent molecule 36698 (atom 74768) with NA
+Replacing solvent molecule 55500 (atom 93570) with NA
+Replacing solvent molecule 633 (atom 38703) with NA
+Replacing solvent molecule 9550 (atom 47620) with NA
+Replacing solvent molecule 17973 (atom 56043) with NA
+Replacing solvent molecule 21528 (atom 59598) with NA
+Replacing solvent molecule 27059 (atom 65129) with NA
+Replacing solvent molecule 87406 (atom 125476) with NA
+Replacing solvent molecule 46165 (atom 84235) with NA
+Replacing solvent molecule 8314 (atom 46384) with NA
+Replacing solvent molecule 48809 (atom 86879) with NA
+Replacing solvent molecule 73694 (atom 111764) with NA
+Replacing solvent molecule 90152 (atom 128222) with NA
+Replacing solvent molecule 73160 (atom 111230) with NA
+Replacing solvent molecule 18172 (atom 56242) with NA
+Replacing solvent molecule 31319 (atom 69389) with NA
+Replacing solvent molecule 22137 (atom 60207) with NA
+Replacing solvent molecule 73718 (atom 111788) with NA
+Replacing solvent molecule 76589 (atom 114659) with NA
+Replacing solvent molecule 78730 (atom 116800) with NA
+Replacing solvent molecule 81294 (atom 119364) with NA
+Replacing solvent molecule 14438 (atom 52508) with NA
+Replacing solvent molecule 40905 (atom 78975) with NA
+Replacing solvent molecule 88770 (atom 126840) with NA
+Replacing solvent molecule 94461 (atom 132531) with NA
+Replacing solvent molecule 41143 (atom 79213) with NA
+Replacing solvent molecule 42510 (atom 80580) with NA
+Replacing solvent molecule 16557 (atom 54627) with NA
+Replacing solvent molecule 81541 (atom 119611) with NA
+Replacing solvent molecule 85938 (atom 124008) with NA
+Replacing solvent molecule 94610 (atom 132680) with NA
+Replacing solvent molecule 71210 (atom 109280) with NA
+Replacing solvent molecule 86638 (atom 124708) with NA
+Replacing solvent molecule 69064 (atom 107134) with NA
+Replacing solvent molecule 86359 (atom 124429) with NA
+Replacing solvent molecule 6197 (atom 44267) with NA
+Replacing solvent molecule 82945 (atom 121015) with NA
+Replacing solvent molecule 87108 (atom 125178) with NA
+Replacing solvent molecule 28717 (atom 66787) with NA
+Replacing solvent molecule 11294 (atom 49364) with NA
+Replacing solvent molecule 30603 (atom 68673) with NA
+Replacing solvent molecule 87074 (atom 125144) with NA
+Replacing solvent molecule 55146 (atom 93216) with NA
+Replacing solvent molecule 26857 (atom 64927) with NA
+Replacing solvent molecule 15888 (atom 53958) with NA
+Replacing solvent molecule 47504 (atom 85574) with NA
+Replacing solvent molecule 76749 (atom 114819) with NA
+Replacing solvent molecule 53891 (atom 91961) with NA
+Replacing solvent molecule 80873 (atom 118943) with NA
+Replacing solvent molecule 31158 (atom 69228) with NA
+Replacing solvent molecule 5058 (atom 43128) with NA
+Replacing solvent molecule 94535 (atom 132605) with NA
+Replacing solvent molecule 62713 (atom 100783) with NA
+Replacing solvent molecule 79176 (atom 117246) with NA
+Replacing solvent molecule 81386 (atom 119456) with NA
+Replacing solvent molecule 52346 (atom 90416) with NA
+Replacing solvent molecule 7125 (atom 45195) with NA
+Replacing solvent molecule 65635 (atom 103705) with NA
+Replacing solvent molecule 7023 (atom 45093) with NA
+Replacing solvent molecule 73289 (atom 111359) with NA
+Replacing solvent molecule 94892 (atom 132962) with NA
+Replacing solvent molecule 46318 (atom 84388) with NA
+Replacing solvent molecule 67645 (atom 105715) with NA
+Replacing solvent molecule 17743 (atom 55813) with NA
+Replacing solvent molecule 17125 (atom 55195) with NA
+Replacing solvent molecule 36676 (atom 74746) with NA
+Replacing solvent molecule 31913 (atom 69983) with NA
+Replacing solvent molecule 47621 (atom 85691) with NA
+Replacing solvent molecule 31100 (atom 69170) with NA
+Replacing solvent molecule 47458 (atom 85528) with NA
+Replacing solvent molecule 15354 (atom 53424) with NA
+Replacing solvent molecule 45772 (atom 83842) with NA
+Replacing solvent molecule 49692 (atom 87762) with NA
+Replacing solvent molecule 75755 (atom 113825) with NA
+Replacing solvent molecule 75277 (atom 113347) with NA
+Replacing solvent molecule 38298 (atom 76368) with NA
+Replacing solvent molecule 61904 (atom 99974) with NA
+Replacing solvent molecule 28595 (atom 66665) with NA
+Replacing solvent molecule 22005 (atom 60075) with NA
+Replacing solvent molecule 58129 (atom 96199) with NA
+Replacing solvent molecule 68227 (atom 106297) with NA
+Replacing solvent molecule 39651 (atom 77721) with NA
+Replacing solvent molecule 251 (atom 38321) with NA
+Replacing solvent molecule 31347 (atom 69417) with NA
+Replacing solvent molecule 62604 (atom 100674) with NA
+Replacing solvent molecule 34809 (atom 72879) with NA
+Replacing solvent molecule 44537 (atom 82607) with NA
+Replacing solvent molecule 1565 (atom 39635) with NA
+Replacing solvent molecule 32358 (atom 70428) with NA
+Replacing solvent molecule 54153 (atom 92223) with NA
+Replacing solvent molecule 76431 (atom 114501) with NA
+Replacing solvent molecule 76597 (atom 114667) with NA
+Replacing solvent molecule 10995 (atom 49065) with NA
+Replacing solvent molecule 27969 (atom 66039) with NA
+Replacing solvent molecule 42841 (atom 80911) with NA
+Replacing solvent molecule 68264 (atom 106334) with NA
+Replacing solvent molecule 22679 (atom 60749) with NA
+Replacing solvent molecule 47499 (atom 85569) with NA
+Replacing solvent molecule 69776 (atom 107846) with NA
+Replacing solvent molecule 10780 (atom 48850) with NA
+Replacing solvent molecule 61484 (atom 99554) with NA
+Replacing solvent molecule 47021 (atom 85091) with NA
+Replacing solvent molecule 94924 (atom 132994) with NA
+Replacing solvent molecule 78579 (atom 116649) with NA
+Replacing solvent molecule 54800 (atom 92870) with NA
+Replacing solvent molecule 52164 (atom 90234) with NA
+Replacing solvent molecule 14939 (atom 53009) with NA
+Replacing solvent molecule 65612 (atom 103682) with NA
+Replacing solvent molecule 92651 (atom 130721) with NA
+Replacing solvent molecule 15086 (atom 53156) with NA
+Replacing solvent molecule 19459 (atom 57529) with NA
+Replacing solvent molecule 38066 (atom 76136) with NA
+Replacing solvent molecule 14418 (atom 52488) with NA
+Replacing solvent molecule 25681 (atom 63751) with NA
+Replacing solvent molecule 16121 (atom 54191) with NA
+Replacing solvent molecule 63683 (atom 101753) with NA
+Replacing solvent molecule 65276 (atom 103346) with NA
+Replacing solvent molecule 25751 (atom 63821) with NA
+Replacing solvent molecule 86039 (atom 124109) with NA
+Replacing solvent molecule 28604 (atom 66674) with NA
+Replacing solvent molecule 13078 (atom 51148) with NA
+Replacing solvent molecule 79339 (atom 117409) with NA
+Replacing solvent molecule 68367 (atom 106437) with NA
+Replacing solvent molecule 4390 (atom 42460) with NA
+Replacing solvent molecule 77490 (atom 115560) with NA
+Replacing solvent molecule 47150 (atom 85220) with NA
+Replacing solvent molecule 43019 (atom 81089) with NA
+Replacing solvent molecule 50756 (atom 88826) with NA
+Replacing solvent molecule 79006 (atom 117076) with NA
+Replacing solvent molecule 53714 (atom 91784) with NA
+Replacing solvent molecule 79753 (atom 117823) with NA
+Replacing solvent molecule 88620 (atom 126690) with NA
+Replacing solvent molecule 28158 (atom 66228) with NA
+Replacing solvent molecule 80402 (atom 118472) with NA
+Replacing solvent molecule 31075 (atom 69145) with NA
+Replacing solvent molecule 47609 (atom 85679) with NA
+Replacing solvent molecule 51603 (atom 89673) with NA
+Replacing solvent molecule 12228 (atom 50298) with NA
+Replacing solvent molecule 52299 (atom 90369) with NA
+Replacing solvent molecule 69126 (atom 107196) with NA
+Replacing solvent molecule 20958 (atom 59028) with NA
+Replacing solvent molecule 23486 (atom 61556) with NA
+Replacing solvent molecule 48636 (atom 86706) with NA
+Replacing solvent molecule 53347 (atom 91417) with NA
+Replacing solvent molecule 90485 (atom 128555) with NA
+Replacing solvent molecule 31085 (atom 69155) with NA
+Replacing solvent molecule 78124 (atom 116194) with NA
+Replacing solvent molecule 21776 (atom 59846) with NA
+Replacing solvent molecule 40370 (atom 78440) with NA
+Replacing solvent molecule 20818 (atom 58888) with NA
+Replacing solvent molecule 15499 (atom 53569) with NA
+Replacing solvent molecule 88213 (atom 126283) with NA
+Replacing solvent molecule 13834 (atom 51904) with NA
+Replacing solvent molecule 1977 (atom 40047) with NA
+Replacing solvent molecule 33584 (atom 71654) with NA
+Replacing solvent molecule 47506 (atom 85576) with NA
+Replacing solvent molecule 22492 (atom 60562) with NA
+Replacing solvent molecule 88707 (atom 126777) with NA
+Replacing solvent molecule 51455 (atom 89525) with NA
+Replacing solvent molecule 8584 (atom 46654) with NA
+Replacing solvent molecule 76105 (atom 114175) with NA
+Replacing solvent molecule 92057 (atom 130127) with NA
+Replacing solvent molecule 86813 (atom 124883) with NA
+Replacing solvent molecule 83450 (atom 121520) with NA
+Replacing solvent molecule 69237 (atom 107307) with NA
+Replacing solvent molecule 44135 (atom 82205) with NA
+Replacing solvent molecule 77148 (atom 115218) with NA
+Replacing solvent molecule 10436 (atom 48506) with NA
+Replacing solvent molecule 33895 (atom 71965) with NA
+Replacing solvent molecule 56029 (atom 94099) with NA
+Replacing solvent molecule 66822 (atom 104892) with NA
+Replacing solvent molecule 20159 (atom 58229) with NA
+Replacing solvent molecule 43902 (atom 81972) with NA
+Replacing solvent molecule 51173 (atom 89243) with NA
+Replacing solvent molecule 39813 (atom 77883) with NA
+Replacing solvent molecule 91619 (atom 129689) with NA
+Replacing solvent molecule 49921 (atom 87991) with NA
+Replacing solvent molecule 16827 (atom 54897) with NA
+Replacing solvent molecule 77783 (atom 115853) with NA
+Replacing solvent molecule 46769 (atom 84839) with NA
+Replacing solvent molecule 2023 (atom 40093) with NA
+Replacing solvent molecule 77392 (atom 115462) with NA
+Replacing solvent molecule 46084 (atom 84154) with NA
+Replacing solvent molecule 27091 (atom 65161) with NA
+Replacing solvent molecule 75240 (atom 113310) with NA
+Replacing solvent molecule 77351 (atom 115421) with NA
+Replacing solvent molecule 14138 (atom 52208) with NA
+Replacing solvent molecule 47303 (atom 85373) with NA
+Replacing solvent molecule 87549 (atom 125619) with NA
+Replacing solvent molecule 364 (atom 38434) with NA
+Replacing solvent molecule 64090 (atom 102160) with NA
+Replacing solvent molecule 41534 (atom 79604) with NA
+Replacing solvent molecule 26575 (atom 64645) with NA
+Replacing solvent molecule 13357 (atom 51427) with NA
+Replacing solvent molecule 88127 (atom 126197) with NA
+Replacing solvent molecule 61352 (atom 99422) with NA
+Replacing solvent molecule 78450 (atom 116520) with NA
+Replacing solvent molecule 90171 (atom 128241) with NA
+Replacing solvent molecule 30272 (atom 68342) with NA
+Replacing solvent molecule 42332 (atom 80402) with NA
+Replacing solvent molecule 26411 (atom 64481) with NA
+Replacing solvent molecule 71615 (atom 109685) with NA
+Replacing solvent molecule 667 (atom 38737) with NA
+Replacing solvent molecule 41017 (atom 79087) with NA
+Replacing solvent molecule 61910 (atom 99980) with NA
+Replacing solvent molecule 62393 (atom 100463) with NA
+Replacing solvent molecule 80367 (atom 118437) with NA
+Replacing solvent molecule 25081 (atom 63151) with NA
+Replacing solvent molecule 46871 (atom 84941) with NA
+Replacing solvent molecule 78990 (atom 117060) with NA
+Replacing solvent molecule 61065 (atom 99135) with NA
+Replacing solvent molecule 70109 (atom 108179) with NA
+Replacing solvent molecule 61496 (atom 99566) with NA
+Replacing solvent molecule 42878 (atom 80948) with NA
+Replacing solvent molecule 65524 (atom 103594) with NA
+Replacing solvent molecule 14487 (atom 52557) with NA
+Replacing solvent molecule 83079 (atom 121149) with NA
+Replacing solvent molecule 85264 (atom 123334) with NA
+Replacing solvent molecule 50421 (atom 88491) with NA
+Replacing solvent molecule 32002 (atom 70072) with NA
+Replacing solvent molecule 32013 (atom 70083) with NA
+Replacing solvent molecule 83166 (atom 121236) with NA
+Replacing solvent molecule 39934 (atom 78004) with NA
+Replacing solvent molecule 49743 (atom 87813) with NA
+Replacing solvent molecule 82973 (atom 121043) with NA
+Replacing solvent molecule 51938 (atom 90008) with NA
+Replacing solvent molecule 30613 (atom 68683) with NA
+Replacing solvent molecule 40670 (atom 78740) with NA
+Replacing solvent molecule 32310 (atom 70380) with NA
+Replacing solvent molecule 3283 (atom 41353) with NA
+Replacing solvent molecule 22617 (atom 60687) with NA
+Replacing solvent molecule 25666 (atom 63736) with NA
+Replacing solvent molecule 85713 (atom 123783) with NA
+Replacing solvent molecule 65178 (atom 103248) with NA
+Replacing solvent molecule 86935 (atom 125005) with NA
+Replacing solvent molecule 2762 (atom 40832) with NA
+Replacing solvent molecule 70576 (atom 108646) with NA
+Replacing solvent molecule 25885 (atom 63955) with NA
+Replacing solvent molecule 16334 (atom 54404) with NA
+Replacing solvent molecule 30331 (atom 68401) with NA
+Replacing solvent molecule 35301 (atom 73371) with NA
+Replacing solvent molecule 27503 (atom 65573) with NA
+Replacing solvent molecule 40854 (atom 78924) with NA
+Replacing solvent molecule 86529 (atom 124599) with NA
+Replacing solvent molecule 60223 (atom 98293) with NA
+Replacing solvent molecule 39989 (atom 78059) with NA
+Replacing solvent molecule 91021 (atom 129091) with NA
+Replacing solvent molecule 68924 (atom 106994) with NA
+Replacing solvent molecule 81027 (atom 119097) with NA
+Replacing solvent molecule 4248 (atom 42318) with NA
+Replacing solvent molecule 24048 (atom 62118) with NA
+Replacing solvent molecule 56463 (atom 94533) with NA
+Replacing solvent molecule 30702 (atom 68772) with NA
+Replacing solvent molecule 71366 (atom 109436) with NA
+Replacing solvent molecule 80814 (atom 118884) with NA
+Replacing solvent molecule 52894 (atom 90964) with NA
+Replacing solvent molecule 13120 (atom 51190) with NA
+Replacing solvent molecule 89596 (atom 127666) with NA
+Replacing solvent molecule 1098 (atom 39168) with NA
+Replacing solvent molecule 85480 (atom 123550) with NA
+Replacing solvent molecule 76794 (atom 114864) with NA
+Replacing solvent molecule 64467 (atom 102537) with NA
+Replacing solvent molecule 25235 (atom 63305) with NA
+Replacing solvent molecule 76100 (atom 114170) with NA
+Replacing solvent molecule 50106 (atom 88176) with NA
+Replacing solvent molecule 57798 (atom 95868) with NA
+Replacing solvent molecule 51426 (atom 89496) with NA
+Replacing solvent molecule 92376 (atom 130446) with NA
+Replacing solvent molecule 18411 (atom 56481) with NA
+Replacing solvent molecule 34920 (atom 72990) with NA
+Replacing solvent molecule 90941 (atom 129011) with NA
+Replacing solvent molecule 69944 (atom 108014) with NA
+Replacing solvent molecule 10417 (atom 48487) with NA
+Replacing solvent molecule 35271 (atom 73341) with NA
+Replacing solvent molecule 89099 (atom 127169) with NA
+Replacing solvent molecule 75646 (atom 113716) with NA
+Replacing solvent molecule 15124 (atom 53194) with NA
+Replacing solvent molecule 71882 (atom 109952) with NA
+Replacing solvent molecule 20600 (atom 58670) with NA
+Replacing solvent molecule 88755 (atom 126825) with NA
+Replacing solvent molecule 21012 (atom 59082) with NA
+Replacing solvent molecule 28597 (atom 66667) with NA
+Replacing solvent molecule 43869 (atom 81939) with NA
+Replacing solvent molecule 31543 (atom 69613) with NA
+Replacing solvent molecule 29291 (atom 67361) with NA
+Replacing solvent molecule 18139 (atom 56209) with NA
+Replacing solvent molecule 31144 (atom 69214) with NA
+Replacing solvent molecule 48989 (atom 87059) with NA
+Replacing solvent molecule 62546 (atom 100616) with NA
+Replacing solvent molecule 32323 (atom 70393) with NA
+Replacing solvent molecule 67961 (atom 106031) with NA
+Replacing solvent molecule 6432 (atom 44502) with NA
+Replacing solvent molecule 54430 (atom 92500) with NA
+Replacing solvent molecule 9649 (atom 47719) with NA
+Replacing solvent molecule 83503 (atom 121573) with NA
+Replacing solvent molecule 10838 (atom 48908) with NA
+Replacing solvent molecule 55738 (atom 93808) with NA
+Replacing solvent molecule 27261 (atom 65331) with NA
+Replacing solvent molecule 59150 (atom 97220) with NA
+Replacing solvent molecule 14960 (atom 53030) with NA
+Replacing solvent molecule 49460 (atom 87530) with NA
+Replacing solvent molecule 28593 (atom 66663) with NA
+Replacing solvent molecule 18141 (atom 56211) with NA
+Replacing solvent molecule 74170 (atom 112240) with NA
+Replacing solvent molecule 42163 (atom 80233) with NA
+Replacing solvent molecule 58540 (atom 96610) with NA
+Replacing solvent molecule 397 (atom 38467) with NA
+Replacing solvent molecule 89665 (atom 127735) with NA
+Replacing solvent molecule 5719 (atom 43789) with NA
+Replacing solvent molecule 35973 (atom 74043) with NA
+Replacing solvent molecule 80005 (atom 118075) with NA
+Replacing solvent molecule 84688 (atom 122758) with NA
+Replacing solvent molecule 64306 (atom 102376) with NA
+Replacing solvent molecule 64871 (atom 102941) with NA
+Replacing solvent molecule 93891 (atom 131961) with NA
+Replacing solvent molecule 1058 (atom 39128) with NA
+Replacing solvent molecule 44517 (atom 82587) with NA
+Replacing solvent molecule 69252 (atom 107322) with NA
+Replacing solvent molecule 23302 (atom 61372) with NA
+Replacing solvent molecule 1019 (atom 39089) with NA
+Replacing solvent molecule 10829 (atom 48899) with NA
+Replacing solvent molecule 65416 (atom 103486) with NA
+Replacing solvent molecule 7552 (atom 45622) with NA
+Replacing solvent molecule 29246 (atom 67316) with NA
+Replacing solvent molecule 50486 (atom 88556) with NA
+Replacing solvent molecule 31512 (atom 69582) with NA
+Replacing solvent molecule 72386 (atom 110456) with NA
+Replacing solvent molecule 25354 (atom 63424) with NA
+Replacing solvent molecule 14432 (atom 52502) with NA
+Replacing solvent molecule 25677 (atom 63747) with NA
+Replacing solvent molecule 43133 (atom 81203) with NA
+Replacing solvent molecule 40289 (atom 78359) with NA
+Replacing solvent molecule 16572 (atom 54642) with NA
+Replacing solvent molecule 68805 (atom 106875) with NA
+Replacing solvent molecule 29647 (atom 67717) with NA
+Replacing solvent molecule 65607 (atom 103677) with NA
+Replacing solvent molecule 67844 (atom 105914) with NA
+Replacing solvent molecule 33912 (atom 71982) with NA
+Replacing solvent molecule 21598 (atom 59668) with NA
+Replacing solvent molecule 58602 (atom 96672) with CL
+Replacing solvent molecule 80562 (atom 118632) with CL
+Replacing solvent molecule 89669 (atom 127739) with CL
+Replacing solvent molecule 75860 (atom 113930) with CL
+Replacing solvent molecule 82467 (atom 120537) with CL
+Replacing solvent molecule 83945 (atom 122015) with CL
+Replacing solvent molecule 51459 (atom 89529) with CL
+Replacing solvent molecule 28333 (atom 66403) with CL
+Replacing solvent molecule 91024 (atom 129094) with CL
+Replacing solvent molecule 69173 (atom 107243) with CL
+Replacing solvent molecule 10677 (atom 48747) with CL
+Replacing solvent molecule 33687 (atom 71757) with CL
+Replacing solvent molecule 36105 (atom 74175) with CL
+Replacing solvent molecule 88822 (atom 126892) with CL
+Replacing solvent molecule 52737 (atom 90807) with CL
+Replacing solvent molecule 54496 (atom 92566) with CL
+Replacing solvent molecule 15551 (atom 53621) with CL
+Replacing solvent molecule 59007 (atom 97077) with CL
+Replacing solvent molecule 71063 (atom 109133) with CL
+Replacing solvent molecule 5974 (atom 44044) with CL
+Replacing solvent molecule 60974 (atom 99044) with CL
+Replacing solvent molecule 87219 (atom 125289) with CL
+Replacing solvent molecule 80501 (atom 118571) with CL
+Replacing solvent molecule 71085 (atom 109155) with CL
+Replacing solvent molecule 90725 (atom 128795) with CL
+Replacing solvent molecule 27909 (atom 65979) with CL
+Replacing solvent molecule 69349 (atom 107419) with CL
+Replacing solvent molecule 86060 (atom 124130) with CL
+Replacing solvent molecule 25359 (atom 63429) with CL
+Replacing solvent molecule 13949 (atom 52019) with CL
+Replacing solvent molecule 19883 (atom 57953) with CL
+Replacing solvent molecule 7922 (atom 45992) with CL
+Replacing solvent molecule 43362 (atom 81432) with CL
+Replacing solvent molecule 31155 (atom 69225) with CL
+Replacing solvent molecule 63952 (atom 102022) with CL
+Replacing solvent molecule 71279 (atom 109349) with CL
+Replacing solvent molecule 39882 (atom 77952) with CL
+Replacing solvent molecule 83781 (atom 121851) with CL
+Replacing solvent molecule 36251 (atom 74321) with CL
+Replacing solvent molecule 34361 (atom 72431) with CL
+Replacing solvent molecule 14624 (atom 52694) with CL
+Replacing solvent molecule 56762 (atom 94832) with CL
+Replacing solvent molecule 48161 (atom 86231) with CL
+Replacing solvent molecule 3555 (atom 41625) with CL
+Replacing solvent molecule 84657 (atom 122727) with CL
+Replacing solvent molecule 22432 (atom 60502) with CL
+Replacing solvent molecule 38043 (atom 76113) with CL
+Replacing solvent molecule 42098 (atom 80168) with CL
+Replacing solvent molecule 78748 (atom 116818) with CL
+Replacing solvent molecule 77280 (atom 115350) with CL
+Replacing solvent molecule 68108 (atom 106178) with CL
+Replacing solvent molecule 81555 (atom 119625) with CL
+Replacing solvent molecule 87591 (atom 125661) with CL
+Replacing solvent molecule 7883 (atom 45953) with CL
+Replacing solvent molecule 23271 (atom 61341) with CL
+Replacing solvent molecule 63319 (atom 101389) with CL
+Replacing solvent molecule 1042 (atom 39112) with CL
+Replacing solvent molecule 89091 (atom 127161) with CL
+Replacing solvent molecule 59871 (atom 97941) with CL
+Replacing solvent molecule 67349 (atom 105419) with CL
+Replacing solvent molecule 35748 (atom 73818) with CL
+Replacing solvent molecule 57963 (atom 96033) with CL
+Replacing solvent molecule 59481 (atom 97551) with CL
+Replacing solvent molecule 84933 (atom 123003) with CL
+Replacing solvent molecule 79564 (atom 117634) with CL
+Replacing solvent molecule 67814 (atom 105884) with CL
+Replacing solvent molecule 37146 (atom 75216) with CL
+Replacing solvent molecule 15257 (atom 53327) with CL
+Replacing solvent molecule 35060 (atom 73130) with CL
+Replacing solvent molecule 26210 (atom 64280) with CL
+Replacing solvent molecule 34970 (atom 73040) with CL
+Replacing solvent molecule 80174 (atom 118244) with CL
+Replacing solvent molecule 45712 (atom 83782) with CL
+Replacing solvent molecule 92203 (atom 130273) with CL
+Replacing solvent molecule 77722 (atom 115792) with CL
+Replacing solvent molecule 69594 (atom 107664) with CL
+Replacing solvent molecule 52200 (atom 90270) with CL
+Replacing solvent molecule 63355 (atom 101425) with CL
+Replacing solvent molecule 61606 (atom 99676) with CL
+Replacing solvent molecule 54136 (atom 92206) with CL
+Replacing solvent molecule 54947 (atom 93017) with CL
+Replacing solvent molecule 30343 (atom 68413) with CL
+Replacing solvent molecule 5995 (atom 44065) with CL
+Replacing solvent molecule 11246 (atom 49316) with CL
+Replacing solvent molecule 20337 (atom 58407) with CL
+Replacing solvent molecule 65039 (atom 103109) with CL
+Replacing solvent molecule 41020 (atom 79090) with CL
+Replacing solvent molecule 368 (atom 38438) with CL
+Replacing solvent molecule 25544 (atom 63614) with CL
+Replacing solvent molecule 84644 (atom 122714) with CL
+Replacing solvent molecule 30831 (atom 68901) with CL
+Replacing solvent molecule 76696 (atom 114766) with CL
+Replacing solvent molecule 19052 (atom 57122) with CL
+Replacing solvent molecule 73358 (atom 111428) with CL
+Replacing solvent molecule 90541 (atom 128611) with CL
+Replacing solvent molecule 22890 (atom 60960) with CL
+Replacing solvent molecule 40653 (atom 78723) with CL
+Replacing solvent molecule 6128 (atom 44198) with CL
+Replacing solvent molecule 62454 (atom 100524) with CL
+Replacing solvent molecule 80309 (atom 118379) with CL
+Replacing solvent molecule 49919 (atom 87989) with CL
+Replacing solvent molecule 53244 (atom 91314) with CL
+Replacing solvent molecule 26844 (atom 64914) with CL
+Replacing solvent molecule 86773 (atom 124843) with CL
+Replacing solvent molecule 6078 (atom 44148) with CL
+Replacing solvent molecule 43664 (atom 81734) with CL
+Replacing solvent molecule 94402 (atom 132472) with CL
+Replacing solvent molecule 1302 (atom 39372) with CL
+Replacing solvent molecule 83138 (atom 121208) with CL
+Replacing solvent molecule 21760 (atom 59830) with CL
+Replacing solvent molecule 55214 (atom 93284) with CL
+Replacing solvent molecule 23464 (atom 61534) with CL
+Replacing solvent molecule 56388 (atom 94458) with CL
+Replacing solvent molecule 74055 (atom 112125) with CL
+Replacing solvent molecule 16828 (atom 54898) with CL
+Replacing solvent molecule 63117 (atom 101187) with CL
+Replacing solvent molecule 34631 (atom 72701) with CL
+Replacing solvent molecule 55783 (atom 93853) with CL
+Replacing solvent molecule 75722 (atom 113792) with CL
+Replacing solvent molecule 65197 (atom 103267) with CL
+Replacing solvent molecule 84840 (atom 122910) with CL
+Replacing solvent molecule 16351 (atom 54421) with CL
+Replacing solvent molecule 76224 (atom 114294) with CL
+Replacing solvent molecule 1899 (atom 39969) with CL
+Replacing solvent molecule 71187 (atom 109257) with CL
+Replacing solvent molecule 92066 (atom 130136) with CL
+Replacing solvent molecule 14891 (atom 52961) with CL
+Replacing solvent molecule 9760 (atom 47830) with CL
+Replacing solvent molecule 17496 (atom 55566) with CL
+Replacing solvent molecule 85127 (atom 123197) with CL
+Replacing solvent molecule 59834 (atom 97904) with CL
+Replacing solvent molecule 21087 (atom 59157) with CL
+Replacing solvent molecule 88529 (atom 126599) with CL
+Replacing solvent molecule 1388 (atom 39458) with CL
+Replacing solvent molecule 67429 (atom 105499) with CL
+Replacing solvent molecule 45490 (atom 83560) with CL
+Replacing solvent molecule 71476 (atom 109546) with CL
+Replacing solvent molecule 53727 (atom 91797) with CL
+Replacing solvent molecule 42831 (atom 80901) with CL
+Replacing solvent molecule 76625 (atom 114695) with CL
+Replacing solvent molecule 87387 (atom 125457) with CL
+Replacing solvent molecule 33403 (atom 71473) with CL
+Replacing solvent molecule 13054 (atom 51124) with CL
+Replacing solvent molecule 49827 (atom 87897) with CL
+Replacing solvent molecule 59995 (atom 98065) with CL
+Replacing solvent molecule 15975 (atom 54045) with CL
+Replacing solvent molecule 27922 (atom 65992) with CL
+Replacing solvent molecule 16761 (atom 54831) with CL
+Replacing solvent molecule 25593 (atom 63663) with CL
+Replacing solvent molecule 25325 (atom 63395) with CL
+Replacing solvent molecule 47318 (atom 85388) with CL
+Replacing solvent molecule 47521 (atom 85591) with CL
+Replacing solvent molecule 24588 (atom 62658) with CL
+Replacing solvent molecule 4814 (atom 42884) with CL
+Replacing solvent molecule 37046 (atom 75116) with CL
+Replacing solvent molecule 28410 (atom 66480) with CL
+Replacing solvent molecule 56670 (atom 94740) with CL
+Replacing solvent molecule 9763 (atom 47833) with CL
+Replacing solvent molecule 10285 (atom 48355) with CL
+Replacing solvent molecule 4470 (atom 42540) with CL
+Replacing solvent molecule 53374 (atom 91444) with CL
+Replacing solvent molecule 89918 (atom 127988) with CL
+Replacing solvent molecule 63808 (atom 101878) with CL
+Replacing solvent molecule 7845 (atom 45915) with CL
+Replacing solvent molecule 67382 (atom 105452) with CL
+Replacing solvent molecule 43004 (atom 81074) with CL
+Replacing solvent molecule 42010 (atom 80080) with CL
+Replacing solvent molecule 44459 (atom 82529) with CL
+Replacing solvent molecule 79107 (atom 117177) with CL
+Replacing solvent molecule 65623 (atom 103693) with CL
+Replacing solvent molecule 83786 (atom 121856) with CL
+Replacing solvent molecule 48875 (atom 86945) with CL
+Replacing solvent molecule 31477 (atom 69547) with CL
+Replacing solvent molecule 49123 (atom 87193) with CL
+Replacing solvent molecule 45529 (atom 83599) with CL
+Replacing solvent molecule 52738 (atom 90808) with CL
+Replacing solvent molecule 53332 (atom 91402) with CL
+Replacing solvent molecule 5702 (atom 43772) with CL
+Replacing solvent molecule 66782 (atom 104852) with CL
+Replacing solvent molecule 40763 (atom 78833) with CL
+Replacing solvent molecule 52528 (atom 90598) with CL
+Replacing solvent molecule 1606 (atom 39676) with CL
+Replacing solvent molecule 54164 (atom 92234) with CL
+Replacing solvent molecule 62678 (atom 100748) with CL
+Replacing solvent molecule 70008 (atom 108078) with CL
+Replacing solvent molecule 51609 (atom 89679) with CL
+Replacing solvent molecule 68775 (atom 106845) with CL
+Replacing solvent molecule 20887 (atom 58957) with CL
+Replacing solvent molecule 28635 (atom 66705) with CL
+Replacing solvent molecule 84534 (atom 122604) with CL
+Replacing solvent molecule 44562 (atom 82632) with CL
+Replacing solvent molecule 86442 (atom 124512) with CL
+Replacing solvent molecule 39821 (atom 77891) with CL
+Replacing solvent molecule 47857 (atom 85927) with CL
+Replacing solvent molecule 4116 (atom 42186) with CL
+Replacing solvent molecule 63402 (atom 101472) with CL
+Replacing solvent molecule 80394 (atom 118464) with CL
+Replacing solvent molecule 17544 (atom 55614) with CL
+Replacing solvent molecule 92114 (atom 130184) with CL
+Replacing solvent molecule 28739 (atom 66809) with CL
+Replacing solvent molecule 44703 (atom 82773) with CL
+Replacing solvent molecule 882 (atom 38952) with CL
+Replacing solvent molecule 4800 (atom 42870) with CL
+Replacing solvent molecule 69065 (atom 107135) with CL
+Replacing solvent molecule 11397 (atom 49467) with CL
+Replacing solvent molecule 35511 (atom 73581) with CL
+Replacing solvent molecule 69166 (atom 107236) with CL
+Replacing solvent molecule 31031 (atom 69101) with CL
+Replacing solvent molecule 13814 (atom 51884) with CL
+Replacing solvent molecule 19843 (atom 57913) with CL
+Replacing solvent molecule 45139 (atom 83209) with CL
+Replacing solvent molecule 37512 (atom 75582) with CL
+Replacing solvent molecule 42466 (atom 80536) with CL
+Replacing solvent molecule 41694 (atom 79764) with CL
+Replacing solvent molecule 91028 (atom 129098) with CL
+Replacing solvent molecule 61036 (atom 99106) with CL
+Replacing solvent molecule 94347 (atom 132417) with CL
+Replacing solvent molecule 23884 (atom 61954) with CL
+Replacing solvent molecule 77733 (atom 115803) with CL
+Replacing solvent molecule 46531 (atom 84601) with CL
+Replacing solvent molecule 50962 (atom 89032) with CL
+Replacing solvent molecule 6074 (atom 44144) with CL
+Replacing solvent molecule 88961 (atom 127031) with CL
+Replacing solvent molecule 30600 (atom 68670) with CL
+Replacing solvent molecule 2967 (atom 41037) with CL
+Replacing solvent molecule 23031 (atom 61101) with CL
+Replacing solvent molecule 46822 (atom 84892) with CL
+Replacing solvent molecule 90988 (atom 129058) with CL
+Replacing solvent molecule 68072 (atom 106142) with CL
+Replacing solvent molecule 4980 (atom 43050) with CL
+Replacing solvent molecule 25760 (atom 63830) with CL
+Replacing solvent molecule 77634 (atom 115704) with CL
+Replacing solvent molecule 22609 (atom 60679) with CL
+Replacing solvent molecule 12563 (atom 50633) with CL
+Replacing solvent molecule 359 (atom 38429) with CL
+Replacing solvent molecule 47105 (atom 85175) with CL
+Replacing solvent molecule 54364 (atom 92434) with CL
+Replacing solvent molecule 43692 (atom 81762) with CL
+Replacing solvent molecule 11789 (atom 49859) with CL
+Replacing solvent molecule 64336 (atom 102406) with CL
+Replacing solvent molecule 32087 (atom 70157) with CL
+Replacing solvent molecule 8199 (atom 46269) with CL
+Replacing solvent molecule 52441 (atom 90511) with CL
+Replacing solvent molecule 17054 (atom 55124) with CL
+Replacing solvent molecule 91882 (atom 129952) with CL
+Replacing solvent molecule 32731 (atom 70801) with CL
+Replacing solvent molecule 67812 (atom 105882) with CL
+Replacing solvent molecule 8443 (atom 46513) with CL
+Replacing solvent molecule 1571 (atom 39641) with CL
+Replacing solvent molecule 76883 (atom 114953) with CL
+Replacing solvent molecule 54779 (atom 92849) with CL
+Replacing solvent molecule 82742 (atom 120812) with CL
+Replacing solvent molecule 46497 (atom 84567) with CL
+Replacing solvent molecule 43219 (atom 81289) with CL
+Replacing solvent molecule 23250 (atom 61320) with CL
+Replacing solvent molecule 37520 (atom 75590) with CL
+Replacing solvent molecule 34962 (atom 73032) with CL
+Replacing solvent molecule 1400 (atom 39470) with CL
+Replacing solvent molecule 91602 (atom 129672) with CL
+Replacing solvent molecule 78683 (atom 116753) with CL
+Replacing solvent molecule 81848 (atom 119918) with CL
+Replacing solvent molecule 16147 (atom 54217) with CL
+Replacing solvent molecule 57660 (atom 95730) with CL
+Replacing solvent molecule 43511 (atom 81581) with CL
+Replacing solvent molecule 35869 (atom 73939) with CL
+Replacing solvent molecule 74068 (atom 112138) with CL
+Replacing solvent molecule 16390 (atom 54460) with CL
+Replacing solvent molecule 27819 (atom 65889) with CL
+Replacing solvent molecule 36117 (atom 74187) with CL
+Replacing solvent molecule 66823 (atom 104893) with CL
+Replacing solvent molecule 84965 (atom 123035) with CL
+Replacing solvent molecule 84311 (atom 122381) with CL
+Replacing solvent molecule 75310 (atom 113380) with CL
+Replacing solvent molecule 88488 (atom 126558) with CL
+Replacing solvent molecule 11028 (atom 49098) with CL
+Replacing solvent molecule 49341 (atom 87411) with CL
+Replacing solvent molecule 22180 (atom 60250) with CL
+Replacing solvent molecule 47002 (atom 85072) with CL
+Replacing solvent molecule 58055 (atom 96125) with CL
+Replacing solvent molecule 78301 (atom 116371) with CL
+Replacing solvent molecule 85342 (atom 123412) with CL
+Replacing solvent molecule 11886 (atom 49956) with CL
+Replacing solvent molecule 1642 (atom 39712) with CL
+Replacing solvent molecule 14831 (atom 52901) with CL
+Replacing solvent molecule 41665 (atom 79735) with CL
+Replacing solvent molecule 26475 (atom 64545) with CL
+Replacing solvent molecule 58618 (atom 96688) with CL
+Replacing solvent molecule 21696 (atom 59766) with CL
+Replacing solvent molecule 45638 (atom 83708) with CL
+Replacing solvent molecule 58457 (atom 96527) with CL
+Replacing solvent molecule 35825 (atom 73895) with CL
+Replacing solvent molecule 57890 (atom 95960) with CL
+Replacing solvent molecule 13869 (atom 51939) with CL
+Replacing solvent molecule 78830 (atom 116900) with CL
+Replacing solvent molecule 47844 (atom 85914) with CL
+Replacing solvent molecule 23349 (atom 61419) with CL
+Replacing solvent molecule 41896 (atom 79966) with CL
+Replacing solvent molecule 39424 (atom 77494) with CL
+Replacing solvent molecule 39665 (atom 77735) with CL
+Replacing solvent molecule 81651 (atom 119721) with CL
+Replacing solvent molecule 46358 (atom 84428) with CL
+Replacing solvent molecule 63819 (atom 101889) with CL
+Replacing solvent molecule 71199 (atom 109269) with CL
+Replacing solvent molecule 20087 (atom 58157) with CL
+Replacing solvent molecule 88987 (atom 127057) with CL
+Replacing solvent molecule 27992 (atom 66062) with CL
+Replacing solvent molecule 19437 (atom 57507) with CL
+Replacing solvent molecule 90510 (atom 128580) with CL
+Replacing solvent molecule 84295 (atom 122365) with CL
+Replacing solvent molecule 77160 (atom 115230) with CL
+Replacing solvent molecule 3814 (atom 41884) with CL
+Replacing solvent molecule 88950 (atom 127020) with CL
+Replacing solvent molecule 48711 (atom 86781) with CL
+Replacing solvent molecule 43374 (atom 81444) with CL
+Replacing solvent molecule 78928 (atom 116998) with CL
+Replacing solvent molecule 15413 (atom 53483) with CL
+Replacing solvent molecule 76088 (atom 114158) with CL
+Replacing solvent molecule 89845 (atom 127915) with CL
+Replacing solvent molecule 39269 (atom 77339) with CL
+Replacing solvent molecule 88966 (atom 127036) with CL
+Replacing solvent molecule 81930 (atom 120000) with CL
+Replacing solvent molecule 40109 (atom 78179) with CL
+Replacing solvent molecule 41991 (atom 80061) with CL
+Replacing solvent molecule 73080 (atom 111150) with CL
+Replacing solvent molecule 49960 (atom 88030) with CL
+Replacing solvent molecule 87473 (atom 125543) with CL
+Replacing solvent molecule 54227 (atom 92297) with CL
+Replacing solvent molecule 33580 (atom 71650) with CL
+Replacing solvent molecule 32693 (atom 70763) with CL
+Replacing solvent molecule 21512 (atom 59582) with CL
+Replacing solvent molecule 68382 (atom 106452) with CL
+Replacing solvent molecule 3239 (atom 41309) with CL
+Replacing solvent molecule 54968 (atom 93038) with CL
+Replacing solvent molecule 49647 (atom 87717) with CL
+Replacing solvent molecule 67450 (atom 105520) with CL
+Replacing solvent molecule 42135 (atom 80205) with CL
+Replacing solvent molecule 81295 (atom 119365) with CL
+Replacing solvent molecule 75155 (atom 113225) with CL
+Replacing solvent molecule 70477 (atom 108547) with CL
+Replacing solvent molecule 53038 (atom 91108) with CL
+Replacing solvent molecule 78922 (atom 116992) with CL
+Replacing solvent molecule 54941 (atom 93011) with CL
+Replacing solvent molecule 39405 (atom 77475) with CL
+Replacing solvent molecule 93429 (atom 131499) with CL
+Replacing solvent molecule 53519 (atom 91589) with CL
+Replacing solvent molecule 3058 (atom 41128) with CL
+Replacing solvent molecule 91670 (atom 129740) with CL
+Replacing solvent molecule 1610 (atom 39680) with CL
+Replacing solvent molecule 27680 (atom 65750) with CL
+Replacing solvent molecule 24610 (atom 62680) with CL
+Replacing solvent molecule 60546 (atom 98616) with CL
+Replacing solvent molecule 31188 (atom 69258) with CL
+Replacing solvent molecule 82067 (atom 120137) with CL
+Replacing solvent molecule 88306 (atom 126376) with CL
+Replacing solvent molecule 46504 (atom 84574) with CL
+Replacing solvent molecule 38530 (atom 76600) with CL
+Replacing solvent molecule 91622 (atom 129692) with CL
+Replacing solvent molecule 61024 (atom 99094) with CL
+Replacing solvent molecule 86636 (atom 124706) with CL
+Replacing solvent molecule 67832 (atom 105902) with CL
+Replacing solvent molecule 23037 (atom 61107) with CL
+Replacing solvent molecule 80029 (atom 118099) with CL
+Replacing solvent molecule 57381 (atom 95451) with CL
+Replacing solvent molecule 79320 (atom 117390) with CL
+Replacing solvent molecule 6920 (atom 44990) with CL
+Replacing solvent molecule 19161 (atom 57231) with CL
+Replacing solvent molecule 36253 (atom 74323) with CL
+Replacing solvent molecule 27313 (atom 65383) with CL
+Replacing solvent molecule 41403 (atom 79473) with CL
+Replacing solvent molecule 86475 (atom 124545) with CL
+Replacing solvent molecule 47948 (atom 86018) with CL
+Replacing solvent molecule 48698 (atom 86768) with CL
+Replacing solvent molecule 16942 (atom 55012) with CL
+Replacing solvent molecule 91104 (atom 129174) with CL
+Replacing solvent molecule 43833 (atom 81903) with CL
+Replacing solvent molecule 20925 (atom 58995) with CL
+Replacing solvent molecule 74341 (atom 112411) with CL
+Replacing solvent molecule 40423 (atom 78493) with CL
+Replacing solvent molecule 30041 (atom 68111) with CL
+Replacing solvent molecule 53444 (atom 91514) with CL
+Replacing solvent molecule 54844 (atom 92914) with CL
+Replacing solvent molecule 31420 (atom 69490) with CL
+Replacing solvent molecule 36042 (atom 74112) with CL
+Replacing solvent molecule 93216 (atom 131286) with CL
+Replacing solvent molecule 57451 (atom 95521) with CL
+Replacing solvent molecule 40323 (atom 78393) with CL
+Replacing solvent molecule 68195 (atom 106265) with CL
+Replacing solvent molecule 26868 (atom 64938) with CL
+Replacing solvent molecule 20365 (atom 58435) with CL
+Replacing solvent molecule 1744 (atom 39814) with CL
+Replacing solvent molecule 55100 (atom 93170) with CL
+Replacing solvent molecule 55035 (atom 93105) with CL
+Replacing solvent molecule 46633 (atom 84703) with CL
+Replacing solvent molecule 80481 (atom 118551) with CL
+Replacing solvent molecule 7897 (atom 45967) with CL
+Replacing solvent molecule 26250 (atom 64320) with CL
+Replacing solvent molecule 57668 (atom 95738) with CL
+Replacing solvent molecule 27750 (atom 65820) with CL
+Replacing solvent molecule 30849 (atom 68919) with CL
+Replacing solvent molecule 72469 (atom 110539) with CL
+Replacing solvent molecule 19228 (atom 57298) with CL
+Replacing solvent molecule 67863 (atom 105933) with CL
+Replacing solvent molecule 1527 (atom 39597) with CL
+Replacing solvent molecule 51185 (atom 89255) with CL
+Replacing solvent molecule 15246 (atom 53316) with CL
+Replacing solvent molecule 34512 (atom 72582) with CL
+Replacing solvent molecule 14098 (atom 52168) with CL
+Replacing solvent molecule 32343 (atom 70413) with CL
+Replacing solvent molecule 24840 (atom 62910) with CL
+Replacing solvent molecule 31398 (atom 69468) with CL
+Replacing solvent molecule 22678 (atom 60748) with CL
+Replacing solvent molecule 72713 (atom 110783) with CL
+Replacing solvent molecule 52356 (atom 90426) with CL
+Replacing solvent molecule 83501 (atom 121571) with CL
+Replacing solvent molecule 418 (atom 38488) with CL
+Replacing solvent molecule 53951 (atom 92021) with CL
+Replacing solvent molecule 45829 (atom 83899) with CL
+Replacing solvent molecule 74743 (atom 112813) with CL
+Replacing solvent molecule 80653 (atom 118723) with CL
+Replacing solvent molecule 14516 (atom 52586) with CL
+Replacing solvent molecule 69558 (atom 107628) with CL
+Replacing solvent molecule 39116 (atom 77186) with CL
+Replacing solvent molecule 65683 (atom 103753) with CL
+Replacing solvent molecule 11485 (atom 49555) with CL
+Replacing solvent molecule 66289 (atom 104359) with CL
+Replacing solvent molecule 17692 (atom 55762) with CL
+Replacing solvent molecule 78117 (atom 116187) with CL
+Replacing solvent molecule 16960 (atom 55030) with CL
+Replacing solvent molecule 85111 (atom 123181) with CL
+Replacing solvent molecule 3077 (atom 41147) with CL
+Replacing solvent molecule 28527 (atom 66597) with CL
+Replacing solvent molecule 82882 (atom 120952) with CL
+Replacing solvent molecule 27836 (atom 65906) with CL
+Replacing solvent molecule 85615 (atom 123685) with CL
+Replacing solvent molecule 72548 (atom 110618) with CL
+Replacing solvent molecule 65262 (atom 103332) with CL
+Replacing solvent molecule 53340 (atom 91410) with CL
+Replacing solvent molecule 27896 (atom 65966) with CL
+Replacing solvent molecule 11839 (atom 49909) with CL
+Replacing solvent molecule 44525 (atom 82595) with CL
+Replacing solvent molecule 71292 (atom 109362) with CL
+Replacing solvent molecule 36939 (atom 75009) with CL
+Replacing solvent molecule 68178 (atom 106248) with CL
+Replacing solvent molecule 70269 (atom 108339) with CL
+Replacing solvent molecule 64927 (atom 102997) with CL
+Replacing solvent molecule 70439 (atom 108509) with CL
+Replacing solvent molecule 14362 (atom 52432) with CL
+Replacing solvent molecule 73517 (atom 111587) with CL
+Replacing solvent molecule 82541 (atom 120611) with CL
+Replacing solvent molecule 48556 (atom 86626) with CL
+Replacing solvent molecule 34993 (atom 73063) with CL
+Replacing solvent molecule 69419 (atom 107489) with CL
+Replacing solvent molecule 3394 (atom 41464) with CL
+Replacing solvent molecule 68891 (atom 106961) with CL
+Replacing solvent molecule 17754 (atom 55824) with CL
+Replacing solvent molecule 79072 (atom 117142) with CL
+Replacing solvent molecule 47122 (atom 85192) with CL
+Replacing solvent molecule 21537 (atom 59607) with CL
+Replacing solvent molecule 56181 (atom 94251) with CL
+Replacing solvent molecule 25179 (atom 63249) with CL
+Replacing solvent molecule 39428 (atom 77498) with CL
+Replacing solvent molecule 1591 (atom 39661) with CL
+Replacing solvent molecule 26856 (atom 64926) with CL
+Replacing solvent molecule 7 (atom 38077) with CL
+Replacing solvent molecule 59462 (atom 97532) with CL
+Replacing solvent molecule 57913 (atom 95983) with CL
+Replacing solvent molecule 36611 (atom 74681) with CL
+Replacing solvent molecule 19945 (atom 58015) with CL
+Replacing solvent molecule 45194 (atom 83264) with CL
+Replacing solvent molecule 46264 (atom 84334) with CL
+Replacing solvent molecule 88293 (atom 126363) with CL
+Replacing solvent molecule 13724 (atom 51794) with CL
+Replacing solvent molecule 33361 (atom 71431) with CL
+Replacing solvent molecule 43784 (atom 81854) with CL
+Replacing solvent molecule 90283 (atom 128353) with CL
+Replacing solvent molecule 85594 (atom 123664) with CL
+Replacing solvent molecule 13694 (atom 51764) with CL
+Replacing solvent molecule 28771 (atom 66841) with CL
+Replacing solvent molecule 6391 (atom 44461) with CL
+Replacing solvent molecule 14280 (atom 52350) with CL
+Replacing solvent molecule 87872 (atom 125942) with CL
+Replacing solvent molecule 23779 (atom 61849) with CL
+Replacing solvent molecule 34343 (atom 72413) with CL
+Replacing solvent molecule 83703 (atom 121773) with CL
+Replacing solvent molecule 64109 (atom 102179) with CL
+Replacing solvent molecule 53388 (atom 91458) with CL
+Replacing solvent molecule 31858 (atom 69928) with CL
+Replacing solvent molecule 61738 (atom 99808) with CL
+Replacing solvent molecule 47270 (atom 85340) with CL
+Replacing solvent molecule 13862 (atom 51932) with CL
+Replacing solvent molecule 80286 (atom 118356) with CL
+Replacing solvent molecule 65566 (atom 103636) with CL
+Replacing solvent molecule 51011 (atom 89081) with CL
+Replacing solvent molecule 30123 (atom 68193) with CL
+Replacing solvent molecule 3074 (atom 41144) with CL
+Replacing solvent molecule 5834 (atom 43904) with CL
+Replacing solvent molecule 62137 (atom 100207) with CL
+Replacing solvent molecule 77174 (atom 115244) with CL
+Replacing solvent molecule 36339 (atom 74409) with CL
+Replacing solvent molecule 10808 (atom 48878) with CL
+Replacing solvent molecule 70267 (atom 108337) with CL
+Replacing solvent molecule 59902 (atom 97972) with CL
+Replacing solvent molecule 8417 (atom 46487) with CL
+Replacing solvent molecule 10432 (atom 48502) with CL
+Replacing solvent molecule 46963 (atom 85033) with CL
+Replacing solvent molecule 94859 (atom 132929) with CL
+Replacing solvent molecule 34007 (atom 72077) with CL
+Replacing solvent molecule 66450 (atom 104520) with CL
+Replacing solvent molecule 18198 (atom 56268) with CL
+Replacing solvent molecule 83642 (atom 121712) with CL
+Replacing solvent molecule 51007 (atom 89077) with CL
+Replacing solvent molecule 61242 (atom 99312) with CL
+Replacing solvent molecule 7502 (atom 45572) with CL
+Replacing solvent molecule 18690 (atom 56760) with CL
+Replacing solvent molecule 6866 (atom 44936) with CL
+Replacing solvent molecule 49954 (atom 88024) with CL
+Replacing solvent molecule 85834 (atom 123904) with CL
+Replacing solvent molecule 6867 (atom 44937) with CL
+Replacing solvent molecule 74588 (atom 112658) with CL
+Replacing solvent molecule 73444 (atom 111514) with CL
+Replacing solvent molecule 28372 (atom 66442) with CL
+Replacing solvent molecule 68165 (atom 106235) with CL
+Replacing solvent molecule 86515 (atom 124585) with CL
+Replacing solvent molecule 75631 (atom 113701) with CL
+Replacing solvent molecule 18952 (atom 57022) with CL
+Replacing solvent molecule 65544 (atom 103614) with CL
+Replacing solvent molecule 85485 (atom 123555) with CL
+Replacing solvent molecule 16460 (atom 54530) with CL
+Replacing solvent molecule 15434 (atom 53504) with CL
+Replacing solvent molecule 795 (atom 38865) with CL
+Replacing solvent molecule 40343 (atom 78413) with CL
+Replacing solvent molecule 48335 (atom 86405) with CL
+Replacing solvent molecule 39423 (atom 77493) with CL
+Replacing solvent molecule 71571 (atom 109641) with CL
+Replacing solvent molecule 52351 (atom 90421) with CL
+Replacing solvent molecule 59809 (atom 97879) with CL
+Replacing solvent molecule 35820 (atom 73890) with CL
+Replacing solvent molecule 26235 (atom 64305) with CL
+Replacing solvent molecule 9922 (atom 47992) with CL
+Replacing solvent molecule 46758 (atom 84828) with CL
+Replacing solvent molecule 74454 (atom 112524) with CL
+Replacing solvent molecule 16186 (atom 54256) with CL
+Replacing solvent molecule 48503 (atom 86573) with CL
+Replacing solvent molecule 45295 (atom 83365) with CL
+Replacing solvent molecule 51319 (atom 89389) with CL
+Replacing solvent molecule 36208 (atom 74278) with CL
+Replacing solvent molecule 77215 (atom 115285) with CL
+Replacing solvent molecule 14896 (atom 52966) with CL
+Replacing solvent molecule 47792 (atom 85862) with CL
+Replacing solvent molecule 11245 (atom 49315) with CL
+Replacing solvent molecule 12603 (atom 50673) with CL
+Replacing solvent molecule 28511 (atom 66581) with CL
+Replacing solvent molecule 66255 (atom 104325) with CL
+Replacing solvent molecule 44833 (atom 82903) with CL
+Replacing solvent molecule 85780 (atom 123850) with CL
+Replacing solvent molecule 74323 (atom 112393) with CL
+Replacing solvent molecule 15982 (atom 54052) with CL
+Replacing solvent molecule 39549 (atom 77619) with CL
+Replacing solvent molecule 81355 (atom 119425) with CL
+Replacing solvent molecule 85466 (atom 123536) with CL
+Replacing solvent molecule 14906 (atom 52976) with CL
+Replacing solvent molecule 5509 (atom 43579) with CL
+Replacing solvent molecule 89014 (atom 127084) with CL
+Replacing solvent molecule 1383 (atom 39453) with CL
+Replacing solvent molecule 77380 (atom 115450) with CL
+Replacing solvent molecule 49354 (atom 87424) with CL
+Replacing solvent molecule 62503 (atom 100573) with CL
+Replacing solvent molecule 63775 (atom 101845) with CL
+Replacing solvent molecule 77048 (atom 115118) with CL
+Replacing solvent molecule 43668 (atom 81738) with CL
+Replacing solvent molecule 14408 (atom 52478) with CL
+Replacing solvent molecule 816 (atom 38886) with CL
+Replacing solvent molecule 63805 (atom 101875) with CL
+Replacing solvent molecule 5518 (atom 43588) with CL
+Replacing solvent molecule 78322 (atom 116392) with CL
+Replacing solvent molecule 4206 (atom 42276) with CL
+Replacing solvent molecule 89705 (atom 127775) with CL
+Replacing solvent molecule 65604 (atom 103674) with CL
+Replacing solvent molecule 38207 (atom 76277) with CL
+Replacing solvent molecule 93093 (atom 131163) with CL
+Replacing solvent molecule 17688 (atom 55758) with CL
+Replacing solvent molecule 40868 (atom 78938) with CL
+Replacing solvent molecule 73875 (atom 111945) with CL
+Replacing solvent molecule 61661 (atom 99731) with CL
+Replacing solvent molecule 23660 (atom 61730) with CL
+Replacing solvent molecule 14962 (atom 53032) with CL
+Replacing solvent molecule 59846 (atom 97916) with CL
+Replacing solvent molecule 48862 (atom 86932) with CL
+Replacing solvent molecule 77332 (atom 115402) with CL
+Replacing solvent molecule 64081 (atom 102151) with CL
+Replacing solvent molecule 1800 (atom 39870) with CL
+Replacing solvent molecule 55976 (atom 94046) with CL
+Replacing solvent molecule 14799 (atom 52869) with CL
+Replacing solvent molecule 50877 (atom 88947) with CL
+Replacing solvent molecule 91185 (atom 129255) with CL
+Replacing solvent molecule 1071 (atom 39141) with CL
+Replacing solvent molecule 52443 (atom 90513) with CL
+Replacing solvent molecule 10409 (atom 48479) with CL
+Replacing solvent molecule 82906 (atom 120976) with CL
+Replacing solvent molecule 48379 (atom 86449) with CL
+Replacing solvent molecule 4589 (atom 42659) with CL
+Replacing solvent molecule 22781 (atom 60851) with CL
+Replacing solvent molecule 90232 (atom 128302) with CL
+Replacing solvent molecule 13306 (atom 51376) with CL
+Replacing solvent molecule 66471 (atom 104541) with CL
+Replacing solvent molecule 71744 (atom 109814) with CL
+Replacing solvent molecule 2102 (atom 40172) with CL
+Replacing solvent molecule 91044 (atom 129114) with CL
+Replacing solvent molecule 42898 (atom 80968) with CL
+Replacing solvent molecule 61118 (atom 99188) with CL
+Replacing solvent molecule 90741 (atom 128811) with CL
+Replacing solvent molecule 28851 (atom 66921) with CL
+Replacing solvent molecule 42794 (atom 80864) with CL
+Replacing solvent molecule 62308 (atom 100378) with CL
+Replacing solvent molecule 89053 (atom 127123) with CL
+Replacing solvent molecule 9513 (atom 47583) with CL
+Replacing solvent molecule 19024 (atom 57094) with CL
+Replacing solvent molecule 21916 (atom 59986) with CL
+Replacing solvent molecule 54340 (atom 92410) with CL
+Replacing solvent molecule 12531 (atom 50601) with CL
+Replacing solvent molecule 18233 (atom 56303) with CL
+Replacing solvent molecule 11798 (atom 49868) with CL
+Replacing solvent molecule 76999 (atom 115069) with CL
+Replacing solvent molecule 39595 (atom 77665) with CL
+Replacing solvent molecule 22191 (atom 60261) with CL
+Replacing solvent molecule 32132 (atom 70202) with CL
+Replacing solvent molecule 22445 (atom 60515) with CL
+Replacing solvent molecule 66394 (atom 104464) with CL
+Replacing solvent molecule 81103 (atom 119173) with CL
+Replacing solvent molecule 82211 (atom 120281) with CL
+Replacing solvent molecule 11907 (atom 49977) with CL
+Replacing solvent molecule 40743 (atom 78813) with CL
+Replacing solvent molecule 38648 (atom 76718) with CL
+Replacing solvent molecule 77321 (atom 115391) with CL
+Replacing solvent molecule 32147 (atom 70217) with CL
+Replacing solvent molecule 65312 (atom 103382) with CL
+Replacing solvent molecule 55825 (atom 93895) with CL
+Replacing solvent molecule 12174 (atom 50244) with CL
+Replacing solvent molecule 73153 (atom 111223) with CL
+Replacing solvent molecule 21329 (atom 59399) with CL
+Replacing solvent molecule 84570 (atom 122640) with CL
+Replacing solvent molecule 769 (atom 38839) with CL
+Replacing solvent molecule 91704 (atom 129774) with CL
+Replacing solvent molecule 3060 (atom 41130) with CL
+Replacing solvent molecule 15295 (atom 53365) with CL
+Replacing solvent molecule 24540 (atom 62610) with CL
+Replacing solvent molecule 6638 (atom 44708) with CL
+Replacing solvent molecule 46133 (atom 84203) with CL
+Replacing solvent molecule 52798 (atom 90868) with CL
+Replacing solvent molecule 16833 (atom 54903) with CL
+Replacing solvent molecule 15200 (atom 53270) with CL
+Replacing solvent molecule 47824 (atom 85894) with CL
+Replacing solvent molecule 92442 (atom 130512) with CL
+Replacing solvent molecule 52475 (atom 90545) with CL
+Replacing solvent molecule 87433 (atom 125503) with CL
+Replacing solvent molecule 39573 (atom 77643) with CL
+Replacing solvent molecule 86543 (atom 124613) with CL
+Replacing solvent molecule 38454 (atom 76524) with CL
+Replacing solvent molecule 77752 (atom 115822) with CL
+Replacing solvent molecule 27789 (atom 65859) with CL
+Replacing solvent molecule 90708 (atom 128778) with CL
+Replacing solvent molecule 37066 (atom 75136) with CL
+Replacing solvent molecule 76208 (atom 114278) with CL
+Replacing solvent molecule 84293 (atom 122363) with CL
+Replacing solvent molecule 51232 (atom 89302) with CL
+Replacing solvent molecule 16113 (atom 54183) with CL
+Replacing solvent molecule 58909 (atom 96979) with CL
+Replacing solvent molecule 34617 (atom 72687) with CL
+Replacing solvent molecule 93427 (atom 131497) with CL
+Replacing solvent molecule 12528 (atom 50598) with CL
+Replacing solvent molecule 38393 (atom 76463) with CL
+Replacing solvent molecule 93434 (atom 131504) with CL
+Replacing solvent molecule 955 (atom 39025) with CL
+Replacing solvent molecule 29674 (atom 67744) with CL
+Replacing solvent molecule 27460 (atom 65530) with CL
+Replacing solvent molecule 88749 (atom 126819) with CL
+Replacing solvent molecule 70793 (atom 108863) with CL
+Replacing solvent molecule 34840 (atom 72910) with CL
+Replacing solvent molecule 73738 (atom 111808) with CL
+Replacing solvent molecule 15676 (atom 53746) with CL
+Replacing solvent molecule 80955 (atom 119025) with CL
+Replacing solvent molecule 62628 (atom 100698) with CL
+Replacing solvent molecule 22187 (atom 60257) with CL
+Replacing solvent molecule 64672 (atom 102742) with CL
+Replacing solvent molecule 39417 (atom 77487) with CL
+Replacing solvent molecule 82925 (atom 120995) with CL
+Replacing solvent molecule 93863 (atom 131933) with CL
+Replacing solvent molecule 42201 (atom 80271) with CL
+Replacing solvent molecule 68561 (atom 106631) with CL
+Replacing solvent molecule 83902 (atom 121972) with CL
+Replacing solvent molecule 29285 (atom 67355) with CL
+Replacing solvent molecule 85577 (atom 123647) with CL
+Replacing solvent molecule 68942 (atom 107012) with CL
+Replacing solvent molecule 48961 (atom 87031) with CL
+Replacing solvent molecule 14488 (atom 52558) with CL
+Replacing solvent molecule 79172 (atom 117242) with CL
+Replacing solvent molecule 92162 (atom 130232) with CL
+Replacing solvent molecule 94186 (atom 132256) with CL
+Replacing solvent molecule 19989 (atom 58059) with CL
+Replacing solvent molecule 94354 (atom 132424) with CL
+Replacing solvent molecule 79421 (atom 117491) with CL
+Replacing solvent molecule 66008 (atom 104078) with CL
+Replacing solvent molecule 445 (atom 38515) with CL
+Replacing solvent molecule 64862 (atom 102932) with CL
+Replacing solvent molecule 42329 (atom 80399) with CL
+Replacing solvent molecule 3800 (atom 41870) with CL
+Replacing solvent molecule 47101 (atom 85171) with CL
+Replacing solvent molecule 67995 (atom 106065) with CL
+Replacing solvent molecule 14010 (atom 52080) with CL
+Replacing solvent molecule 24619 (atom 62689) with CL
+Replacing solvent molecule 75166 (atom 113236) with CL
+Replacing solvent molecule 67174 (atom 105244) with CL
+Replacing solvent molecule 50483 (atom 88553) with CL
+Replacing solvent molecule 71197 (atom 109267) with CL
+Replacing solvent molecule 61164 (atom 99234) with CL
+Replacing solvent molecule 74089 (atom 112159) with CL
+Replacing solvent molecule 26018 (atom 64088) with CL
+Replacing solvent molecule 38349 (atom 76419) with CL
+Replacing solvent molecule 88589 (atom 126659) with CL
+Replacing solvent molecule 8521 (atom 46591) with CL
+Replacing solvent molecule 55582 (atom 93652) with CL
+Replacing solvent molecule 65691 (atom 103761) with CL
+Replacing solvent molecule 53750 (atom 91820) with CL
+Replacing solvent molecule 32452 (atom 70522) with CL
+Replacing solvent molecule 76126 (atom 114196) with CL
+Replacing solvent molecule 66877 (atom 104947) with CL
+Replacing solvent molecule 51926 (atom 89996) with CL
+Replacing solvent molecule 9524 (atom 47594) with CL
+Replacing solvent molecule 32863 (atom 70933) with CL
+Replacing solvent molecule 74814 (atom 112884) with CL
+Replacing solvent molecule 34091 (atom 72161) with CL
+Replacing solvent molecule 24073 (atom 62143) with CL
+Replacing solvent molecule 92394 (atom 130464) with CL
+Replacing solvent molecule 5126 (atom 43196) with CL
+Replacing solvent molecule 4294 (atom 42364) with CL
+Replacing solvent molecule 47440 (atom 85510) with CL
+Replacing solvent molecule 78346 (atom 116416) with CL
+Replacing solvent molecule 20318 (atom 58388) with CL
+Replacing solvent molecule 54476 (atom 92546) with CL
+Replacing solvent molecule 58804 (atom 96874) with CL
+Replacing solvent molecule 34116 (atom 72186) with CL
+Replacing solvent molecule 17243 (atom 55313) with CL
+Replacing solvent molecule 36621 (atom 74691) with CL
+Replacing solvent molecule 93881 (atom 131951) with CL
+Replacing solvent molecule 58346 (atom 96416) with CL
+Replacing solvent molecule 12408 (atom 50478) with CL
+Replacing solvent molecule 53691 (atom 91761) with CL
+Replacing solvent molecule 89194 (atom 127264) with CL
+Replacing solvent molecule 24101 (atom 62171) with CL
+Replacing solvent molecule 78282 (atom 116352) with CL
+Replacing solvent molecule 87836 (atom 125906) with CL
+Replacing solvent molecule 69441 (atom 107511) with CL
+Replacing solvent molecule 59675 (atom 97745) with CL
+Replacing solvent molecule 13156 (atom 51226) with CL
+Replacing solvent molecule 86093 (atom 124163) with CL
+Replacing solvent molecule 94160 (atom 132230) with CL
+Replacing solvent molecule 57198 (atom 95268) with CL
+Replacing solvent molecule 23697 (atom 61767) with CL
+Replacing solvent molecule 2643 (atom 40713) with CL
+Replacing solvent molecule 71905 (atom 109975) with CL
+Replacing solvent molecule 82628 (atom 120698) with CL
+Replacing solvent molecule 34988 (atom 73058) with CL
+Replacing solvent molecule 49665 (atom 87735) with CL
+Replacing solvent molecule 94589 (atom 132659) with CL
+Replacing solvent molecule 73705 (atom 111775) with CL
+Replacing solvent molecule 64071 (atom 102141) with CL
+Replacing solvent molecule 77742 (atom 115812) with CL
+Replacing solvent molecule 87807 (atom 125877) with CL
+Replacing solvent molecule 20333 (atom 58403) with CL
+Replacing solvent molecule 53333 (atom 91403) with CL
+Replacing solvent molecule 92531 (atom 130601) with CL
+Replacing solvent molecule 36687 (atom 74757) with CL
+Replacing solvent molecule 50968 (atom 89038) with CL
+Replacing solvent molecule 47336 (atom 85406) with CL
+Replacing solvent molecule 70023 (atom 108093) with CL
+Replacing solvent molecule 15917 (atom 53987) with CL
+Replacing solvent molecule 50349 (atom 88419) with CL
+Replacing solvent molecule 69564 (atom 107634) with CL
+Replacing solvent molecule 31532 (atom 69602) with CL
+Replacing solvent molecule 47230 (atom 85300) with CL
+Replacing solvent molecule 44160 (atom 82230) with CL
+Replacing solvent molecule 53875 (atom 91945) with CL
+Replacing solvent molecule 34798 (atom 72868) with CL
+Replacing solvent molecule 22444 (atom 60514) with CL
+Replacing solvent molecule 37342 (atom 75412) with CL
+Replacing solvent molecule 26351 (atom 64421) with CL
+Replacing solvent molecule 87890 (atom 125960) with CL
+Replacing solvent molecule 10282 (atom 48352) with CL
+Replacing solvent molecule 59878 (atom 97948) with CL
+Replacing solvent molecule 72633 (atom 110703) with CL
+Replacing solvent molecule 2797 (atom 40867) with CL
+Replacing solvent molecule 50638 (atom 88708) with CL
+Replacing solvent molecule 80010 (atom 118080) with CL
+Replacing solvent molecule 36738 (atom 74808) with CL
+Replacing solvent molecule 41130 (atom 79200) with CL
+Replacing solvent molecule 74612 (atom 112682) with CL
+Replacing solvent molecule 58953 (atom 97023) with CL
+Replacing solvent molecule 49605 (atom 87675) with CL
+Replacing solvent molecule 638 (atom 38708) with CL
+Replacing solvent molecule 39233 (atom 77303) with CL
+Replacing solvent molecule 14672 (atom 52742) with CL
+Replacing solvent molecule 10796 (atom 48866) with CL
+Replacing solvent molecule 68162 (atom 106232) with CL
+Replacing solvent molecule 81589 (atom 119659) with CL
+Replacing solvent molecule 24051 (atom 62121) with CL
+Replacing solvent molecule 30189 (atom 68259) with CL
+Replacing solvent molecule 32068 (atom 70138) with CL
+Replacing solvent molecule 82130 (atom 120200) with CL
+Replacing solvent molecule 10521 (atom 48591) with CL
+Replacing solvent molecule 57957 (atom 96027) with CL
+Replacing solvent molecule 32032 (atom 70102) with CL
+Replacing solvent molecule 87723 (atom 125793) with CL
+Replacing solvent molecule 209 (atom 38279) with CL
+Replacing solvent molecule 92266 (atom 130336) with CL
+Replacing solvent molecule 63146 (atom 101216) with CL
+Replacing solvent molecule 26253 (atom 64323) with CL
+Replacing solvent molecule 55291 (atom 93361) with CL
+Replacing solvent molecule 2611 (atom 40681) with CL
+Replacing solvent molecule 14511 (atom 52581) with CL
+Replacing solvent molecule 15318 (atom 53388) with CL
+Replacing solvent molecule 10550 (atom 48620) with CL
+Replacing solvent molecule 14987 (atom 53057) with CL
+Replacing solvent molecule 32143 (atom 70213) with CL
+Replacing solvent molecule 35641 (atom 73711) with CL
+Replacing solvent molecule 69433 (atom 107503) with CL
+Replacing solvent molecule 48942 (atom 87012) with CL
+Replacing solvent molecule 64712 (atom 102782) with CL
+Replacing solvent molecule 72218 (atom 110288) with CL
+Replacing solvent molecule 82263 (atom 120333) with CL
+Replacing solvent molecule 46032 (atom 84102) with CL
+Replacing solvent molecule 75324 (atom 113394) with CL
+Replacing solvent molecule 76228 (atom 114298) with CL
+Replacing solvent molecule 2165 (atom 40235) with CL
+Replacing solvent molecule 25493 (atom 63563) with CL
+Replacing solvent molecule 18245 (atom 56315) with CL
+Replacing solvent molecule 80579 (atom 118649) with CL
+Replacing solvent molecule 82242 (atom 120312) with CL
+Replacing solvent molecule 57207 (atom 95277) with CL
+Replacing solvent molecule 70727 (atom 108797) with CL
+Replacing solvent molecule 84316 (atom 122386) with CL
+Replacing solvent molecule 5522 (atom 43592) with CL
+Replacing solvent molecule 76639 (atom 114709) with CL
+Replacing solvent molecule 8278 (atom 46348) with CL
+Replacing solvent molecule 61392 (atom 99462) with CL
+Replacing solvent molecule 43797 (atom 81867) with CL
+Replacing solvent molecule 44428 (atom 82498) with CL
+Replacing solvent molecule 38596 (atom 76666) with CL
+Replacing solvent molecule 68042 (atom 106112) with CL
+Replacing solvent molecule 13840 (atom 51910) with CL
+Replacing solvent molecule 82495 (atom 120565) with CL
+Replacing solvent molecule 69820 (atom 107890) with CL
+Replacing solvent molecule 9676 (atom 47746) with CL
+Replacing solvent molecule 24563 (atom 62633) with CL
+Replacing solvent molecule 44824 (atom 82894) with CL
+Replacing solvent molecule 60872 (atom 98942) with CL
+Replacing solvent molecule 18756 (atom 56826) with CL
+Replacing solvent molecule 15217 (atom 53287) with CL
+Replacing solvent molecule 8179 (atom 46249) with CL
+Replacing solvent molecule 21233 (atom 59303) with CL
+Replacing solvent molecule 76588 (atom 114658) with CL
+Replacing solvent molecule 44933 (atom 83003) with CL
+Replacing solvent molecule 49717 (atom 87787) with CL
+Replacing solvent molecule 23468 (atom 61538) with CL
+Replacing solvent molecule 16089 (atom 54159) with CL
+Replacing solvent molecule 12078 (atom 50148) with CL
+Replacing solvent molecule 87419 (atom 125489) with CL
+Replacing solvent molecule 10848 (atom 48918) with CL
+Replacing solvent molecule 78125 (atom 116195) with CL
+Replacing solvent molecule 80487 (atom 118557) with CL
+Replacing solvent molecule 83860 (atom 121930) with CL
+Replacing solvent molecule 17807 (atom 55877) with CL
+Replacing solvent molecule 53861 (atom 91931) with CL
+Replacing solvent molecule 82681 (atom 120751) with CL
+Replacing solvent molecule 68232 (atom 106302) with CL
+Replacing solvent molecule 48726 (atom 86796) with CL
+Replacing solvent molecule 27338 (atom 65408) with CL
+Replacing solvent molecule 6319 (atom 44389) with CL
+Replacing solvent molecule 13239 (atom 51309) with CL
+Replacing solvent molecule 67945 (atom 106015) with CL
+Replacing solvent molecule 36853 (atom 74923) with CL
+Replacing solvent molecule 68365 (atom 106435) with CL
+Replacing solvent molecule 50212 (atom 88282) with CL
+Replacing solvent molecule 83796 (atom 121866) with CL
+Replacing solvent molecule 31486 (atom 69556) with CL
+Replacing solvent molecule 9764 (atom 47834) with CL
+Replacing solvent molecule 43012 (atom 81082) with CL
+Replacing solvent molecule 5175 (atom 43245) with CL
+Replacing solvent molecule 89906 (atom 127976) with CL
+Replacing solvent molecule 3944 (atom 42014) with CL
+Replacing solvent molecule 62344 (atom 100414) with CL
+Replacing solvent molecule 54796 (atom 92866) with CL
+Replacing solvent molecule 17140 (atom 55210) with CL
+Replacing solvent molecule 6558 (atom 44628) with CL
+Replacing solvent molecule 58397 (atom 96467) with CL
+Replacing solvent molecule 14064 (atom 52134) with CL
+Replacing solvent molecule 88783 (atom 126853) with CL
+Replacing solvent molecule 8185 (atom 46255) with CL
+Replacing solvent molecule 64950 (atom 103020) with CL
+Replacing solvent molecule 82980 (atom 121050) with CL
+Replacing solvent molecule 6399 (atom 44469) with CL
+Replacing solvent molecule 34239 (atom 72309) with CL
+Replacing solvent molecule 88266 (atom 126336) with CL
+Replacing solvent molecule 63614 (atom 101684) with CL
+Replacing solvent molecule 46863 (atom 84933) with CL
+Replacing solvent molecule 73655 (atom 111725) with CL
+Replacing solvent molecule 47300 (atom 85370) with CL
+Replacing solvent molecule 67977 (atom 106047) with CL
+Replacing solvent molecule 23405 (atom 61475) with CL
+Replacing solvent molecule 6504 (atom 44574) with CL
+Replacing solvent molecule 70701 (atom 108771) with CL
+Replacing solvent molecule 2962 (atom 41032) with CL
+Replacing solvent molecule 90009 (atom 128079) with CL
+Replacing solvent molecule 11974 (atom 50044) with CL
+Replacing solvent molecule 34815 (atom 72885) with CL
+Replacing solvent molecule 71075 (atom 109145) with CL
+Replacing solvent molecule 9452 (atom 47522) with CL
+Replacing solvent molecule 22528 (atom 60598) with CL
+Replacing solvent molecule 48871 (atom 86941) with CL
+Replacing solvent molecule 12322 (atom 50392) with CL
+Replacing solvent molecule 2658 (atom 40728) with CL
+Replacing solvent molecule 24274 (atom 62344) with CL
+Replacing solvent molecule 74 (atom 38144) with CL
+Replacing solvent molecule 3586 (atom 41656) with CL
+Replacing solvent molecule 49140 (atom 87210) with CL
+Replacing solvent molecule 9584 (atom 47654) with CL
+Replacing solvent molecule 74214 (atom 112284) with CL
+Replacing solvent molecule 74761 (atom 112831) with CL
+Replacing solvent molecule 62372 (atom 100442) with CL
+Replacing solvent molecule 26591 (atom 64661) with CL
+Replacing solvent molecule 83983 (atom 122053) with CL
+Replacing solvent molecule 14806 (atom 52876) with CL
+Replacing solvent molecule 75848 (atom 113918) with CL
+Replacing solvent molecule 83467 (atom 121537) with CL
+Replacing solvent molecule 4505 (atom 42575) with CL
+Replacing solvent molecule 390 (atom 38460) with CL
+Replacing solvent molecule 9300 (atom 47370) with CL
+Replacing solvent molecule 47599 (atom 85669) with CL
+Replacing solvent molecule 65807 (atom 103877) with CL
+Replacing solvent molecule 60725 (atom 98795) with CL
+Replacing solvent molecule 3717 (atom 41787) with CL
+Replacing solvent molecule 64728 (atom 102798) with CL
+Replacing solvent molecule 35039 (atom 73109) with CL
+Replacing solvent molecule 93576 (atom 131646) with CL
+Replacing solvent molecule 64584 (atom 102654) with CL
+Replacing solvent molecule 92885 (atom 130955) with CL
+Replacing solvent molecule 11746 (atom 49816) with CL
+Replacing solvent molecule 10578 (atom 48648) with CL
+Replacing solvent molecule 79909 (atom 117979) with CL
+Replacing solvent molecule 25931 (atom 64001) with CL
+Replacing solvent molecule 29885 (atom 67955) with CL
+Replacing solvent molecule 43759 (atom 81829) with CL
+Replacing solvent molecule 48439 (atom 86509) with CL
+Replacing solvent molecule 3118 (atom 41188) with CL
+Replacing solvent molecule 19626 (atom 57696) with CL
+Replacing solvent molecule 59486 (atom 97556) with CL
+Replacing solvent molecule 90356 (atom 128426) with CL
+Replacing solvent molecule 7852 (atom 45922) with CL
+Replacing solvent molecule 61224 (atom 99294) with CL
+Replacing solvent molecule 23146 (atom 61216) with CL
+Replacing solvent molecule 62886 (atom 100956) with CL
+Replacing solvent molecule 72766 (atom 110836) with CL
+Replacing solvent molecule 8010 (atom 46080) with CL
+Replacing solvent molecule 12378 (atom 50448) with CL
+Replacing solvent molecule 91165 (atom 129235) with CL
+Replacing solvent molecule 53532 (atom 91602) with CL
+Replacing solvent molecule 77067 (atom 115137) with CL
+Replacing solvent molecule 22497 (atom 60567) with CL
+Replacing solvent molecule 9265 (atom 47335) with CL
+Replacing solvent molecule 40806 (atom 78876) with CL
+Replacing solvent molecule 29747 (atom 67817) with CL
+Replacing solvent molecule 87199 (atom 125269) with CL
+Replacing solvent molecule 39253 (atom 77323) with CL
+Replacing solvent molecule 42238 (atom 80308) with CL
+Replacing solvent molecule 42174 (atom 80244) with CL
+Replacing solvent molecule 83033 (atom 121103) with CL
+Replacing solvent molecule 7070 (atom 45140) with CL
+Replacing solvent molecule 15543 (atom 53613) with CL
+Replacing solvent molecule 78902 (atom 116972) with CL
+Replacing solvent molecule 42888 (atom 80958) with CL
+Replacing solvent molecule 76450 (atom 114520) with CL
+Replacing solvent molecule 1367 (atom 39437) with CL
+Replacing solvent molecule 71324 (atom 109394) with CL
+Replacing solvent molecule 85010 (atom 123080) with CL
+Replacing solvent molecule 36234 (atom 74304) with CL
+Replacing solvent molecule 72030 (atom 110100) with CL
+Replacing solvent molecule 12458 (atom 50528) with CL
+Replacing solvent molecule 39705 (atom 77775) with CL
+Replacing solvent molecule 88402 (atom 126472) with CL
+Replacing solvent molecule 57308 (atom 95378) with CL
+Replacing solvent molecule 39510 (atom 77580) with CL
+Replacing solvent molecule 91227 (atom 129297) with CL
+Replacing solvent molecule 86490 (atom 124560) with CL
+Replacing solvent molecule 77420 (atom 115490) with CL
+Replacing solvent molecule 41606 (atom 79676) with CL
+Replacing solvent molecule 43414 (atom 81484) with CL
+Replacing solvent molecule 51383 (atom 89453) with CL
+Replacing solvent molecule 91954 (atom 130024) with CL
+Replacing solvent molecule 21718 (atom 59788) with CL
+Replacing solvent molecule 49294 (atom 87364) with CL
+Replacing solvent molecule 94773 (atom 132843) with CL
+Replacing solvent molecule 11621 (atom 49691) with CL
+Replacing solvent molecule 39830 (atom 77900) with CL
+Replacing solvent molecule 35964 (atom 74034) with CL
+Replacing solvent molecule 87868 (atom 125938) with CL
+Replacing solvent molecule 65357 (atom 103427) with CL
+Replacing solvent molecule 14040 (atom 52110) with CL
+Replacing solvent molecule 7296 (atom 45366) with CL
+Replacing solvent molecule 44769 (atom 82839) with CL
+Replacing solvent molecule 72163 (atom 110233) with CL
+Replacing solvent molecule 17992 (atom 56062) with CL
+Replacing solvent molecule 70422 (atom 108492) with CL
+Replacing solvent molecule 48495 (atom 86565) with CL
+Replacing solvent molecule 67561 (atom 105631) with CL
+Replacing solvent molecule 70460 (atom 108530) with CL
+Replacing solvent molecule 54850 (atom 92920) with CL
+Replacing solvent molecule 13356 (atom 51426) with CL
+Replacing solvent molecule 22529 (atom 60599) with CL
+Replacing solvent molecule 61054 (atom 99124) with CL
+Replacing solvent molecule 73527 (atom 111597) with CL
+Replacing solvent molecule 14527 (atom 52597) with CL
+Replacing solvent molecule 60732 (atom 98802) with CL
+Replacing solvent molecule 46560 (atom 84630) with CL
+Replacing solvent molecule 82529 (atom 120599) with CL
+Replacing solvent molecule 26007 (atom 64077) with CL
+Replacing solvent molecule 69882 (atom 107952) with CL
+Replacing solvent molecule 89001 (atom 127071) with CL
+Replacing solvent molecule 47490 (atom 85560) with CL
+Replacing solvent molecule 83849 (atom 121919) with CL
+Replacing solvent molecule 76461 (atom 114531) with CL
+Replacing solvent molecule 75068 (atom 113138) with CL
+Replacing solvent molecule 66814 (atom 104884) with CL
+Replacing solvent molecule 38034 (atom 76104) with CL
+Replacing solvent molecule 8844 (atom 46914) with CL
+Replacing solvent molecule 73751 (atom 111821) with CL
+Replacing solvent molecule 22554 (atom 60624) with CL
+Replacing solvent molecule 9434 (atom 47504) with CL
+Replacing solvent molecule 4791 (atom 42861) with CL
+Replacing solvent molecule 16795 (atom 54865) with CL
+Replacing solvent molecule 55079 (atom 93149) with CL
+Replacing solvent molecule 55305 (atom 93375) with CL
+Replacing solvent molecule 30523 (atom 68593) with CL
+Replacing solvent molecule 91654 (atom 129724) with CL
+Replacing solvent molecule 91155 (atom 129225) with CL
+Replacing solvent molecule 36569 (atom 74639) with CL
+Replacing solvent molecule 88129 (atom 126199) with CL
+Replacing solvent molecule 61556 (atom 99626) with CL
+Replacing solvent molecule 80588 (atom 118658) with CL
+Replacing solvent molecule 38363 (atom 76433) with CL
+Replacing solvent molecule 70573 (atom 108643) with CL
+Replacing solvent molecule 12451 (atom 50521) with CL
+Replacing solvent molecule 44919 (atom 82989) with CL
+Replacing solvent molecule 92613 (atom 130683) with CL
+Replacing solvent molecule 63073 (atom 101143) with CL
+Replacing solvent molecule 90574 (atom 128644) with CL
+Replacing solvent molecule 57404 (atom 95474) with CL
+Replacing solvent molecule 94650 (atom 132720) with CL
+Replacing solvent molecule 21588 (atom 59658) with CL
+Replacing solvent molecule 13142 (atom 51212) with CL
+Replacing solvent molecule 60874 (atom 98944) with CL
+Replacing solvent molecule 64918 (atom 102988) with CL
+Replacing solvent molecule 55077 (atom 93147) with CL
+Replacing solvent molecule 54554 (atom 92624) with CL
+Replacing solvent molecule 75954 (atom 114024) with CL
+Replacing solvent molecule 73405 (atom 111475) with CL
+Replacing solvent molecule 72362 (atom 110432) with CL
+Replacing solvent molecule 39996 (atom 78066) with CL
+Replacing solvent molecule 48769 (atom 86839) with CL
+Replacing solvent molecule 40665 (atom 78735) with CL
+Replacing solvent molecule 65105 (atom 103175) with CL
+Replacing solvent molecule 23871 (atom 61941) with CL
+Replacing solvent molecule 64832 (atom 102902) with CL
+Replacing solvent molecule 35520 (atom 73590) with CL
+Replacing solvent molecule 21255 (atom 59325) with CL
+Replacing solvent molecule 13395 (atom 51465) with CL
+Replacing solvent molecule 17176 (atom 55246) with CL
+Replacing solvent molecule 65277 (atom 103347) with CL
+Replacing solvent molecule 83030 (atom 121100) with CL
+Replacing solvent molecule 15051 (atom 53121) with CL
+Replacing solvent molecule 52519 (atom 90589) with CL
+Replacing solvent molecule 59708 (atom 97778) with CL
+Replacing solvent molecule 82185 (atom 120255) with CL
+Replacing solvent molecule 73670 (atom 111740) with CL
+Replacing solvent molecule 60843 (atom 98913) with CL
+Replacing solvent molecule 21522 (atom 59592) with CL
+Replacing solvent molecule 82733 (atom 120803) with CL
+Replacing solvent molecule 64753 (atom 102823) with CL
+Replacing solvent molecule 93004 (atom 131074) with CL
+Replacing solvent molecule 67516 (atom 105586) with CL
+Replacing solvent molecule 48609 (atom 86679) with CL
+Replacing solvent molecule 86657 (atom 124727) with CL
+Replacing solvent molecule 65337 (atom 103407) with CL
+Replacing solvent molecule 20277 (atom 58347) with CL
+Replacing solvent molecule 46227 (atom 84297) with CL
+Replacing solvent molecule 2235 (atom 40305) with CL
+Replacing solvent molecule 14168 (atom 52238) with CL
+Replacing solvent molecule 82869 (atom 120939) with CL
+Replacing solvent molecule 16789 (atom 54859) with CL
+Replacing solvent molecule 67756 (atom 105826) with CL
+Replacing solvent molecule 31903 (atom 69973) with CL
+Replacing solvent molecule 8353 (atom 46423) with CL
+Replacing solvent molecule 69318 (atom 107388) with CL
+Replacing solvent molecule 78961 (atom 117031) with CL
+Replacing solvent molecule 72198 (atom 110268) with CL
+Replacing solvent molecule 80023 (atom 118093) with CL
+Replacing solvent molecule 36925 (atom 74995) with CL
+Replacing solvent molecule 63345 (atom 101415) with CL
+Replacing solvent molecule 24165 (atom 62235) with CL
+Replacing solvent molecule 7791 (atom 45861) with CL
+Replacing solvent molecule 86609 (atom 124679) with CL
+Replacing solvent molecule 59046 (atom 97116) with CL
+Replacing solvent molecule 49416 (atom 87486) with CL
+Replacing solvent molecule 9609 (atom 47679) with CL
+Replacing solvent molecule 49257 (atom 87327) with CL
+Replacing solvent molecule 87254 (atom 125324) with CL
+Replacing solvent molecule 5864 (atom 43934) with CL
+Replacing solvent molecule 86574 (atom 124644) with CL
+Replacing solvent molecule 12380 (atom 50450) with CL
+Replacing solvent molecule 43939 (atom 82009) with CL
+Replacing solvent molecule 51714 (atom 89784) with CL
+Replacing solvent molecule 51644 (atom 89714) with CL
+Replacing solvent molecule 8768 (atom 46838) with CL
+Replacing solvent molecule 87110 (atom 125180) with CL
+Replacing solvent molecule 78802 (atom 116872) with CL
+Replacing solvent molecule 58100 (atom 96170) with CL
+Replacing solvent molecule 48324 (atom 86394) with CL
+Replacing solvent molecule 39057 (atom 77127) with CL
+Replacing solvent molecule 29602 (atom 67672) with CL
+Replacing solvent molecule 49994 (atom 88064) with CL
+Replacing solvent molecule 60814 (atom 98884) with CL
+Replacing solvent molecule 94550 (atom 132620) with CL
+Replacing solvent molecule 93540 (atom 131610) with CL
+Replacing solvent molecule 33978 (atom 72048) with CL
+Replacing solvent molecule 3797 (atom 41867) with CL
+Replacing solvent molecule 11078 (atom 49148) with CL
+Replacing solvent molecule 4169 (atom 42239) with CL
+Replacing solvent molecule 62920 (atom 100990) with CL
+Replacing solvent molecule 21297 (atom 59367) with CL
+Replacing solvent molecule 14291 (atom 52361) with CL
+Replacing solvent molecule 63497 (atom 101567) with CL
+Replacing solvent molecule 88360 (atom 126430) with CL
+Replacing solvent molecule 84127 (atom 122197) with CL
+Replacing solvent molecule 28788 (atom 66858) with CL
+Replacing solvent molecule 23576 (atom 61646) with CL
+Replacing solvent molecule 56811 (atom 94881) with CL
+Replacing solvent molecule 43145 (atom 81215) with CL
+Replacing solvent molecule 42934 (atom 81004) with CL
+Replacing solvent molecule 711 (atom 38781) with CL
+Replacing solvent molecule 87050 (atom 125120) with CL
+Replacing solvent molecule 47656 (atom 85726) with CL
+Replacing solvent molecule 3090 (atom 41160) with CL
+Replacing solvent molecule 40573 (atom 78643) with CL
+Replacing solvent molecule 23061 (atom 61131) with CL
+Replacing solvent molecule 7884 (atom 45954) with CL
+Replacing solvent molecule 13889 (atom 51959) with CL
+Replacing solvent molecule 83485 (atom 121555) with CL
+Replacing solvent molecule 34431 (atom 72501) with CL
+Replacing solvent molecule 13984 (atom 52054) with CL
+Replacing solvent molecule 81170 (atom 119240) with CL
+Replacing solvent molecule 30789 (atom 68859) with CL
+Replacing solvent molecule 33012 (atom 71082) with CL
+Replacing solvent molecule 30897 (atom 68967) with CL
+Replacing solvent molecule 65433 (atom 103503) with CL
+Replacing solvent molecule 18603 (atom 56673) with CL
+Replacing solvent molecule 93680 (atom 131750) with CL
+Replacing solvent molecule 32183 (atom 70253) with CL
+Replacing solvent molecule 29876 (atom 67946) with CL
+Replacing solvent molecule 58866 (atom 96936) with CL
+Replacing solvent molecule 37844 (atom 75914) with CL
+Replacing solvent molecule 75368 (atom 113438) with CL
+Replacing solvent molecule 57577 (atom 95647) with CL
+Replacing solvent molecule 57502 (atom 95572) with CL
+Replacing solvent molecule 86525 (atom 124595) with CL
+Replacing solvent molecule 51325 (atom 89395) with CL
+Replacing solvent molecule 469 (atom 38539) with CL
+Replacing solvent molecule 94608 (atom 132678) with CL
+Replacing solvent molecule 13368 (atom 51438) with CL
+Replacing solvent molecule 94604 (atom 132674) with CL
+Replacing solvent molecule 25459 (atom 63529) with CL
+Replacing solvent molecule 80123 (atom 118193) with CL
+Replacing solvent molecule 21638 (atom 59708) with CL
+Replacing solvent molecule 46939 (atom 85009) with CL
+Replacing solvent molecule 24026 (atom 62096) with CL
+Replacing solvent molecule 87923 (atom 125993) with CL
+Replacing solvent molecule 84629 (atom 122699) with CL
+Replacing solvent molecule 54951 (atom 93021) with CL
+Replacing solvent molecule 88685 (atom 126755) with CL
+Replacing solvent molecule 27546 (atom 65616) with CL
+Replacing solvent molecule 86013 (atom 124083) with CL
+Replacing solvent molecule 78172 (atom 116242) with CL
+Replacing solvent molecule 57669 (atom 95739) with CL
+Replacing solvent molecule 91671 (atom 129741) with CL
+Replacing solvent molecule 16853 (atom 54923) with CL
+Replacing solvent molecule 60081 (atom 98151) with CL
+Replacing solvent molecule 392 (atom 38462) with CL
+Replacing solvent molecule 48384 (atom 86454) with CL
+Replacing solvent molecule 16127 (atom 54197) with CL
+Replacing solvent molecule 55353 (atom 93423) with CL
+Replacing solvent molecule 58985 (atom 97055) with CL
+Replacing solvent molecule 46988 (atom 85058) with CL
+Replacing solvent molecule 41395 (atom 79465) with CL
+Replacing solvent molecule 56485 (atom 94555) with CL
+Replacing solvent molecule 86625 (atom 124695) with CL
+Replacing solvent molecule 76592 (atom 114662) with CL
+Replacing solvent molecule 64481 (atom 102551) with CL
+Replacing solvent molecule 17930 (atom 56000) with CL
+Replacing solvent molecule 15860 (atom 53930) with CL
+Replacing solvent molecule 47674 (atom 85744) with CL
+Replacing solvent molecule 50425 (atom 88495) with CL
+Replacing solvent molecule 15966 (atom 54036) with CL
+Replacing solvent molecule 18492 (atom 56562) with CL
+Replacing solvent molecule 22775 (atom 60845) with CL
+Replacing solvent molecule 79040 (atom 117110) with CL
+Replacing solvent molecule 79055 (atom 117125) with CL
+Replacing solvent molecule 8654 (atom 46724) with CL
+Replacing solvent molecule 61624 (atom 99694) with CL
+Replacing solvent molecule 78149 (atom 116219) with CL
+Replacing solvent molecule 68249 (atom 106319) with CL
+Replacing solvent molecule 17919 (atom 55989) with CL
+Replacing solvent molecule 1119 (atom 39189) with CL
+Replacing solvent molecule 47693 (atom 85763) with CL
+Replacing solvent molecule 88057 (atom 126127) with CL
+Replacing solvent molecule 46820 (atom 84890) with CL
+Replacing solvent molecule 60191 (atom 98261) with CL
+Replacing solvent molecule 29026 (atom 67096) with CL
+Replacing solvent molecule 39540 (atom 77610) with CL
+Replacing solvent molecule 16162 (atom 54232) with CL
+Replacing solvent molecule 41227 (atom 79297) with CL
+Replacing solvent molecule 49855 (atom 87925) with CL
+Replacing solvent molecule 31329 (atom 69399) with CL
+Replacing solvent molecule 71871 (atom 109941) with CL
+Replacing solvent molecule 10535 (atom 48605) with CL
+Replacing solvent molecule 27238 (atom 65308) with CL
+Replacing solvent molecule 62769 (atom 100839) with CL
+Replacing solvent molecule 79542 (atom 117612) with CL
+Replacing solvent molecule 43934 (atom 82004) with CL
+Replacing solvent molecule 92839 (atom 130909) with CL
+Replacing solvent molecule 78179 (atom 116249) with CL
+Replacing solvent molecule 37480 (atom 75550) with CL
+Replacing solvent molecule 2846 (atom 40916) with CL
+Replacing solvent molecule 92062 (atom 130132) with CL
+Replacing solvent molecule 43271 (atom 81341) with CL
+Replacing solvent molecule 59127 (atom 97197) with CL
+Replacing solvent molecule 49332 (atom 87402) with CL
+Replacing solvent molecule 55098 (atom 93168) with CL
+Replacing solvent molecule 24980 (atom 63050) with CL
+Replacing solvent molecule 17925 (atom 55995) with CL
+Replacing solvent molecule 39372 (atom 77442) with CL
+Replacing solvent molecule 517 (atom 38587) with CL
+Replacing solvent molecule 12427 (atom 50497) with CL
+Replacing solvent molecule 21541 (atom 59611) with CL
+Replacing solvent molecule 39124 (atom 77194) with CL
+Replacing solvent molecule 32267 (atom 70337) with CL
+Replacing solvent molecule 68812 (atom 106882) with CL
+Replacing solvent molecule 82985 (atom 121055) with CL
+Replacing solvent molecule 33751 (atom 71821) with CL
+Replacing solvent molecule 66154 (atom 104224) with CL
+Replacing solvent molecule 52342 (atom 90412) with CL
+Replacing solvent molecule 60038 (atom 98108) with CL
+Replacing solvent molecule 73000 (atom 111070) with CL
+Replacing solvent molecule 48080 (atom 86150) with CL
+Replacing solvent molecule 44235 (atom 82305) with CL
+Replacing solvent molecule 26799 (atom 64869) with CL
+Replacing solvent molecule 45752 (atom 83822) with CL
+Replacing solvent molecule 37145 (atom 75215) with CL
+Replacing solvent molecule 68212 (atom 106282) with CL
+Replacing solvent molecule 19137 (atom 57207) with CL
+Replacing solvent molecule 37223 (atom 75293) with CL
+Replacing solvent molecule 69382 (atom 107452) with CL
+Replacing solvent molecule 52389 (atom 90459) with CL
+Replacing solvent molecule 34436 (atom 72506) with CL
+Replacing solvent molecule 49765 (atom 87835) with CL
+Replacing solvent molecule 41750 (atom 79820) with CL
+Replacing solvent molecule 45925 (atom 83995) with CL
+Replacing solvent molecule 20836 (atom 58906) with CL
+Replacing solvent molecule 58248 (atom 96318) with CL
+Replacing solvent molecule 668 (atom 38738) with CL
+Replacing solvent molecule 79026 (atom 117096) with CL
+Replacing solvent molecule 26057 (atom 64127) with CL
+Replacing solvent molecule 7040 (atom 45110) with CL
+Replacing solvent molecule 56042 (atom 94112) with CL
+Replacing solvent molecule 79428 (atom 117498) with CL
+Replacing solvent molecule 65410 (atom 103480) with CL
+Replacing solvent molecule 5395 (atom 43465) with CL
+Replacing solvent molecule 91742 (atom 129812) with CL
+Replacing solvent molecule 73370 (atom 111440) with CL
+Replacing solvent molecule 89316 (atom 127386) with CL
+Replacing solvent molecule 77514 (atom 115584) with CL
+Replacing solvent molecule 6015 (atom 44085) with CL
+Replacing solvent molecule 10751 (atom 48821) with CL
+Replacing solvent molecule 44937 (atom 83007) with CL
+Replacing solvent molecule 2322 (atom 40392) with CL
+Replacing solvent molecule 43194 (atom 81264) with CL
+Replacing solvent molecule 70796 (atom 108866) with CL
+Replacing solvent molecule 10496 (atom 48566) with CL
+Replacing solvent molecule 67033 (atom 105103) with CL
+Replacing solvent molecule 4660 (atom 42730) with CL
+Replacing solvent molecule 76288 (atom 114358) with CL
+Replacing solvent molecule 19775 (atom 57845) with CL
+Replacing solvent molecule 24636 (atom 62706) with CL
+Replacing solvent molecule 75562 (atom 113632) with CL
+Replacing solvent molecule 41564 (atom 79634) with CL
+Replacing solvent molecule 47652 (atom 85722) with CL
+Replacing solvent molecule 61384 (atom 99454) with CL
+Replacing solvent molecule 65769 (atom 103839) with CL
+Replacing solvent molecule 14300 (atom 52370) with CL
+Replacing solvent molecule 47215 (atom 85285) with CL
+Replacing solvent molecule 32958 (atom 71028) with CL
+Replacing solvent molecule 79619 (atom 117689) with CL
+Replacing solvent molecule 41718 (atom 79788) with CL
+Replacing solvent molecule 35208 (atom 73278) with CL
+Replacing solvent molecule 46104 (atom 84174) with CL
+Replacing solvent molecule 68778 (atom 106848) with CL
+Replacing solvent molecule 73726 (atom 111796) with CL
+Replacing solvent molecule 56125 (atom 94195) with CL
+Replacing solvent molecule 19213 (atom 57283) with CL
+Replacing solvent molecule 59400 (atom 97470) with CL
+Replacing solvent molecule 9748 (atom 47818) with CL
+Replacing solvent molecule 84799 (atom 122869) with CL
+Replacing solvent molecule 67338 (atom 105408) with CL
+Replacing solvent molecule 88086 (atom 126156) with CL
+Replacing solvent molecule 68147 (atom 106217) with CL
+Replacing solvent molecule 33285 (atom 71355) with CL
+Replacing solvent molecule 84144 (atom 122214) with CL
+Replacing solvent molecule 57274 (atom 95344) with CL
+Replacing solvent molecule 77169 (atom 115239) with CL
+Replacing solvent molecule 91776 (atom 129846) with CL
+Replacing solvent molecule 38632 (atom 76702) with CL
+Replacing solvent molecule 16164 (atom 54234) with CL
+Replacing solvent molecule 37693 (atom 75763) with CL
+Replacing solvent molecule 33938 (atom 72008) with CL
+Replacing solvent molecule 57836 (atom 95906) with CL
+Replacing solvent molecule 68321 (atom 106391) with CL
+Replacing solvent molecule 17570 (atom 55640) with CL
+Replacing solvent molecule 31781 (atom 69851) with CL
+Replacing solvent molecule 67427 (atom 105497) with CL
+Replacing solvent molecule 29984 (atom 68054) with CL
+Replacing solvent molecule 54479 (atom 92549) with CL
+Replacing solvent molecule 85269 (atom 123339) with CL
+Replacing solvent molecule 45693 (atom 83763) with CL
+Replacing solvent molecule 56766 (atom 94836) with CL
+Replacing solvent molecule 70893 (atom 108963) with CL
+Replacing solvent molecule 57501 (atom 95571) with CL
+Replacing solvent molecule 74100 (atom 112170) with CL
+Replacing solvent molecule 89946 (atom 128016) with CL
+Replacing solvent molecule 69713 (atom 107783) with CL
+Replacing solvent molecule 23157 (atom 61227) with CL
+Replacing solvent molecule 37125 (atom 75195) with CL
+Replacing solvent molecule 29622 (atom 67692) with CL
+Replacing solvent molecule 51440 (atom 89510) with CL
+Replacing solvent molecule 16475 (atom 54545) with CL
+Replacing solvent molecule 22465 (atom 60535) with CL
+Replacing solvent molecule 19556 (atom 57626) with CL
+Replacing solvent molecule 81018 (atom 119088) with CL
+Replacing solvent molecule 43214 (atom 81284) with CL
+Replacing solvent molecule 2025 (atom 40095) with CL
+Replacing solvent molecule 71011 (atom 109081) with CL
+Replacing solvent molecule 71898 (atom 109968) with CL
+Replacing solvent molecule 76289 (atom 114359) with CL
+Replacing solvent molecule 81111 (atom 119181) with CL
+Replacing solvent molecule 93062 (atom 131132) with CL
+Replacing solvent molecule 54287 (atom 92357) with CL
+Replacing solvent molecule 80893 (atom 118963) with CL
+Replacing solvent molecule 55869 (atom 93939) with CL
+Replacing solvent molecule 88205 (atom 126275) with CL
+Replacing solvent molecule 77735 (atom 115805) with CL
+Replacing solvent molecule 19807 (atom 57877) with CL
+Replacing solvent molecule 3866 (atom 41936) with CL
+Replacing solvent molecule 46061 (atom 84131) with CL
+Replacing solvent molecule 17826 (atom 55896) with CL
+Replacing solvent molecule 91376 (atom 129446) with CL
+Replacing solvent molecule 72345 (atom 110415) with CL
+Replacing solvent molecule 84563 (atom 122633) with CL
+Replacing solvent molecule 29544 (atom 67614) with CL
+Replacing solvent molecule 62889 (atom 100959) with CL
+Replacing solvent molecule 1961 (atom 40031) with CL
+Replacing solvent molecule 37428 (atom 75498) with CL
+Replacing solvent molecule 94632 (atom 132702) with CL
+Replacing solvent molecule 83078 (atom 121148) with CL
+Replacing solvent molecule 53280 (atom 91350) with CL
+Replacing solvent molecule 28830 (atom 66900) with CL
+Replacing solvent molecule 4923 (atom 42993) with CL
+Replacing solvent molecule 91029 (atom 129099) with CL
+Replacing solvent molecule 67727 (atom 105797) with CL
+Replacing solvent molecule 67981 (atom 106051) with CL
+Replacing solvent molecule 16019 (atom 54089) with CL
+Replacing solvent molecule 4650 (atom 42720) with CL
+Replacing solvent molecule 74584 (atom 112654) with CL
+Replacing solvent molecule 13805 (atom 51875) with CL
+Replacing solvent molecule 7896 (atom 45966) with CL
+Replacing solvent molecule 89978 (atom 128048) with CL
+Replacing solvent molecule 20610 (atom 58680) with CL
+Replacing solvent molecule 28750 (atom 66820) with CL
+Replacing solvent molecule 77146 (atom 115216) with CL
+Replacing solvent molecule 4898 (atom 42968) with CL
+Replacing solvent molecule 42111 (atom 80181) with CL
+Replacing solvent molecule 77196 (atom 115266) with CL
+Replacing solvent molecule 43299 (atom 81369) with CL
+Replacing solvent molecule 29013 (atom 67083) with CL
+Replacing solvent molecule 49390 (atom 87460) with CL
+Replacing solvent molecule 90540 (atom 128610) with CL
+Replacing solvent molecule 38697 (atom 76767) with CL
+Replacing solvent molecule 48898 (atom 86968) with CL
+Replacing solvent molecule 45907 (atom 83977) with CL
+Replacing solvent molecule 20321 (atom 58391) with CL
+Replacing solvent molecule 78128 (atom 116198) with CL
+Replacing solvent molecule 22904 (atom 60974) with CL
+Replacing solvent molecule 33355 (atom 71425) with CL
+Replacing solvent molecule 44250 (atom 82320) with CL
+Replacing solvent molecule 16681 (atom 54751) with CL
+Replacing solvent molecule 5547 (atom 43617) with CL
+Replacing solvent molecule 55957 (atom 94027) with CL
+Replacing solvent molecule 3496 (atom 41566) with CL
+Replacing solvent molecule 9804 (atom 47874) with CL
+Replacing solvent molecule 91625 (atom 129695) with CL
+Replacing solvent molecule 31040 (atom 69110) with CL
+Replacing solvent molecule 85884 (atom 123954) with CL
+Replacing solvent molecule 21345 (atom 59415) with CL
+Replacing solvent molecule 91992 (atom 130062) with CL
+Replacing solvent molecule 34500 (atom 72570) with CL
+Replacing solvent molecule 31303 (atom 69373) with CL
+Replacing solvent molecule 32123 (atom 70193) with CL
+Replacing solvent molecule 90720 (atom 128790) with CL
+Replacing solvent molecule 88570 (atom 126640) with CL
+Replacing solvent molecule 70344 (atom 108414) with CL
+Replacing solvent molecule 57602 (atom 95672) with CL
+Replacing solvent molecule 20889 (atom 58959) with CL
+Replacing solvent molecule 1836 (atom 39906) with CL
+Replacing solvent molecule 54316 (atom 92386) with CL
+Replacing solvent molecule 14658 (atom 52728) with CL
+Replacing solvent molecule 16754 (atom 54824) with CL
+Replacing solvent molecule 2314 (atom 40384) with CL
+Replacing solvent molecule 56703 (atom 94773) with CL
+Replacing solvent molecule 87047 (atom 125117) with CL
+Replacing solvent molecule 9195 (atom 47265) with CL
+Replacing solvent molecule 1175 (atom 39245) with CL
+Replacing solvent molecule 74273 (atom 112343) with CL
+Replacing solvent molecule 57332 (atom 95402) with CL
+Replacing solvent molecule 10888 (atom 48958) with CL
+Replacing solvent molecule 56461 (atom 94531) with CL
+Replacing solvent molecule 12120 (atom 50190) with CL
+Replacing solvent molecule 6400 (atom 44470) with CL
+Replacing solvent molecule 87405 (atom 125475) with CL
+Replacing solvent molecule 75953 (atom 114023) with CL
+Replacing solvent molecule 49720 (atom 87790) with CL
+Replacing solvent molecule 62990 (atom 101060) with CL
+Replacing solvent molecule 61962 (atom 100032) with CL
+Replacing solvent molecule 9124 (atom 47194) with CL
+Replacing solvent molecule 17619 (atom 55689) with CL
+Replacing solvent molecule 61515 (atom 99585) with CL
+Replacing solvent molecule 93915 (atom 131985) with CL
+Replacing solvent molecule 30452 (atom 68522) with CL
+Replacing solvent molecule 24972 (atom 63042) with CL
+Replacing solvent molecule 1596 (atom 39666) with CL
+Replacing solvent molecule 15131 (atom 53201) with CL
+Replacing solvent molecule 17827 (atom 55897) with CL
+Replacing solvent molecule 23113 (atom 61183) with CL
+Replacing solvent molecule 49918 (atom 87988) with CL
+Replacing solvent molecule 31882 (atom 69952) with CL
+Replacing solvent molecule 31358 (atom 69428) with CL
+Replacing solvent molecule 68509 (atom 106579) with CL
+Replacing solvent molecule 32056 (atom 70126) with CL
+Replacing solvent molecule 37840 (atom 75910) with CL
+Replacing solvent molecule 24109 (atom 62179) with CL
+Replacing solvent molecule 81 (atom 38151) with CL
+Replacing solvent molecule 35760 (atom 73830) with CL
+Replacing solvent molecule 4840 (atom 42910) with CL
+Replacing solvent molecule 60151 (atom 98221) with CL
+Replacing solvent molecule 63163 (atom 101233) with CL
+Replacing solvent molecule 19693 (atom 57763) with CL
+Replacing solvent molecule 41618 (atom 79688) with CL
+Replacing solvent molecule 21650 (atom 59720) with CL
+Replacing solvent molecule 31292 (atom 69362) with CL
+Replacing solvent molecule 51408 (atom 89478) with CL
+Replacing solvent molecule 73674 (atom 111744) with CL
+Replacing solvent molecule 61780 (atom 99850) with CL
+Replacing solvent molecule 60408 (atom 98478) with CL
+Replacing solvent molecule 91207 (atom 129277) with CL
+Replacing solvent molecule 83571 (atom 121641) with CL
+Replacing solvent molecule 41786 (atom 79856) with CL
+Replacing solvent molecule 45825 (atom 83895) with CL
+Replacing solvent molecule 72160 (atom 110230) with CL
+Replacing solvent molecule 78499 (atom 116569) with CL
+Replacing solvent molecule 60511 (atom 98581) with CL
+Replacing solvent molecule 34172 (atom 72242) with CL
+Replacing solvent molecule 49510 (atom 87580) with CL
+Replacing solvent molecule 12670 (atom 50740) with CL
+Replacing solvent molecule 50568 (atom 88638) with CL
+Replacing solvent molecule 27105 (atom 65175) with CL
+Replacing solvent molecule 19309 (atom 57379) with CL
+Replacing solvent molecule 45820 (atom 83890) with CL
+Replacing solvent molecule 37057 (atom 75127) with CL
+Replacing solvent molecule 24313 (atom 62383) with CL
+Replacing solvent molecule 41572 (atom 79642) with CL
+Replacing solvent molecule 80858 (atom 118928) with CL
+Replacing solvent molecule 23600 (atom 61670) with CL
+Replacing solvent molecule 37849 (atom 75919) with CL
+Replacing solvent molecule 85569 (atom 123639) with CL
+Replacing solvent molecule 92990 (atom 131060) with CL
+Replacing solvent molecule 57454 (atom 95524) with CL
+Replacing solvent molecule 73064 (atom 111134) with CL
+Replacing solvent molecule 14119 (atom 52189) with CL
+Replacing solvent molecule 71416 (atom 109486) with CL
+Replacing solvent molecule 9838 (atom 47908) with CL
+Replacing solvent molecule 29504 (atom 67574) with CL
+Replacing solvent molecule 30744 (atom 68814) with CL
+Replacing solvent molecule 443 (atom 38513) with CL
+Replacing solvent molecule 30945 (atom 69015) with CL
+Replacing solvent molecule 17239 (atom 55309) with CL
+Replacing solvent molecule 156 (atom 38226) with CL
+Replacing solvent molecule 11244 (atom 49314) with CL
+Replacing solvent molecule 23419 (atom 61489) with CL
+Replacing solvent molecule 76009 (atom 114079) with CL
+Replacing solvent molecule 33578 (atom 71648) with CL
+Replacing solvent molecule 84908 (atom 122978) with CL
+Replacing solvent molecule 56903 (atom 94973) with CL
+Replacing solvent molecule 66843 (atom 104913) with CL
+Replacing solvent molecule 50163 (atom 88233) with CL
+Replacing solvent molecule 61441 (atom 99511) with CL
+Replacing solvent molecule 22068 (atom 60138) with CL
+Replacing solvent molecule 84909 (atom 122979) with CL
+Replacing solvent molecule 7281 (atom 45351) with CL
+Replacing solvent molecule 5021 (atom 43091) with CL
+Replacing solvent molecule 61423 (atom 99493) with CL
+Replacing solvent molecule 44336 (atom 82406) with CL
+Replacing solvent molecule 12726 (atom 50796) with CL
+Replacing solvent molecule 38861 (atom 76931) with CL
+Replacing solvent molecule 4037 (atom 42107) with CL
+Replacing solvent molecule 53988 (atom 92058) with CL
+Replacing solvent molecule 85905 (atom 123975) with CL
+Replacing solvent molecule 3827 (atom 41897) with CL
+Replacing solvent molecule 17746 (atom 55816) with CL
+Replacing solvent molecule 42941 (atom 81011) with CL
+Replacing solvent molecule 13383 (atom 51453) with CL
+Replacing solvent molecule 9970 (atom 48040) with CL
+Replacing solvent molecule 87325 (atom 125395) with CL
+Replacing solvent molecule 18854 (atom 56924) with CL
+Replacing solvent molecule 76439 (atom 114509) with CL
+Replacing solvent molecule 30291 (atom 68361) with CL
+Replacing solvent molecule 23950 (atom 62020) with CL
+Replacing solvent molecule 49731 (atom 87801) with CL
+Replacing solvent molecule 44886 (atom 82956) with CL
+Replacing solvent molecule 36345 (atom 74415) with CL
+Replacing solvent molecule 62629 (atom 100699) with CL
+Replacing solvent molecule 17178 (atom 55248) with CL
+Replacing solvent molecule 62926 (atom 100996) with CL
+Replacing solvent molecule 13965 (atom 52035) with CL
+Replacing solvent molecule 1922 (atom 39992) with CL
+Replacing solvent molecule 83605 (atom 121675) with CL
+Replacing solvent molecule 71965 (atom 110035) with CL
+Replacing solvent molecule 31181 (atom 69251) with CL
+Replacing solvent molecule 73110 (atom 111180) with CL
+Replacing solvent molecule 15432 (atom 53502) with CL
+Replacing solvent molecule 37830 (atom 75900) with CL
+Replacing solvent molecule 89732 (atom 127802) with CL
+Replacing solvent molecule 85602 (atom 123672) with CL
+Replacing solvent molecule 20402 (atom 58472) with CL
+Replacing solvent molecule 88737 (atom 126807) with CL
+Replacing solvent molecule 18447 (atom 56517) with CL
+Replacing solvent molecule 70325 (atom 108395) with CL
+Replacing solvent molecule 92234 (atom 130304) with CL
+Replacing solvent molecule 80877 (atom 118947) with CL
+Replacing solvent molecule 67715 (atom 105785) with CL
+Replacing solvent molecule 53312 (atom 91382) with CL
+Replacing solvent molecule 16402 (atom 54472) with CL
+Replacing solvent molecule 44669 (atom 82739) with CL
+Replacing solvent molecule 26111 (atom 64181) with CL
+Replacing solvent molecule 61921 (atom 99991) with CL
+Replacing solvent molecule 88449 (atom 126519) with CL
+Replacing solvent molecule 69096 (atom 107166) with CL
+Replacing solvent molecule 26737 (atom 64807) with CL
+Replacing solvent molecule 76442 (atom 114512) with CL
+Replacing solvent molecule 48606 (atom 86676) with CL
+Replacing solvent molecule 69652 (atom 107722) with CL
+Replacing solvent molecule 12328 (atom 50398) with CL
+Replacing solvent molecule 76303 (atom 114373) with CL
+Replacing solvent molecule 16306 (atom 54376) with CL
+Replacing solvent molecule 10343 (atom 48413) with CL
+Replacing solvent molecule 84758 (atom 122828) with CL
+Replacing solvent molecule 11101 (atom 49171) with CL
+Replacing solvent molecule 40772 (atom 78842) with CL
+Replacing solvent molecule 4955 (atom 43025) with CL
+Replacing solvent molecule 4307 (atom 42377) with CL
+Replacing solvent molecule 69606 (atom 107676) with CL
+Replacing solvent molecule 11613 (atom 49683) with CL
+Replacing solvent molecule 76804 (atom 114874) with CL
+Replacing solvent molecule 5370 (atom 43440) with CL
+Replacing solvent molecule 5817 (atom 43887) with CL
+Replacing solvent molecule 16382 (atom 54452) with CL
+Replacing solvent molecule 16491 (atom 54561) with CL
+Replacing solvent molecule 5427 (atom 43497) with CL
+Replacing solvent molecule 38428 (atom 76498) with CL
+Replacing solvent molecule 94915 (atom 132985) with CL
+Replacing solvent molecule 79383 (atom 117453) with CL
+Replacing solvent molecule 2241 (atom 40311) with CL
+Replacing solvent molecule 17839 (atom 55909) with CL
+Replacing solvent molecule 55688 (atom 93758) with CL
+Replacing solvent molecule 18837 (atom 56907) with CL
+Replacing solvent molecule 15963 (atom 54033) with CL
+Replacing solvent molecule 62488 (atom 100558) with CL
+Replacing solvent molecule 8456 (atom 46526) with CL
+Replacing solvent molecule 77576 (atom 115646) with CL
+Replacing solvent molecule 51732 (atom 89802) with CL
+Replacing solvent molecule 5468 (atom 43538) with CL
+Replacing solvent molecule 59928 (atom 97998) with CL
+Replacing solvent molecule 75212 (atom 113282) with CL
+Replacing solvent molecule 40124 (atom 78194) with CL
+Replacing solvent molecule 56527 (atom 94597) with CL
+Replacing solvent molecule 79730 (atom 117800) with CL
+Replacing solvent molecule 43770 (atom 81840) with CL
+Replacing solvent molecule 91740 (atom 129810) with CL
+Replacing solvent molecule 80147 (atom 118217) with CL
+Replacing solvent molecule 13110 (atom 51180) with CL
+Replacing solvent molecule 13434 (atom 51504) with CL
+Replacing solvent molecule 60958 (atom 99028) with CL
+Replacing solvent molecule 9352 (atom 47422) with CL
+Replacing solvent molecule 72264 (atom 110334) with CL
+Replacing solvent molecule 2895 (atom 40965) with CL
+Replacing solvent molecule 10330 (atom 48400) with CL
+Replacing solvent molecule 69712 (atom 107782) with CL
+Replacing solvent molecule 19386 (atom 57456) with CL
+Replacing solvent molecule 52817 (atom 90887) with CL
+Replacing solvent molecule 69583 (atom 107653) with CL
+Replacing solvent molecule 71666 (atom 109736) with CL
+Replacing solvent molecule 93588 (atom 131658) with CL
+Replacing solvent molecule 2059 (atom 40129) with CL
+Replacing solvent molecule 19278 (atom 57348) with CL
+Replacing solvent molecule 2157 (atom 40227) with CL
+Replacing solvent molecule 89013 (atom 127083) with CL
+Replacing solvent molecule 44592 (atom 82662) with CL
+Replacing solvent molecule 76277 (atom 114347) with CL
+Replacing solvent molecule 31278 (atom 69348) with CL
+Replacing solvent molecule 72880 (atom 110950) with CL
+Replacing solvent molecule 71290 (atom 109360) with CL
+Replacing solvent molecule 28346 (atom 66416) with CL
+Replacing solvent molecule 773 (atom 38843) with CL
+Replacing solvent molecule 88119 (atom 126189) with CL
+Replacing solvent molecule 92131 (atom 130201) with CL
+Replacing solvent molecule 33447 (atom 71517) with CL
+Replacing solvent molecule 75833 (atom 113903) with CL
+Replacing solvent molecule 6523 (atom 44593) with CL
+Replacing solvent molecule 33933 (atom 72003) with CL
+Replacing solvent molecule 20003 (atom 58073) with CL
+Replacing solvent molecule 54849 (atom 92919) with CL
+Replacing solvent molecule 50503 (atom 88573) with CL
+Replacing solvent molecule 85189 (atom 123259) with CL
+Replacing solvent molecule 37565 (atom 75635) with CL
+Replacing solvent molecule 18356 (atom 56426) with CL
+Replacing solvent molecule 10665 (atom 48735) with CL
+Replacing solvent molecule 72447 (atom 110517) with CL
+Replacing solvent molecule 38131 (atom 76201) with CL
+Replacing solvent molecule 5743 (atom 43813) with CL
+Replacing solvent molecule 35917 (atom 73987) with CL
+Replacing solvent molecule 67703 (atom 105773) with CL
+Replacing solvent molecule 78941 (atom 117011) with CL
+Replacing solvent molecule 60010 (atom 98080) with CL
+Replacing solvent molecule 71959 (atom 110029) with CL
+Replacing solvent molecule 44574 (atom 82644) with CL
+Replacing solvent molecule 54726 (atom 92796) with CL
+Replacing solvent molecule 83447 (atom 121517) with CL
+Replacing solvent molecule 72043 (atom 110113) with CL
+Replacing solvent molecule 23316 (atom 61386) with CL
+Replacing solvent molecule 71019 (atom 109089) with CL
+Replacing solvent molecule 45576 (atom 83646) with CL
+Replacing solvent molecule 9981 (atom 48051) with CL
+Replacing solvent molecule 4588 (atom 42658) with CL
+Replacing solvent molecule 52603 (atom 90673) with CL
+Replacing solvent molecule 15984 (atom 54054) with CL
+Replacing solvent molecule 49971 (atom 88041) with CL
+Replacing solvent molecule 86172 (atom 124242) with CL
+Replacing solvent molecule 26634 (atom 64704) with CL
+Replacing solvent molecule 89888 (atom 127958) with CL
+Replacing solvent molecule 50073 (atom 88143) with CL
+Replacing solvent molecule 67706 (atom 105776) with CL
+Replacing solvent molecule 13486 (atom 51556) with CL
+Replacing solvent molecule 74200 (atom 112270) with CL
+Replacing solvent molecule 53167 (atom 91237) with CL
+Replacing solvent molecule 74890 (atom 112960) with CL
+Replacing solvent molecule 73143 (atom 111213) with CL
+Replacing solvent molecule 31423 (atom 69493) with CL
+Replacing solvent molecule 596 (atom 38666) with CL
+Replacing solvent molecule 16568 (atom 54638) with CL
+Replacing solvent molecule 10932 (atom 49002) with CL
+Replacing solvent molecule 8308 (atom 46378) with CL
+Replacing solvent molecule 4340 (atom 42410) with CL
+Replacing solvent molecule 5742 (atom 43812) with CL
+Replacing solvent molecule 55114 (atom 93184) with CL
+Replacing solvent molecule 46767 (atom 84837) with CL
+Replacing solvent molecule 90160 (atom 128230) with CL
+Replacing solvent molecule 17575 (atom 55645) with CL
+Replacing solvent molecule 55255 (atom 93325) with CL
+Replacing solvent molecule 41523 (atom 79593) with CL
+Replacing solvent molecule 41955 (atom 80025) with CL
+Replacing solvent molecule 50210 (atom 88280) with CL
+Replacing solvent molecule 55217 (atom 93287) with CL
+Replacing solvent molecule 83979 (atom 122049) with CL
+Replacing solvent molecule 35710 (atom 73780) with CL
+Replacing solvent molecule 60231 (atom 98301) with CL
+Replacing solvent molecule 5733 (atom 43803) with CL
+Replacing solvent molecule 94814 (atom 132884) with CL
+Replacing solvent molecule 60366 (atom 98436) with CL
+Replacing solvent molecule 52463 (atom 90533) with CL
+Replacing solvent molecule 92602 (atom 130672) with CL
+Replacing solvent molecule 62696 (atom 100766) with CL
+Replacing solvent molecule 39690 (atom 77760) with CL
+Replacing solvent molecule 42804 (atom 80874) with CL
+Replacing solvent molecule 57155 (atom 95225) with CL
+Replacing solvent molecule 41018 (atom 79088) with CL
+Replacing solvent molecule 72498 (atom 110568) with CL
+Replacing solvent molecule 88716 (atom 126786) with CL
+Replacing solvent molecule 6865 (atom 44935) with CL
+Replacing solvent molecule 86362 (atom 124432) with CL
+Replacing solvent molecule 20055 (atom 58125) with CL
+Replacing solvent molecule 66941 (atom 105011) with CL
+Replacing solvent molecule 47498 (atom 85568) with CL
+Replacing solvent molecule 70377 (atom 108447) with CL
+Replacing solvent molecule 7829 (atom 45899) with CL
+Replacing solvent molecule 88533 (atom 126603) with CL
+Replacing solvent molecule 84212 (atom 122282) with CL
+Replacing solvent molecule 26539 (atom 64609) with CL
+Replacing solvent molecule 58504 (atom 96574) with CL
+Replacing solvent molecule 5586 (atom 43656) with CL
+Replacing solvent molecule 13275 (atom 51345) with CL
+Replacing solvent molecule 76996 (atom 115066) with CL
+Replacing solvent molecule 60621 (atom 98691) with CL
+Replacing solvent molecule 26814 (atom 64884) with CL
+Replacing solvent molecule 70876 (atom 108946) with CL
+Replacing solvent molecule 46230 (atom 84300) with CL
+Replacing solvent molecule 93012 (atom 131082) with CL
+Replacing solvent molecule 33492 (atom 71562) with CL
+Replacing solvent molecule 43185 (atom 81255) with CL
+Replacing solvent molecule 36987 (atom 75057) with CL
+Replacing solvent molecule 18100 (atom 56170) with CL
+Replacing solvent molecule 49007 (atom 87077) with CL
+Replacing solvent molecule 94166 (atom 132236) with CL
+Replacing solvent molecule 34688 (atom 72758) with CL
+
+
+Back Off! I just backed up start.gro to ./#start.gro.1#
+
+GROMACS reminds you: "Never measure the height of a mountain until you have reached the top. Then you will see how low it was." (Dag Hammarskjold)
+
+Will try to add 1411 NA ions and 1735 CL ions.
+Select a continuous group of solvent molecules
+Selected 13: 'W'
+
+Processing topology
+Replacing 3146 solute molecules in topology file (PROA.top)  by 1411 NA and 1735 CL ions.
+                      :-) GROMACS - gmx grompp, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1/mole_no_0_4
+Command line:
+  gmx_mpi grompp -f step4.1_minimization.mdp -c start.gro -p PROA.top -o min.tpr
+
+Ignoring obsolete mdp entry 'ns_type'
+
+NOTE 1 [file step4.1_minimization.mdp]:
+  Setting tcoupl from 'V-rescale' to 'no'. Temperature coupling does not
+  apply to steep.
+
+
+NOTE 2 [file step4.1_minimization.mdp]:
+  Setting pcoupl from 'Berendsen' to 'no'. Pressure coupling does not apply
+  to steep.
+
+Number of degrees of freedom in T-Coupling group System is 390678.00
+
+There were 2 notes
+
+GROMACS reminds you: "What is a Unix or Linux sysadmin's favourite hangout place? Foo Bar." (Anonymous)
+
+Setting the LD random seed to -25370633
+
+Generated 3369 of the 1420455 non-bonded parameter combinations
+
+Excluding 1 bonded neighbours molecule type 'molecule_0'
+
+Excluding 1 bonded neighbours molecule type 'W'
+
+Excluding 1 bonded neighbours molecule type 'NA'
+
+Excluding 1 bonded neighbours molecule type 'CL'
+
+Cleaning up constraints and constant bonded interactions with virtual sites
+Analysing residue names:
+There are: 17658    Protein residues
+There are: 94947      Other residues
+Analysing Protein...
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+
+This run will generate roughly 13 Mb of data
+                      :-) GROMACS - gmx mdrun, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1/mole_no_0_4
+Command line:
+  gmx_mpi mdrun -deffnm min -dlb yes -maxh 191.9 -ntomp 5 -pin on -v
+
+Reading file min.tpr, VERSION 2022.2 (single precision)
+GPU-aware MPI detected, but by default GROMACS will not make use the direct GPU communication capabilities of MPI. For improved performance try enabling the feature by setting the GMX_ENABLE_DIRECT_GPU_COMM environment variable.
+
+1 GPU selected for this run.
+Mapping of GPU IDs to the 1 GPU task in the 1 rank on this node:
+  PP:0
+PP tasks will do (non-perturbed) short-ranged interactions on the GPU
+PP task will update and constrain coordinates on the CPU
+Using 1 MPI process
+Using 5 OpenMP threads 
+
+
+Overriding thread affinity set outside gmx mdrun
+
+Steepest Descents:
+   Tolerance (Fmax)   =  1.00000e+02
+   Number of steps    =         3000
+Step=    0, Dmax= 1.0e-02 nm, Epot=  7.05713e+22 Fmax=         inf, atom= 10362
+Step=    1, Dmax= 1.0e-02 nm, Epot=  7.06498e+22 Fmax=         inf, atom= 10362Step=    2, Dmax= 5.0e-03 nm, Epot=  7.06498e+22 Fmax=         inf, atom= 10362Step=    3, Dmax= 2.5e-03 nm, Epot=  7.06498e+22 Fmax=         inf, atom= 10362Step=    4, Dmax= 1.2e-03 nm, Epot=  7.06498e+22 Fmax=         inf, atom= 10362Step=    5, Dmax= 6.2e-04 nm, Epot=  7.06498e+22 Fmax=         inf, atom= 10362Step=    6, Dmax= 3.1e-04 nm, Epot=  7.06498e+22 Fmax=         inf, atom= 10362Step=    7, Dmax= 1.6e-04 nm, Epot=  7.06498e+22 Fmax=         inf, atom= 10362Step=    8, Dmax= 7.8e-05 nm, Epot=  7.06498e+22 Fmax=         inf, atom= 10362Step=    9, Dmax= 3.9e-05 nm, Epot=  7.06498e+22 Fmax=         inf, atom= 10362Step=   10, Dmax= 2.0e-05 nm, Epot=  7.06498e+22 Fmax=         inf, atom= 10362Step=   11, Dmax= 9.8e-06 nm, Epot=  7.06498e+22 Fmax=         inf, atom= 10362Step=   12, Dmax= 4.9e-06 nm, Epot=  7.06498e+22 Fmax=         inf, atom= 10362Step=   13, Dmax= 2.4e-06 nm, Epot=  7.06498e+22 Fmax=         inf, atom= 10362Step=   14, Dmax= 1.2e-06 nm, Epot=  7.06498e+22 Fmax=         inf, atom= 10362
+Energy minimization has stopped because the force on at least one atom is not
+finite. This usually means atoms are overlapping. Modify the input
+coordinates to remove atom overlap or use soft-core potentials with the free
+energy code to avoid infinite forces.
+You could also be lucky that switching to double precision is sufficient to
+obtain finite forces.
+
+writing lowest energy coordinates.
+
+Back Off! I just backed up min.gro to ./#min.gro.1#
+
+Steepest Descents converged to machine precision in 15 steps,
+but did not reach the requested Fmax < 100.
+Potential Energy  =  7.0571330e+22
+Maximum force     =            inf on atom 10362
+Norm of force     =            inf
+
+GROMACS reminds you: "You Fill Your Space So Sweet" (F. Apple)
+
+                      :-) GROMACS - gmx grompp, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1/mole_no_0_4
+Command line:
+  gmx_mpi grompp -f step4.2_equilibration.mdp -c min.gro -p PROA.top -o nvt.tpr
+
+Ignoring obsolete mdp entry 'ns_type'
+Number of degrees of freedom in T-Coupling group Protein is 105839.19
+Number of degrees of freedom in T-Coupling group non-Protein is 284838.81
+
+GROMACS reminds you: "Take Dehydrated Water On Your Desert Trips" (Space Quest III)
+
+Setting the LD random seed to -673263649
+
+Generated 3369 of the 1420455 non-bonded parameter combinations
+
+Excluding 1 bonded neighbours molecule type 'molecule_0'
+
+Excluding 1 bonded neighbours molecule type 'W'
+
+Excluding 1 bonded neighbours molecule type 'NA'
+
+Excluding 1 bonded neighbours molecule type 'CL'
+
+Velocities were taken from a Maxwell distribution at 313.15 K
+
+Cleaning up constraints and constant bonded interactions with virtual sites
+Analysing residue names:
+There are: 17658    Protein residues
+There are: 94947      Other residues
+Analysing Protein...
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 313.15 K
+
+Calculated rlist for 1x1 atom pair-list as 1.184 nm, buffer size 0.084 nm
+
+Set rlist, assuming 4x4 atom pair-list, to 1.136 nm, buffer size 0.036 nm
+
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+
+This run will generate roughly 330 Mb of data
+                      :-) GROMACS - gmx mdrun, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1/mole_no_0_4
+Command line:
+  gmx_mpi mdrun -deffnm nvt -dlb yes -maxh 191.9 -ntomp 5 -pin on -v
+
+Reading file nvt.tpr, VERSION 2022.2 (single precision)
+GPU-aware MPI detected, but by default GROMACS will not make use the direct GPU communication capabilities of MPI. For improved performance try enabling the feature by setting the GMX_ENABLE_DIRECT_GPU_COMM environment variable.
+Changing nstlist from 20 to 50, rlist from 1.136 to 1.271
+
+
+1 GPU selected for this run.
+Mapping of GPU IDs to the 1 GPU task in the 1 rank on this node:
+  PP:0
+PP tasks will do (non-perturbed) short-ranged interactions on the GPU
+PP task will update and constrain coordinates on the CPU
+Using 1 MPI process
+Using 5 OpenMP threads 
+
+
+Overriding thread affinity set outside gmx mdrun
+starting mdrun 'Title of the system in water'
+500000 steps,   5000.0 ps.
+
+-------------------------------------------------------
+Program:     gmx mdrun, version 2022.2
+Source file: src/gromacs/mdlib/sim_util.cpp (line 567)
+Function:    void checkPotentialEnergyValidity(int64_t, const gmx_enerdata_t&, const t_inputrec&)
+
+Internal error (bug):
+Step 0: The total potential energy is 1.71294e+23, which is extremely high.
+The LJ and electrostatic contributions to the energy are 1.71294e+23 and
+-42254.2, respectively. A very high potential energy can be caused by
+overlapping interactions in bonded interactions or very large coordinate
+values. Usually this is caused by a badly- or non-equilibrated initial
+configuration, incorrect interactions or parameters in the topology.
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+                      :-) GROMACS - gmx grompp, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1/mole_no_0_4
+Command line:
+  gmx_mpi grompp -f step4.3_equilibration.mdp -c nvt.gro -t nvt.cpt -p PROA.top -o npt.tpr
+
+
+-------------------------------------------------------
+Program:     gmx grompp, version 2022.2
+Source file: src/gromacs/commandline/cmdlineparser.cpp (line 271)
+Function:    void gmx::CommandLineParser::parse(int*, char**)
+
+Error in user input:
+Invalid command-line options
+  In command-line option -c
+    File 'nvt.gro' does not exist or is not accessible.
+    The file could not be opened.
+      Reason: No such file or directory
+      (call to fopen() returned error code 2)
+  In command-line option -t
+    File 'nvt.cpt' does not exist or is not accessible.
+    The file could not be opened.
+      Reason: No such file or directory
+      (call to fopen() returned error code 2)
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+                      :-) GROMACS - gmx mdrun, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1/mole_no_0_4
+Command line:
+  gmx_mpi mdrun -deffnm nvt -dlb yes -maxh 191.9 -ntomp 5 -pin on -v
+
+
+Back Off! I just backed up nvt.log to ./#nvt.log.1#
+Reading file nvt.tpr, VERSION 2022.2 (single precision)
+GPU-aware MPI detected, but by default GROMACS will not make use the direct GPU communication capabilities of MPI. For improved performance try enabling the feature by setting the GMX_ENABLE_DIRECT_GPU_COMM environment variable.
+Changing nstlist from 20 to 50, rlist from 1.136 to 1.271
+
+
+1 GPU selected for this run.
+Mapping of GPU IDs to the 1 GPU task in the 1 rank on this node:
+  PP:0
+PP tasks will do (non-perturbed) short-ranged interactions on the GPU
+PP task will update and constrain coordinates on the CPU
+Using 1 MPI process
+Using 5 OpenMP threads 
+
+
+Overriding thread affinity set outside gmx mdrun
+
+Back Off! I just backed up nvt.xtc to ./#nvt.xtc.1#
+
+Back Off! I just backed up nvt.edr to ./#nvt.edr.1#
+starting mdrun 'Title of the system in water'
+500000 steps,   5000.0 ps.
+
+-------------------------------------------------------
+Program:     gmx mdrun, version 2022.2
+Source file: src/gromacs/mdlib/sim_util.cpp (line 567)
+Function:    void checkPotentialEnergyValidity(int64_t, const gmx_enerdata_t&, const t_inputrec&)
+
+Internal error (bug):
+Step 0: The total potential energy is 1.71294e+23, which is extremely high.
+The LJ and electrostatic contributions to the energy are 1.71294e+23 and
+-42254.2, respectively. A very high potential energy can be caused by
+overlapping interactions in bonded interactions or very large coordinate
+values. Usually this is caused by a badly- or non-equilibrated initial
+configuration, incorrect interactions or parameters in the topology.
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+                      :-) GROMACS - gmx grompp, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1/mole_no_0_4
+Command line:
+  gmx_mpi grompp -f step5.0_production.mdp -c npt.gro -t npt.cpt -p PROA.top -o prod.tpr
+
+
+-------------------------------------------------------
+Program:     gmx grompp, version 2022.2
+Source file: src/gromacs/commandline/cmdlineparser.cpp (line 271)
+Function:    void gmx::CommandLineParser::parse(int*, char**)
+
+Error in user input:
+Invalid command-line options
+  In command-line option -c
+    File 'npt.gro' does not exist or is not accessible.
+    The file could not be opened.
+      Reason: No such file or directory
+      (call to fopen() returned error code 2)
+  In command-line option -t
+    File 'npt.cpt' does not exist or is not accessible.
+    The file could not be opened.
+      Reason: No such file or directory
+      (call to fopen() returned error code 2)
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+                      :-) GROMACS - gmx mdrun, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1/mole_no_0_4
+Command line:
+  gmx_mpi mdrun -deffnm prod -dlb yes -maxh 191.9 -ntomp 5 -pin on -v
+
+
+-------------------------------------------------------
+Program:     gmx mdrun, version 2022.2
+Source file: src/gromacs/options/options.cpp (line 177)
+Function:    void gmx::internal::OptionSectionImpl::finish()
+
+Error in user input:
+Invalid input values
+  In option s
+    Required option was not provided, and the default file 'topol' does not
+    exist or is not accessible.
+    The following extensions were tried to complete the file name:
+      .tpr
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------

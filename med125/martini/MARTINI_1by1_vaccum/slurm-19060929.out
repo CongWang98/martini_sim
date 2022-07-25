@@ -1,0 +1,501 @@
+                     :-) GROMACS - gmx editconf, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1_vaccum
+Command line:
+  gmx_mpi editconf -f mole_no_.pdb -c -o XXX_MARTINI_input_no_.pdb -box 25 25 25
+
+
+Back Off! I just backed up XXX_MARTINI_input_no_.pdb to ./#XXX_MARTINI_input_no_.pdb.1#
+
+GROMACS reminds you: "C is quirky, flawed, and an enourmous success." (Dennis Ritchie, C author)
+
+Note that major changes are planned in future for editconf, to improve usability and utility.
+Read 42300 atoms
+No velocities found
+    system size : 56.518 45.792 55.609 (nm)
+    center      : 10.481 11.034 12.974 (nm)
+    box vectors :  0.000  0.000  0.000 (nm)
+    box angles  :   0.00   0.00   0.00 (degrees)
+    box volume  :   0.00               (nm^3)
+    shift       :  2.019  1.466 -0.474 (nm)
+new center      : 12.500 12.500 12.500 (nm)
+new box vectors : 25.000 25.000 25.000 (nm)
+new box angles  :  90.00  90.00  90.00 (degrees)
+new box volume  :15625.00               (nm^3)
+                      :-) GROMACS - gmx grompp, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1_vaccum
+Command line:
+  gmx_mpi grompp -f step4.1_minimization.mdp -c XXX_MARTINI_input_no_.pdb -p PROA.top -o min.tpr
+
+Ignoring obsolete mdp entry 'ns_type'
+
+NOTE 1 [file step4.1_minimization.mdp]:
+  Setting tcoupl from 'V-rescale' to 'no'. Temperature coupling does not
+  apply to steep.
+
+
+NOTE 2 [file step4.1_minimization.mdp]:
+  Setting pcoupl from 'Berendsen' to 'no'. Pressure coupling does not apply
+  to steep.
+
+
+NOTE 3 [file PROA.top, line 10]:
+  System has non-zero total charge: 360.000000
+  Total charge should normally be an integer. See
+  http://www.gromacs.org/Documentation/Floating_Point_Arithmetic
+  for discussion on how close it should be to an integer.
+  
+
+
+Number of degrees of freedom in T-Coupling group System is 117597.00
+
+There were 3 notes
+
+GROMACS reminds you: "A real scientist solves problems, not wails that they are unsolvable." (Anne McCaffrey)
+
+Setting the LD random seed to -139018257
+
+Generated 3369 of the 1420455 non-bonded parameter combinations
+
+Excluding 1 bonded neighbours molecule type 'molecule_0'
+
+Cleaning up constraints and constant bonded interactions with virtual sites
+Analysing residue names:
+There are: 19620    Protein residues
+Analysing Protein...
+
+This run will generate roughly 4 Mb of data
+                      :-) GROMACS - gmx mdrun, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1_vaccum
+Command line:
+  gmx_mpi mdrun -deffnm min -dlb yes -maxh 191.9 -ntomp 5 -pin on -v
+
+Reading file min.tpr, VERSION 2022.2 (single precision)
+GPU-aware MPI detected, but by default GROMACS will not make use the direct GPU communication capabilities of MPI. For improved performance try enabling the feature by setting the GMX_ENABLE_DIRECT_GPU_COMM environment variable.
+
+1 GPU selected for this run.
+Mapping of GPU IDs to the 1 GPU task in the 1 rank on this node:
+  PP:0
+PP tasks will do (non-perturbed) short-ranged interactions on the GPU
+PP task will update and constrain coordinates on the CPU
+Using 1 MPI process
+Using 5 OpenMP threads 
+
+
+Overriding thread affinity set outside gmx mdrun
+
+Steepest Descents:
+   Tolerance (Fmax)   =  1.00000e+02
+   Number of steps    =         3000
+Step=    0, Dmax= 1.0e-02 nm, Epot=  2.49465e+22 Fmax=         inf, atom= 416
+Step=    1, Dmax= 1.0e-02 nm, Epot=  2.49390e+22 Fmax=         inf, atom= 416
+Step=    2, Dmax= 1.2e-02 nm, Epot=  2.49390e+22 Fmax=         inf, atom= 416Step=    3, Dmax= 6.0e-03 nm, Epot=  2.49390e+22 Fmax=         inf, atom= 416
+
+Step 4, time 0.08 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.027114, max 1.825889 (between atoms 35344 and 35346)
+bonds that rotated more than 45 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+  35340  35342  115.5    0.3257   0.3122      0.3100
+  35342  35344  175.1    0.3439   0.4500      0.3100
+  35346  35348  169.8    0.3440   0.4253      0.3100
+  35342  35343  137.4    0.2865   0.3017      0.2700
+  35346  35347  172.6    0.3688   0.3502      0.3410
+Wrote pdb files with previous and current coordinates
+Step=    4, Dmax= 7.2e-03 nm, Epot=          inf Fmax=         inf, atom= 416
+Step 5, time 0.1 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.027114, max 1.825889 (between atoms 35344 and 35346)
+bonds that rotated more than 45 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+  35340  35342  115.5    0.3257   0.3122      0.3100
+  35342  35344  175.1    0.3439   0.4500      0.3100
+  35346  35348  169.8    0.3440   0.4253      0.3100
+  35342  35343  137.4    0.2865   0.3017      0.2700
+  35346  35347  172.6    0.3688   0.3502      0.3410
+Wrote pdb files with previous and current coordinates
+Step=    5, Dmax= 3.6e-03 nm, Epot=          inf Fmax=         inf, atom= 416
+Step 6, time 0.12 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.027114, max 1.825889 (between atoms 35344 and 35346)
+bonds that rotated more than 45 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+  35340  35342  115.5    0.3257   0.3122      0.3100
+  35342  35344  175.1    0.3439   0.4500      0.3100
+  35346  35348  169.8    0.3440   0.4253      0.3100
+  35342  35343  137.4    0.2865   0.3017      0.2700
+  35346  35347  172.6    0.3688   0.3502      0.3410
+Wrote pdb files with previous and current coordinates
+Step=    6, Dmax= 1.8e-03 nm, Epot=          inf Fmax=         inf, atom= 416
+Step 7, time 0.14 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.027114, max 1.825889 (between atoms 35344 and 35346)
+bonds that rotated more than 45 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+  35340  35342  115.5    0.3257   0.3122      0.3100
+  35342  35344  175.1    0.3439   0.4500      0.3100
+  35346  35348  169.8    0.3440   0.4253      0.3100
+  35342  35343  137.4    0.2865   0.3017      0.2700
+  35346  35347  172.6    0.3688   0.3502      0.3410
+Wrote pdb files with previous and current coordinates
+Step=    7, Dmax= 9.0e-04 nm, Epot=          inf Fmax=         inf, atom= 416
+Step 8, time 0.16 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.027114, max 1.825889 (between atoms 35344 and 35346)
+bonds that rotated more than 45 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+  35340  35342  115.5    0.3257   0.3122      0.3100
+  35342  35344  175.1    0.3439   0.4500      0.3100
+  35346  35348  169.8    0.3440   0.4253      0.3100
+  35342  35343  137.4    0.2865   0.3017      0.2700
+  35346  35347  172.6    0.3688   0.3502      0.3410
+Wrote pdb files with previous and current coordinates
+Step=    8, Dmax= 4.5e-04 nm, Epot=          inf Fmax=         inf, atom= 416
+Step 9, time 0.18 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.027114, max 1.825889 (between atoms 35344 and 35346)
+bonds that rotated more than 45 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+  35340  35342  115.5    0.3257   0.3122      0.3100
+  35342  35344  175.1    0.3439   0.4500      0.3100
+  35346  35348  169.8    0.3440   0.4253      0.3100
+  35342  35343  137.4    0.2865   0.3017      0.2700
+  35346  35347  172.6    0.3688   0.3502      0.3410
+Wrote pdb files with previous and current coordinates
+Step=    9, Dmax= 2.2e-04 nm, Epot=          inf Fmax=         inf, atom= 416
+Step 10, time 0.2 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.027114, max 1.825889 (between atoms 35344 and 35346)
+bonds that rotated more than 45 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+  35340  35342  115.5    0.3257   0.3122      0.3100
+  35342  35344  175.1    0.3439   0.4500      0.3100
+  35346  35348  169.8    0.3440   0.4253      0.3100
+  35342  35343  137.4    0.2865   0.3017      0.2700
+  35346  35347  172.6    0.3688   0.3502      0.3410
+Wrote pdb files with previous and current coordinates
+Step=   10, Dmax= 1.1e-04 nm, Epot=          inf Fmax=         inf, atom= 416
+Step 11, time 0.22 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.027114, max 1.825889 (between atoms 35344 and 35346)
+bonds that rotated more than 45 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+  35340  35342  115.5    0.3257   0.3122      0.3100
+  35342  35344  175.1    0.3439   0.4500      0.3100
+  35346  35348  169.8    0.3440   0.4253      0.3100
+  35342  35343  137.4    0.2865   0.3017      0.2700
+  35346  35347  172.6    0.3688   0.3502      0.3410
+Wrote pdb files with previous and current coordinates
+Step=   11, Dmax= 5.6e-05 nm, Epot=          inf Fmax=         inf, atom= 416
+Step 12, time 0.24 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.027114, max 1.825889 (between atoms 35344 and 35346)
+bonds that rotated more than 45 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+  35340  35342  115.5    0.3257   0.3122      0.3100
+  35342  35344  175.1    0.3439   0.4500      0.3100
+  35346  35348  169.8    0.3440   0.4253      0.3100
+  35342  35343  137.4    0.2865   0.3017      0.2700
+  35346  35347  172.6    0.3688   0.3502      0.3410
+Wrote pdb files with previous and current coordinates
+Step=   12, Dmax= 2.8e-05 nm, Epot=          inf Fmax=         inf, atom= 416
+Step 13, time 0.26 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.027114, max 1.825889 (between atoms 35344 and 35346)
+bonds that rotated more than 45 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+  35340  35342  115.5    0.3257   0.3122      0.3100
+  35342  35344  175.1    0.3439   0.4500      0.3100
+  35346  35348  169.8    0.3440   0.4253      0.3100
+  35342  35343  137.4    0.2865   0.3017      0.2700
+  35346  35347  172.6    0.3688   0.3502      0.3410
+Wrote pdb files with previous and current coordinates
+Step=   13, Dmax= 1.4e-05 nm, Epot=          inf Fmax=         inf, atom= 416
+Step 14, time 0.28 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.027114, max 1.825889 (between atoms 35344 and 35346)
+bonds that rotated more than 45 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+  35340  35342  115.5    0.3257   0.3122      0.3100
+  35342  35344  175.1    0.3439   0.4500      0.3100
+  35346  35348  169.8    0.3440   0.4253      0.3100
+  35342  35343  137.4    0.2865   0.3017      0.2700
+  35346  35347  172.6    0.3688   0.3502      0.3410
+Wrote pdb files with previous and current coordinates
+Step=   14, Dmax= 7.0e-06 nm, Epot=          inf Fmax=         inf, atom= 416
+Step 15, time 0.3 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.027114, max 1.825889 (between atoms 35344 and 35346)
+bonds that rotated more than 45 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+  35340  35342  115.5    0.3257   0.3122      0.3100
+  35342  35344  175.1    0.3439   0.4500      0.3100
+  35346  35348  169.8    0.3440   0.4253      0.3100
+  35342  35343  137.4    0.2865   0.3017      0.2700
+  35346  35347  172.6    0.3688   0.3502      0.3410
+Wrote pdb files with previous and current coordinates
+Step=   15, Dmax= 3.5e-06 nm, Epot=          inf Fmax=         inf, atom= 416
+Step 16, time 0.32 (ps)  LINCS WARNING
+relative constraint deviation after LINCS:
+rms 0.027114, max 1.825889 (between atoms 35344 and 35346)
+bonds that rotated more than 45 degrees:
+ atom 1 atom 2  angle  previous, current, constraint length
+  35340  35342  115.5    0.3257   0.3122      0.3100
+  35342  35344  175.1    0.3439   0.4500      0.3100
+  35346  35348  169.8    0.3440   0.4253      0.3100
+  35342  35343  137.4    0.2865   0.3017      0.2700
+  35346  35347  172.6    0.3688   0.3502      0.3410
+Wrote pdb files with previous and current coordinates
+Step=   16, Dmax= 1.8e-06 nm, Epot=          inf Fmax=         inf, atom= 416
+Energy minimization has stopped because the force on at least one atom is not
+finite. This usually means atoms are overlapping. Modify the input
+coordinates to remove atom overlap or use soft-core potentials with the free
+energy code to avoid infinite forces.
+You could also be lucky that switching to double precision is sufficient to
+obtain finite forces.
+
+writing lowest energy coordinates.
+
+Steepest Descents converged to machine precision in 17 steps,
+but did not reach the requested Fmax < 100.
+Potential Energy  =  2.4939034e+22
+Maximum force     =            inf on atom 416
+Norm of force     =            inf
+
+GROMACS reminds you: "Meet Me At the Coffee Shop" (Red Hot Chili Peppers)
+
+                      :-) GROMACS - gmx grompp, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1_vaccum
+Command line:
+  gmx_mpi grompp -f step4.2_equilibration.mdp -c min.gro -p PROA.top -o nvt.tpr
+
+Ignoring obsolete mdp entry 'ns_type'
+
+NOTE 1 [file PROA.top, line 10]:
+  System has non-zero total charge: 360.000000
+  Total charge should normally be an integer. See
+  http://www.gromacs.org/Documentation/Floating_Point_Arithmetic
+  for discussion on how close it should be to an integer.
+  
+
+
+
+-------------------------------------------------------
+Program:     gmx grompp, version 2022.2
+Source file: src/gromacs/gmxpreprocess/readir.cpp (line 3077)
+
+Fatal error:
+Group non-Protein referenced in the .mdp file was not found in the index file.
+Group names must match either [moleculetype] names or custom index group
+names, in which case you must supply an index file to the '-n' option
+of grompp.
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+Setting the LD random seed to 2071986151
+
+Generated 3369 of the 1420455 non-bonded parameter combinations
+
+Excluding 1 bonded neighbours molecule type 'molecule_0'
+
+Velocities were taken from a Maxwell distribution at 313.15 K
+
+Cleaning up constraints and constant bonded interactions with virtual sites
+Analysing residue names:
+There are: 19620    Protein residues
+Analysing Protein...
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+                      :-) GROMACS - gmx mdrun, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1_vaccum
+Command line:
+  gmx_mpi mdrun -deffnm nvt -dlb yes -maxh 191.9 -ntomp 5 -pin on -v
+
+
+-------------------------------------------------------
+Program:     gmx mdrun, version 2022.2
+Source file: src/gromacs/options/options.cpp (line 177)
+Function:    void gmx::internal::OptionSectionImpl::finish()
+
+Error in user input:
+Invalid input values
+  In option s
+    Required option was not provided, and the default file 'topol' does not
+    exist or is not accessible.
+    The following extensions were tried to complete the file name:
+      .tpr
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+                      :-) GROMACS - gmx grompp, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1_vaccum
+Command line:
+  gmx_mpi grompp -f step4.3_equilibration.mdp -c nvt.gro -t nvt.cpt -p PROA.top -o npt.tpr
+
+
+-------------------------------------------------------
+Program:     gmx grompp, version 2022.2
+Source file: src/gromacs/commandline/cmdlineparser.cpp (line 271)
+Function:    void gmx::CommandLineParser::parse(int*, char**)
+
+Error in user input:
+Invalid command-line options
+  In command-line option -c
+    File 'nvt.gro' does not exist or is not accessible.
+    The file could not be opened.
+      Reason: No such file or directory
+      (call to fopen() returned error code 2)
+  In command-line option -t
+    File 'nvt.cpt' does not exist or is not accessible.
+    The file could not be opened.
+      Reason: No such file or directory
+      (call to fopen() returned error code 2)
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+                      :-) GROMACS - gmx mdrun, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1_vaccum
+Command line:
+  gmx_mpi mdrun -deffnm nvt -dlb yes -maxh 191.9 -ntomp 5 -pin on -v
+
+
+-------------------------------------------------------
+Program:     gmx mdrun, version 2022.2
+Source file: src/gromacs/options/options.cpp (line 177)
+Function:    void gmx::internal::OptionSectionImpl::finish()
+
+Error in user input:
+Invalid input values
+  In option s
+    Required option was not provided, and the default file 'topol' does not
+    exist or is not accessible.
+    The following extensions were tried to complete the file name:
+      .tpr
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+                      :-) GROMACS - gmx grompp, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1_vaccum
+Command line:
+  gmx_mpi grompp -f step5.0_production.mdp -c npt.gro -t npt.cpt -p PROA.top -o prod.tpr
+
+
+-------------------------------------------------------
+Program:     gmx grompp, version 2022.2
+Source file: src/gromacs/commandline/cmdlineparser.cpp (line 271)
+Function:    void gmx::CommandLineParser::parse(int*, char**)
+
+Error in user input:
+Invalid command-line options
+  In command-line option -c
+    File 'npt.gro' does not exist or is not accessible.
+    The file could not be opened.
+      Reason: No such file or directory
+      (call to fopen() returned error code 2)
+  In command-line option -t
+    File 'npt.cpt' does not exist or is not accessible.
+    The file could not be opened.
+      Reason: No such file or directory
+      (call to fopen() returned error code 2)
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+                      :-) GROMACS - gmx mdrun, 2022.2 (-:
+
+Executable:   /home/gridsan/congwang/software/gromacs/bin/gmx_mpi
+Data prefix:  /home/gridsan/congwang/software/gromacs
+Working dir:  /home/gridsan/congwang/code/martini_sim/med125/martini/MARTINI_1by1_vaccum
+Command line:
+  gmx_mpi mdrun -deffnm prod -dlb yes -maxh 191.9 -ntomp 5 -pin on -v
+
+
+-------------------------------------------------------
+Program:     gmx mdrun, version 2022.2
+Source file: src/gromacs/options/options.cpp (line 177)
+Function:    void gmx::internal::OptionSectionImpl::finish()
+
+Error in user input:
+Invalid input values
+  In option s
+    Required option was not provided, and the default file 'topol' does not
+    exist or is not accessible.
+    The following extensions were tried to complete the file name:
+      .tpr
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
