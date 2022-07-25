@@ -3,7 +3,7 @@
 *.trr
 *.xtc
 *.edr
-*.out
+
 *.gro
 
 !**/water.gro

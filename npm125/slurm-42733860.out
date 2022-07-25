@@ -1,0 +1,483 @@
+                     :-) GROMACS - gmx trjconv, 2018.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar    Aldert van Buuren   Rudi van Drunen     Anton Feenstra  
+  Gerrit Groenhof    Aleksei Iupinov   Christoph Junghans   Anca Hamuraru   
+ Vincent Hindriksen Dimitrios Karkoulis    Peter Kasson        Jiri Kraus    
+  Carsten Kutzner      Per Larsson      Justin A. Lemkul    Viveca Lindahl  
+  Magnus Lundborg   Pieter Meulenhoff    Erik Marklund      Teemu Murtola   
+    Szilard Pall       Sander Pronk      Roland Schulz     Alexey Shvetsov  
+   Michael Shirts     Alfons Sijbers     Peter Tieleman    Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2017, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx trjconv, version 2018.4
+Executable:   /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi
+Data prefix:  /home/aplatham2/Programs/gromacs-2018.4
+Working dir:  /nfs/pool002/users/aplatham2/chromatin/drug_env/NPM1_1/npm125
+Command line:
+  gmx_mpi trjconv -f eq.gro -s eq.tpr -pbc mol -ur compact -o eq2.gro -center
+
+Will write gro: Coordinate file in Gromos-87 format
+Reading file eq.tpr, VERSION 2018.4 (single precision)
+Reading file eq.tpr, VERSION 2018.4 (single precision)
+Group     0 (         System) has 18816 elements
+Group     1 (        Protein) has 18816 elements
+Group     2 (      Protein-H) has 18816 elements
+Group     3 (        C-alpha) has 18816 elements
+Group     4 (       Backbone) has 18816 elements
+Group     5 (      MainChain) has 18816 elements
+Group     6 (   MainChain+Cb) has 18816 elements
+Group     7 (    MainChain+H) has 18816 elements
+Group     8 (      SideChain) has     0 elements
+Group     9 (    SideChain-H) has     0 elements
+Select a group: Group     0 (         System) has 18816 elements
+Group     1 (        Protein) has 18816 elements
+Group     2 (      Protein-H) has 18816 elements
+Group     3 (        C-alpha) has 18816 elements
+Group     4 (       Backbone) has 18816 elements
+Group     5 (      MainChain) has 18816 elements
+Group     6 (   MainChain+Cb) has 18816 elements
+Group     7 (    MainChain+H) has 18816 elements
+Group     8 (      SideChain) has     0 elements
+Group     9 (    SideChain-H) has     0 elements
+Select a group: Reading frames from gro file 'NPM1', 18816 atoms.
+Reading frame       0 time    0.000   
+Precision of eq.gro is 0.001 (nm)
+Using output precision of 0.001 (nm)
+ ->  frame      0 time    0.000      Last frame          0 time    0.000   
+
+
+GROMACS reminds you: "C has the power of assembly language and the convenience of... assembly language." (Dennis Ritchie)
+
+Select group for centering
+Selected 0: 'System'
+Select group for output
+Selected 0: 'System'
+                     :-) GROMACS - gmx editconf, 2018.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar    Aldert van Buuren   Rudi van Drunen     Anton Feenstra  
+  Gerrit Groenhof    Aleksei Iupinov   Christoph Junghans   Anca Hamuraru   
+ Vincent Hindriksen Dimitrios Karkoulis    Peter Kasson        Jiri Kraus    
+  Carsten Kutzner      Per Larsson      Justin A. Lemkul    Viveca Lindahl  
+  Magnus Lundborg   Pieter Meulenhoff    Erik Marklund      Teemu Murtola   
+    Szilard Pall       Sander Pronk      Roland Schulz     Alexey Shvetsov  
+   Michael Shirts     Alfons Sijbers     Peter Tieleman    Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2017, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx editconf, version 2018.4
+Executable:   /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi
+Data prefix:  /home/aplatham2/Programs/gromacs-2018.4
+Working dir:  /nfs/pool002/users/aplatham2/chromatin/drug_env/NPM1_1/npm125
+Command line:
+  gmx_mpi editconf -f eq2.gro -o eq2.gro -box 25.0 25.0 25.0
+
+
+Back Off! I just backed up eq2.gro to ./#eq2.gro.4#
+
+GROMACS reminds you: "This work contains many things which are new and interesting. Unfortunately, everything that is new is not interesting, and everything which is interesting, is not new." (Lev Landau)
+
+Read 18816 atoms
+Volume: 6621.59 nm^3, corresponds to roughly 2979700 electrons
+Velocities found
+    system size : 24.974 24.790 26.066 (nm)
+    center      :  8.650  9.334  9.329 (nm)
+    box vectors : 18.778 18.778 18.778 (nm)
+    box angles  :  90.00  90.00  90.00 (degrees)
+    box volume  :6621.59               (nm^3)
+    shift       :  3.850  3.166  3.171 (nm)
+new center      : 12.500 12.500 12.500 (nm)
+new box vectors : 25.000 25.000 25.000 (nm)
+new box angles  :  90.00  90.00  90.00 (degrees)
+new box volume  :15625.00               (nm^3)
+                      :-) GROMACS - gmx grompp, 2018.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar    Aldert van Buuren   Rudi van Drunen     Anton Feenstra  
+  Gerrit Groenhof    Aleksei Iupinov   Christoph Junghans   Anca Hamuraru   
+ Vincent Hindriksen Dimitrios Karkoulis    Peter Kasson        Jiri Kraus    
+  Carsten Kutzner      Per Larsson      Justin A. Lemkul    Viveca Lindahl  
+  Magnus Lundborg   Pieter Meulenhoff    Erik Marklund      Teemu Murtola   
+    Szilard Pall       Sander Pronk      Roland Schulz     Alexey Shvetsov  
+   Michael Shirts     Alfons Sijbers     Peter Tieleman    Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2017, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, version 2018.4
+Executable:   /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi
+Data prefix:  /home/aplatham2/Programs/gromacs-2018.4
+Working dir:  /nfs/pool002/users/aplatham2/chromatin/drug_env/NPM1_1/npm125
+Command line:
+  gmx_mpi grompp -f min.mdp -c eq2.gro -p chromatin_dna.top -o eq_min.tpr
+
+Replacing old mdp entry 'nstxtcout' by 'nstxout-compressed'
+Replacing old mdp entry 'xtc_grps' by 'compressed-x-grps'
+
+NOTE 1 [file min.mdp]:
+  The group cutoff scheme is deprecated since GROMACS 5.0 and will be
+  removed in a future release when all interaction forms are supported for
+  the verlet scheme. The verlet scheme already scales better, and it is
+  compatible with GPUs and other accelerators.
+
+Setting the LD random seed to -273008265
+Generated 1 of the 253 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'NPM1'
+
+NOTE 2 [file chromatin_dna.top, line 6]:
+  System has non-zero total charge: -1456.000000
+  Total charge should normally be an integer. See
+  http://www.gromacs.org/Documentation/Floating_Point_Arithmetic
+  for discussion on how close it should be to an integer.
+  
+
+
+Number of degrees of freedom in T-Coupling group System is 56445.00
+
+There were 2 notes
+
+GROMACS reminds you: "Science adjusts its views based on what's observed. Faith is the denial of observation so that belief can be preserved." (Tim Minchin)
+
+Analysing residue names:
+There are: 18816    Protein residues
+Analysing Protein...
+This run will generate roughly 11 Mb of data
+                      :-) GROMACS - gmx mdrun, 2018.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar    Aldert van Buuren   Rudi van Drunen     Anton Feenstra  
+  Gerrit Groenhof    Aleksei Iupinov   Christoph Junghans   Anca Hamuraru   
+ Vincent Hindriksen Dimitrios Karkoulis    Peter Kasson        Jiri Kraus    
+  Carsten Kutzner      Per Larsson      Justin A. Lemkul    Viveca Lindahl  
+  Magnus Lundborg   Pieter Meulenhoff    Erik Marklund      Teemu Murtola   
+    Szilard Pall       Sander Pronk      Roland Schulz     Alexey Shvetsov  
+   Michael Shirts     Alfons Sijbers     Peter Tieleman    Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2017, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, version 2018.4
+Executable:   /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi
+Data prefix:  /home/aplatham2/Programs/gromacs-2018.4
+Working dir:  /nfs/pool002/users/aplatham2/chromatin/drug_env/NPM1_1/npm125
+Command line:
+  gmx_mpi mdrun -deffnm eq_min -table table_159.xvg -tablep table_smog159.xvg
+
+Reading file eq_min.tpr, VERSION 2018.4 (single precision)
+Using 1 MPI process
+
+
+NOTE: This file uses the deprecated 'group' cutoff_scheme. This will be
+removed in a future release when 'verlet' supports all interaction forms.
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+Steepest Descents:
+   Tolerance (Fmax)   =  1.00000e+01
+   Number of steps    =        10000
+
+Energy minimization has stopped, but the forces have not converged to the
+requested precision Fmax < 10 (which may not be possible for your system). It
+stopped because the algorithm tried to make a new step whose size was too
+small, or there was no change in the energy since last step. Either way, we
+regard the minimization as converged to within the available machine
+precision, given your starting configuration and EM parameters.
+
+Double precision normally gives you higher accuracy, but this is often not
+needed for preparing to run molecular dynamics.
+
+writing lowest energy coordinates.
+
+Steepest Descents converged to machine precision in 3161 steps,
+but did not reach the requested Fmax < 10.
+Potential Energy  = -1.6369677e+05
+Maximum force     =  4.4090099e+01 on atom 17266
+Norm of force     =  5.8509295e-01
+
+GROMACS reminds you: "Pretend That You're Hercule Poirot" (TeX)
+
+                      :-) GROMACS - gmx grompp, 2018.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar    Aldert van Buuren   Rudi van Drunen     Anton Feenstra  
+  Gerrit Groenhof    Aleksei Iupinov   Christoph Junghans   Anca Hamuraru   
+ Vincent Hindriksen Dimitrios Karkoulis    Peter Kasson        Jiri Kraus    
+  Carsten Kutzner      Per Larsson      Justin A. Lemkul    Viveca Lindahl  
+  Magnus Lundborg   Pieter Meulenhoff    Erik Marklund      Teemu Murtola   
+    Szilard Pall       Sander Pronk      Roland Schulz     Alexey Shvetsov  
+   Michael Shirts     Alfons Sijbers     Peter Tieleman    Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2017, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, version 2018.4
+Executable:   /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi
+Data prefix:  /home/aplatham2/Programs/gromacs-2018.4
+Working dir:  /nfs/pool002/users/aplatham2/chromatin/drug_env/NPM1_1/npm125
+Command line:
+  gmx_mpi grompp -f eq3.mdp -c eq_min.gro -p chromatin_dna.top -o eq3.tpr -maxwarn 1
+
+Replacing old mdp entry 'nstxtcout' by 'nstxout-compressed'
+Replacing old mdp entry 'xtc_grps' by 'compressed-x-grps'
+
+NOTE 1 [file eq3.mdp]:
+  The group cutoff scheme is deprecated since GROMACS 5.0 and will be
+  removed in a future release when all interaction forms are supported for
+  the verlet scheme. The verlet scheme already scales better, and it is
+  compatible with GPUs and other accelerators.
+
+Generated 1 of the 253 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'NPM1'
+
+NOTE 2 [file chromatin_dna.top, line 6]:
+  System has non-zero total charge: -1456.000000
+  Total charge should normally be an integer. See
+  http://www.gromacs.org/Documentation/Floating_Point_Arithmetic
+  for discussion on how close it should be to an integer.
+  
+
+
+Velocities were taken from a Maxwell distribution at 150 K
+Simulated annealing for group System: Single, 2 timepoints
+Time (ps)   Temperature (K)
+      0.0      150.0
+ 100000.0-     300.0
+Number of degrees of freedom in T-Coupling group System is 56445.00
+
+There were 2 notes
+
+GROMACS reminds you: "... yet the [economic] profession continued to churn out purely theoretical results without even knowing what facts needed to be explained." (Thomas Piketty)
+
+Analysing residue names:
+There are: 18816    Protein residues
+Analysing Protein...
+This run will generate roughly 11 Mb of data
+                      :-) GROMACS - gmx mdrun, 2018.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar    Aldert van Buuren   Rudi van Drunen     Anton Feenstra  
+  Gerrit Groenhof    Aleksei Iupinov   Christoph Junghans   Anca Hamuraru   
+ Vincent Hindriksen Dimitrios Karkoulis    Peter Kasson        Jiri Kraus    
+  Carsten Kutzner      Per Larsson      Justin A. Lemkul    Viveca Lindahl  
+  Magnus Lundborg   Pieter Meulenhoff    Erik Marklund      Teemu Murtola   
+    Szilard Pall       Sander Pronk      Roland Schulz     Alexey Shvetsov  
+   Michael Shirts     Alfons Sijbers     Peter Tieleman    Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2017, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, version 2018.4
+Executable:   /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi
+Data prefix:  /home/aplatham2/Programs/gromacs-2018.4
+Working dir:  /nfs/pool002/users/aplatham2/chromatin/drug_env/NPM1_1/npm125
+Command line:
+  gmx_mpi mdrun -deffnm eq3 -dlb yes -table table_159.xvg -tablep table_smog159.xvg -maxh 23.9 -noddcheck -rdd 4
+
+Reading file eq3.tpr, VERSION 2018.4 (single precision)
+Using 16 MPI processes
+
+
+Non-default thread affinity set probably by the OpenMP library,
+disabling internal thread affinity
+
+NOTE: This file uses the deprecated 'group' cutoff_scheme. This will be
+removed in a future release when 'verlet' supports all interaction forms.
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+starting mdrun 'NPM1'
+10000000 steps, 100000.0 ps.
+
+Writing final coordinates.
+
+ Dynamic load balancing report:
+ DLB was permanently on during the run per user request.
+ Average load imbalance: 1.1%.
+ The balanceable part of the MD step is 64%, load imbalance is computed from this.
+ Part of the total run time spent waiting due to load imbalance: 0.7%.
+ Steps where the load balancing was limited by -rdd, -rcon and/or -dds: X 0 % Y 0 % Z 0 %
+
+
+               Core t (s)   Wall t (s)        (%)
+       Time:   156028.144     9751.759     1600.0
+                         2h42:31
+                 (ns/day)    (hour/ns)
+Performance:      885.994        0.027
+
+GROMACS reminds you: "Nurture Another Mind, Before Yours Expires" (Arrested Development)
+

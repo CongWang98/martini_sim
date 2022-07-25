@@ -1,0 +1,227 @@
+                      :-) GROMACS - gmx grompp, 2018.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar    Aldert van Buuren   Rudi van Drunen     Anton Feenstra  
+  Gerrit Groenhof    Aleksei Iupinov   Christoph Junghans   Anca Hamuraru   
+ Vincent Hindriksen Dimitrios Karkoulis    Peter Kasson        Jiri Kraus    
+  Carsten Kutzner      Per Larsson      Justin A. Lemkul    Viveca Lindahl  
+  Magnus Lundborg   Pieter Meulenhoff    Erik Marklund      Teemu Murtola   
+    Szilard Pall       Sander Pronk      Roland Schulz     Alexey Shvetsov  
+   Michael Shirts     Alfons Sijbers     Peter Tieleman    Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2017, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, version 2018.4
+Executable:   /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi
+Data prefix:  /home/aplatham2/Programs/gromacs-2018.4
+Working dir:  /nfs/pool002/users/aplatham2/chromatin/drug_env/NPM1_1/npm125
+Command line:
+  gmx_mpi grompp -f prod_0.mdp -c eq3.gro -p chromatin_dna.top -t eq3.cpt -o prod_0.tpr -maxwarn 1
+
+Replacing old mdp entry 'nstxtcout' by 'nstxout-compressed'
+Replacing old mdp entry 'xtc_grps' by 'compressed-x-grps'
+
+NOTE 1 [file prod_0.mdp]:
+  The group cutoff scheme is deprecated since GROMACS 5.0 and will be
+  removed in a future release when all interaction forms are supported for
+  the verlet scheme. The verlet scheme already scales better, and it is
+  compatible with GPUs and other accelerators.
+
+Generated 1 of the 253 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'NPM1'
+
+NOTE 2 [file chromatin_dna.top, line 6]:
+  System has non-zero total charge: -1456.000000
+  Total charge should normally be an integer. See
+  http://www.gromacs.org/Documentation/Floating_Point_Arithmetic
+  for discussion on how close it should be to an integer.
+  
+
+
+Number of degrees of freedom in T-Coupling group System is 56445.00
+Reading Coordinates, Velocities and Box size from old trajectory
+Will read whole trajectory
+Last frame         -1 time 100000.000   
+Using frame at t = 100000 ps
+Starting time for run is 0 ps
+
+There were 2 notes
+
+GROMACS reminds you: "Physics is like sex: sure, it may give some practical results, but that’s not why we do it" (Richard P. Feynman)
+
+Analysing residue names:
+There are: 18816    Protein residues
+Analysing Protein...
+This run will generate roughly 189 Mb of data
+                      :-) GROMACS - gmx mdrun, 2018.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar    Aldert van Buuren   Rudi van Drunen     Anton Feenstra  
+  Gerrit Groenhof    Aleksei Iupinov   Christoph Junghans   Anca Hamuraru   
+ Vincent Hindriksen Dimitrios Karkoulis    Peter Kasson        Jiri Kraus    
+  Carsten Kutzner      Per Larsson      Justin A. Lemkul    Viveca Lindahl  
+  Magnus Lundborg   Pieter Meulenhoff    Erik Marklund      Teemu Murtola   
+    Szilard Pall       Sander Pronk      Roland Schulz     Alexey Shvetsov  
+   Michael Shirts     Alfons Sijbers     Peter Tieleman    Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2017, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, version 2018.4
+Executable:   /home/aplatham2/Programs/gromacs-2018.4/bin/gmx_mpi
+Data prefix:  /home/aplatham2/Programs/gromacs-2018.4
+Working dir:  /nfs/pool002/users/aplatham2/chromatin/drug_env/NPM1_1/npm125
+Command line:
+  gmx_mpi mdrun -deffnm prod_0 -dlb yes -table table_159.xvg -tablep table_smog159.xvg -maxh 0.25 -noddcheck -rdd 4
+
+Reading file prod_0.tpr, VERSION 2018.4 (single precision)
+Using 16 MPI processes
+
+
+Non-default thread affinity set probably by the OpenMP library,
+disabling internal thread affinity
+
+NOTE: This file uses the deprecated 'group' cutoff_scheme. This will be
+removed in a future release when 'verlet' supports all interaction forms.
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+
+WARNING: For the 740 non-zero entries for table 0 in table_smog159.xvg the forces deviate on average 59% from minus the numerical derivative of the potential
+
+starting mdrun 'NPM1'
+200000000 steps, 2000000.0 ps.
+
+Step 1036160: Run time exceeded 0.247 hours, will terminate the run
+
+ Dynamic load balancing report:
+ DLB was permanently on during the run per user request.
+ Average load imbalance: 1.0%.
+ The balanceable part of the MD step is 63%, load imbalance is computed from this.
+ Part of the total run time spent waiting due to load imbalance: 0.6%.
+ Steps where the load balancing was limited by -rdd, -rcon and/or -dds: X 0 % Y 0 % Z 0 %
+
+
+               Core t (s)   Wall t (s)        (%)
+       Time:    14256.703      891.044     1600.0
+                 (ns/day)    (hour/ns)
+Performance:     1004.732        0.024
+
+GROMACS reminds you: "Working in the Burger Kings, Spitting on your Onion Rings" (Slim Shady)
+
