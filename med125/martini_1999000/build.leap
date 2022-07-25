@@ -1,0 +1,8 @@
+source leaprc.protein.ff14SB
+source leaprc.water.tip3p
+source leaprc.gaff
+source leaprc.lipid21
+mol = loadpdb XXX.pdb
+set mol box {250  250 250}
+savepdb mol XXX_AA1.pdb
+quit
